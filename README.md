@@ -61,17 +61,6 @@ merit plasticity-demo --trajectory-count 2 --seed-count 2 --budget 2 --output re
 
 The bundled demos use fixed local responses to exercise the experiment runner. They are interface examples, not model benchmark results.
 
-## What the current runs show
-
-| Experiment | Result | Scope |
-|---|---|---|
-| Simple real-model reflection | 0% → 100% final accuracy | 2 seeds, small synthetic tasks |
-| BFCL-adapted subset | No change / reflection / GEPA: 63.3%; random edit: 60.0% | No test-transfer gain; not an official BFCL score |
-| Support workflow | 100% → 100%; missing-policy path: 5 → 4 steps | Better trajectory, no accuracy gain |
-| Early vs. late improver | 100% successor accuracy on both sides; delta 0 | 4 pairs sharing one early source run |
-
-The negative results are part of the project: current runs do not establish a general ranking of improvement methods or open-ended recursive self-improvement. See [all results and reproduction commands](docs/RESULTS.md).
-
 ## Connect your agent
 
 Implement one method; Merit handles the optimization loop, evaluation, budgets, and run records:
