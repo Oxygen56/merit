@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merit · Transfer and Regression</title>
+<style>
+:root{--ink:#15263b;--muted:#64748b;--line:#dce4ec;--paper:#f5f7fa;--accent:#0f766e}*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:42px 22px}
+h1{margin:6px 0;font-size:34px}h2{margin-top:30px}h3{margin-top:26px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em}.subtitle{color:var(--muted)}
+.notice{background:#fff7df;border:1px solid #ecd28a;border-radius:12px;padding:14px 18px;margin:20px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.label{color:var(--muted);font-size:13px}.value{font-size:26px;font-weight:750}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{background:#eaf0f5;color:#475569;font-size:12px}.positive{color:#047857;font-weight:700}.negative{color:#b91c1c;font-weight:700}footer{margin-top:26px;color:var(--muted);font-size:13px}
+</style></head><body><main>
+<div class="eyebrow">MERIT TRANSFER MATRIX</div><h1>迁移与旧能力回归</h1>
+<p class="subtitle">对同一个起点 artifact 和后继 artifact 逐任务族复评。改善值 = 后继准确率 − 起点准确率；source 为旧能力，target 为优化目标，transfer 为未参与优化的新任务族。</p>
+<div class="notice"><strong>来源：</strong>执行器 <code>openai_compatible:kimi-for-coding</code>。迁移与回归结果仅适用于本次任务族；usage 完整性和实验限制见 evidence.json。</div>
+<section class="cards">
+<div class="card"><div class="label">目标域提升</div><div class="value positive">+100.00%</div></div>
+<div class="card"><div class="label">迁移任务族提升</div><div class="value positive">+33.33%</div></div>
+<div class="card"><div class="label">旧能力最大回归</div><div class="value negative">+33.33%</div></div>
+<div class="card"><div class="label">新增 Agent 调用</div><div class="value">12</div></div>
+</section>
+<h2>任务族矩阵</h2>
+<div class="table-wrap"><table><thead><tr><th>任务族</th><th>角色</th><th>起点准确率</th><th>后继准确率</th><th>改善值</th><th>token 代理</th></tr></thead>
+<tbody><tr><td>verbatim_records</td><td>source</td><td>66.67%</td><td>100.00%</td><td class="positive">+33.33%</td><td>1672</td></tr><tr><td>ticket_formatting</td><td>target</td><td>0.00%</td><td>100.00%</td><td class="positive">+100.00%</td><td>2057</td></tr><tr><td>renamed_fields</td><td>transfer</td><td>0.00%</td><td>33.33%</td><td class="positive">+33.33%</td><td>1622</td></tr></tbody></table></div>
+<h2>逐任务证据</h2><h3>verbatim_records · source</h3><div class="table-wrap"><table><thead><tr><th>任务</th><th>起点输出</th><th>后继输出</th><th>期望输出</th><th>后继正确</th></tr></thead><tbody><tr><td>202-source-0</td><td>case=Keep;owner=Lin</td><td>case=Keep;owner=Lin</td><td>case=Keep;owner=Lin</td><td>✓</td></tr><tr><td>202-source-1</td><td> spaces=unchanged</td><td>  spaces=unchanged  </td><td>  spaces=unchanged  </td><td>✓</td></tr><tr><td>202-source-2</td><td>plain legacy record</td><td>plain legacy record</td><td>plain legacy record</td><td>✓</td></tr></tbody></table></div><h3>ticket_formatting · target</h3><div class="table-wrap"><table><thead><tr><th>任务</th><th>起点输出</th><th>后继输出</th><th>期望输出</th><th>后继正确</th></tr></thead><tbody><tr><td>202-heldout-0</td><td>customer=Initech;priority=P1;issue=VPN</td><td>P1|Initech|VPN</td><td>P1|Initech|VPN</td><td>✓</td></tr><tr><td>202-heldout-1</td><td>customer=Umbrella;priority=P2;issue=SSO</td><td>P2|Umbrella|SSO</td><td>P2|Umbrella|SSO</td><td>✓</td></tr><tr><td>202-heldout-2</td><td>customer=Acme;priority=P3;issue=billing</td><td>P3|Acme|billing</td><td>P3|Acme|billing</td><td>✓</td></tr><tr><td>202-heldout-3</td><td>customer=Globex;priority=P1;issue=latency</td><td>P1|Globex|latency</td><td>P1|Globex|latency</td><td>✓</td></tr></tbody></table></div><h3>renamed_fields · transfer</h3><div class="table-wrap"><table><thead><tr><th>任务</th><th>起点输出</th><th>后继输出</th><th>期望输出</th><th>后继正确</th></tr></thead><tbody><tr><td>202-transfer-0</td><td>account=Stark;severity=P2;category=database</td><td>P2|Stark|database</td><td>P2|Stark|database</td><td>✓</td></tr><tr><td>202-transfer-1</td><td>account=Wayne;severity=P1;category=network</td><td>account=Wayne;severity=P1;category=network</td><td>P1|Wayne|network</td><td>✗</td></tr><tr><td>202-transfer-2</td><td>account=Wonka;severity=P3;category=access</td><td>account=Wonka;severity=P3;category=access</td><td>P3|Wonka|access</td><td>✗</td></tr></tbody></table></div>
+<footer>协议：merit-transfer-v0.1 · 起点 artifact <code>50870837d22a</code> · 后继 artifact <code>88c1f7341fa7</code> · 完整数据见 evidence.json。</footer>
+</main></body></html>

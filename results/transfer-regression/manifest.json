@@ -1,0 +1,23 @@
+{
+  "experiment": "local-transfer-regression",
+  "base_manifest_digest": "b13c3d1951c5b71b5420a52f0d7d362bdbfa40b62d891a91e351fafc87df0cd7",
+  "families": [
+    {
+      "name": "verbatim_echo",
+      "role": "source",
+      "task_digest": "40a87095caa099abf31e2a806ef41935dd7b2907883e0897a6d62afd58f74177"
+    },
+    {
+      "name": "normalization",
+      "role": "target",
+      "task_digest": "534251de621b7d4e3fbed77a5cf74725a6affa436bb4fab766686c77dd8be25c"
+    },
+    {
+      "name": "unicode_normalization",
+      "role": "transfer",
+      "task_digest": "6d2e1244e85da84df5bdf0137fa69d184571aee44f3170aa88ce663138b68914"
+    }
+  ],
+  "protocol_version": "merit-transfer-v0.1",
+  "manifest_digest": "b6ea9deac454f38168a5d00ffa4a28fd86ae787cb2a66e10dec8efcdfa38b7c8"
+}

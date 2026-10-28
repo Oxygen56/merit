@@ -1,0 +1,222 @@
+{
+  "scope": "two train-only recovery-feedback pilots; no final-test tasks",
+  "unvalidated_pilot": {
+    "proposal_model_calls": 1,
+    "candidate_rule_count": 6,
+    "candidate_identical_to_source": true,
+    "candidate_train_accuracy": 0.6666666666666666,
+    "candidate_accepted": false,
+    "proposer_usage": {
+      "input_tokens": 1105,
+      "output_tokens": 154,
+      "cost_usd": 0.0,
+      "latency_ms": 14527.042249916121,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "validated_pilot": {
+    "proposal_model_calls": 2,
+    "candidate_rule_count": 8,
+    "initial_train_accuracy": 0.6666666666666666,
+    "candidate_train_accuracy": 1.0,
+    "candidate_accepted": true,
+    "initial_train_usage": {
+      "input_tokens": 4928,
+      "output_tokens": 228,
+      "latency_ms": 17359.697873936966
+    },
+    "candidate_train_usage": {
+      "input_tokens": 4768,
+      "output_tokens": 195,
+      "latency_ms": 17281.31895698607
+    },
+    "proposer_usage": {
+      "input_tokens": 2605,
+      "output_tokens": 358,
+      "cost_usd": 0.0,
+      "latency_ms": 28157.499709166586,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "per_task_changes": [
+      {
+        "task_id": "train-missing-policy-5003",
+        "before": false,
+        "after": true,
+        "change": "fixed"
+      }
+    ],
+    "initial_tasks": [
+      {
+        "task_id": "train-normal-5001",
+        "correct": true,
+        "output": "60.0",
+        "actions": [
+          "lookup",
+          "lookup",
+          "calculator",
+          "lookup",
+          "calculator",
+          "final"
+        ],
+        "arguments": [
+          "ticket-5001",
+          "order-5001",
+          "120*政策_N01",
+          "policy-N01",
+          "120*0.5",
+          "60.0"
+        ],
+        "tool_errors": [
+          "Only numeric +, -, *, / and parentheses are allowed"
+        ],
+        "model_steps": 6,
+        "calculation_before_successful_policy_lookup": true,
+        "repeated_failed_lookup_count": 0,
+        "ended_with_final": true
+      },
+      {
+        "task_id": "train-missing-order-5002",
+        "correct": true,
+        "output": "REFUND_UNAVAILABLE",
+        "actions": [
+          "lookup",
+          "lookup",
+          "lookup",
+          "final"
+        ],
+        "arguments": [
+          "ticket-5002",
+          "order-X71",
+          "order-X71",
+          "REFUND_UNAVAILABLE"
+        ],
+        "tool_errors": [
+          "Unknown lookup key",
+          "Unknown lookup key"
+        ],
+        "model_steps": 4,
+        "calculation_before_successful_policy_lookup": false,
+        "repeated_failed_lookup_count": 1,
+        "ended_with_final": true
+      },
+      {
+        "task_id": "train-missing-policy-5003",
+        "correct": false,
+        "output": "{\"action\":\"lookup\",\"argument\":\"policy-X71\"}",
+        "actions": [
+          "lookup",
+          "lookup",
+          "calculator",
+          "lookup",
+          "lookup",
+          "lookup"
+        ],
+        "arguments": [
+          "ticket-5003",
+          "order-5003",
+          "90*政策X71",
+          "policy-X71",
+          "policy-X71",
+          "policy-X71"
+        ],
+        "tool_errors": [
+          "Only numeric +, -, *, / and parentheses are allowed",
+          "Unknown lookup key",
+          "Unknown lookup key",
+          "Unknown lookup key"
+        ],
+        "model_steps": 6,
+        "calculation_before_successful_policy_lookup": true,
+        "repeated_failed_lookup_count": 2,
+        "ended_with_final": false
+      }
+    ],
+    "candidate_tasks": [
+      {
+        "task_id": "train-normal-5001",
+        "correct": true,
+        "output": "60.0",
+        "actions": [
+          "lookup",
+          "lookup",
+          "lookup",
+          "calculator",
+          "final"
+        ],
+        "arguments": [
+          "ticket-5001",
+          "order-5001",
+          "policy-N01",
+          "120*0.5",
+          "60.0"
+        ],
+        "tool_errors": [],
+        "model_steps": 5,
+        "calculation_before_successful_policy_lookup": false,
+        "repeated_failed_lookup_count": 0,
+        "ended_with_final": true
+      },
+      {
+        "task_id": "train-missing-order-5002",
+        "correct": true,
+        "output": "REFUND_UNAVAILABLE",
+        "actions": [
+          "lookup",
+          "lookup",
+          "lookup",
+          "final"
+        ],
+        "arguments": [
+          "ticket-5002",
+          "order-X71",
+          "policy-X71",
+          "REFUND_UNAVAILABLE"
+        ],
+        "tool_errors": [
+          "Unknown lookup key",
+          "Unknown lookup key"
+        ],
+        "model_steps": 4,
+        "calculation_before_successful_policy_lookup": false,
+        "repeated_failed_lookup_count": 0,
+        "ended_with_final": true
+      },
+      {
+        "task_id": "train-missing-policy-5003",
+        "correct": true,
+        "output": "REFUND_UNAVAILABLE",
+        "actions": [
+          "lookup",
+          "lookup",
+          "lookup",
+          "calculator",
+          "final"
+        ],
+        "arguments": [
+          "ticket-5003",
+          "order-5003",
+          "policy-X71",
+          "90*0",
+          "REFUND_UNAVAILABLE"
+        ],
+        "tool_errors": [
+          "Unknown lookup key"
+        ],
+        "model_steps": 5,
+        "calculation_before_successful_policy_lookup": true,
+        "repeated_failed_lookup_count": 0,
+        "ended_with_final": true
+      }
+    ],
+    "remaining_issues": [
+      "missing-order candidate looks up a policy after the order lookup failed",
+      "missing-policy candidate calculates 90*0 after the policy lookup failed"
+    ],
+    "heldout_tasks_evaluated": 0
+  },
+  "paid_api_calls": 0
+}

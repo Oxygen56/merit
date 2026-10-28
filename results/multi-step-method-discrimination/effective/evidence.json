@@ -1,0 +1,2505 @@
+{
+  "schema_version": "merit-evidence-v1",
+  "project": "Merit",
+  "version": "0.1.0",
+  "generated_at": "2026-10-28T09:14:02.928779+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "manifest_digest": "9e5a0783d7f72d75d45980bb53d34e7a6b9f93cbb1fbb1f151b6319ebd7d7b66",
+  "limitations": [
+    "Small local-model multi-step tool experiment; not a general model or optimizer ranking.",
+    "Two base seeds with two repetitions each; cached responses preserve first measured latency.",
+    "Exact-match final answers on four synthetic tasks; tool-use behavior is reported separately."
+  ],
+  "experiment": {
+    "manifest": {
+      "experiment": "local-multi-step-effective",
+      "executor": "multi_step_tools:ollama:qwen2.5:7b",
+      "baseline": "no_change",
+      "challenger": "multi_step_instructions",
+      "candidate_budget": 1,
+      "runs": [
+        {
+          "seed": 1010,
+          "start_artifact_id": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 1011,
+          "start_artifact_id": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 2020,
+          "start_artifact_id": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 2021,
+          "start_artifact_id": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        }
+      ],
+      "protocol_version": "merit-agent-paired-v0.1",
+      "controls": []
+    },
+    "runs": [
+      {
+        "seed": 1010,
+        "start_artifact_id": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:1010:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 1010,
+            "candidate_budget": 1,
+            "start_artifact_id": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103"
+          },
+          "successor": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 11361.062166048214,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3836.0940830316395,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7524.968083016574,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 11361.062166048214,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3836.0940830316395,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7524.968083016574,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 146,
+              "cost_usd": 0.0,
+              "latency_ms": 8745.808999985456,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4948.578458046541,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or system where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 63,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3797.230541938916,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 146,
+              "cost_usd": 0.0,
+              "latency_ms": 8745.808999985456,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4948.578458046541,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or system where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 63,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3797.230541938916,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 96,
+            "dev_output_tokens": 190,
+            "heldout_input_tokens": 188,
+            "heldout_output_tokens": 292,
+            "total_input_tokens": 284,
+            "total_output_tokens": 482,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 28852.680166019127,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 284,
+            "combined_total_output_tokens": 482,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 28852.680166019127,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:1010:multi_step_instructions",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "multi_step_instructions",
+            "seed": 1010,
+            "candidate_budget": 1,
+            "start_artifact_id": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103",
+            "artifact_id": "ad06051913e8d8a9d5340e42c83e9007b4087a5a611c3e4893c0fae984d9b4a2"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 11361.062166048214,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3836.0940830316395,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7524.968083016574,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 7448.7144984304905,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3813.399124192074,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3635.3153742384166,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 146,
+              "cost_usd": 0.0,
+              "latency_ms": 8745.808999985456,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4948.578458046541,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or system where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 63,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3797.230541938916,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 7607.559707015753,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3741.584040923044,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3865.9756660927087,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+                "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+                "parent": "95aebbb8ab1bedf9c56a30508b1df7a6db27b3b76aad1948e0cdd0602b50c103",
+                "artifact_id": "ad06051913e8d8a9d5340e42c83e9007b4087a5a611c3e4893c0fae984d9b4a2"
+              },
+              "evaluation": {
+                "accuracy": 1.0,
+                "usage": {
+                  "input_tokens": 1291,
+                  "output_tokens": 93,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7448.7144984304905,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "42",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 650,
+                      "output_tokens": 47,
+                      "cost_usd": 0.0,
+                      "latency_ms": 3813.399124192074,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "60",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 641,
+                      "output_tokens": 46,
+                      "cost_usd": 0.0,
+                      "latency_ms": 3635.3153742384166,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1387,
+            "dev_output_tokens": 283,
+            "heldout_input_tokens": 1391,
+            "heldout_output_tokens": 244,
+            "total_input_tokens": 2778,
+            "total_output_tokens": 527,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 35163.14537147991,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2778,
+            "combined_total_output_tokens": 527,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 35163.14537147991,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": 1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 1011,
+        "start_artifact_id": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:1011:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 1011,
+            "candidate_budget": 1,
+            "start_artifact_id": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122"
+          },
+          "successor": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 11355.968042043969,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3677.054208004847,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7678.913834039122,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 11355.968042043969,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3677.054208004847,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7678.913834039122,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 9471.563291037455,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5030.098165851086,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4441.465125186369,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 9471.563291037455,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5030.098165851086,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4441.465125186369,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 96,
+            "dev_output_tokens": 190,
+            "heldout_input_tokens": 188,
+            "heldout_output_tokens": 308,
+            "total_input_tokens": 284,
+            "total_output_tokens": 498,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 30299.09462411888,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 284,
+            "combined_total_output_tokens": 498,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 30299.09462411888,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:1011:multi_step_instructions",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "multi_step_instructions",
+            "seed": 1011,
+            "candidate_budget": 1,
+            "start_artifact_id": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122",
+            "artifact_id": "7f17bc7b0ee90dc0c6920bfaf94c77934c16f5695519466ab9b11c803a5ea693"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 11355.968042043969,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3677.054208004847,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7678.913834039122,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8812.252626055852,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4536.223249975592,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4276.02937608026,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 9471.563291037455,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5030.098165851086,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4441.465125186369,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 9845.517540350556,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4807.712791720405,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5037.804748630151,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+                "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+                "parent": "28e559c0df6741816bf597bddf799f3a5a64fe1377ede15ab9db9d450ec4e122",
+                "artifact_id": "7f17bc7b0ee90dc0c6920bfaf94c77934c16f5695519466ab9b11c803a5ea693"
+              },
+              "evaluation": {
+                "accuracy": 1.0,
+                "usage": {
+                  "input_tokens": 1291,
+                  "output_tokens": 93,
+                  "cost_usd": 0.0,
+                  "latency_ms": 8812.252626055852,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "42",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 650,
+                      "output_tokens": 47,
+                      "cost_usd": 0.0,
+                      "latency_ms": 4536.223249975592,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "60",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 641,
+                      "output_tokens": 46,
+                      "cost_usd": 0.0,
+                      "latency_ms": 4276.02937608026,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1387,
+            "dev_output_tokens": 283,
+            "heldout_input_tokens": 1391,
+            "heldout_output_tokens": 252,
+            "total_input_tokens": 2778,
+            "total_output_tokens": 535,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 39485.30149948783,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2778,
+            "combined_total_output_tokens": 535,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 39485.30149948783,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": 1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 2020,
+        "start_artifact_id": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:2020:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 2020,
+            "candidate_budget": 1,
+            "start_artifact_id": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c"
+          },
+          "successor": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 15123.25520790182,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4842.8805829025805,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 10280.37462499924,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 15123.25520790182,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4842.8805829025805,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 10280.37462499924,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 11773.147876141593,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7113.385583972558,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4659.7622921690345,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 11773.147876141593,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7113.385583972558,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4659.7622921690345,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 96,
+            "dev_output_tokens": 190,
+            "heldout_input_tokens": 188,
+            "heldout_output_tokens": 308,
+            "total_input_tokens": 284,
+            "total_output_tokens": 498,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 38669.550960185006,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 284,
+            "combined_total_output_tokens": 498,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 38669.550960185006,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:2020:multi_step_instructions",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "multi_step_instructions",
+            "seed": 2020,
+            "candidate_budget": 1,
+            "start_artifact_id": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c",
+            "artifact_id": "635f9bdd62811b2a421f3b5822d1639f03f1bbdfb3d4f55430900985a4f7eff5"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 15123.25520790182,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4842.8805829025805,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 10280.37462499924,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8791.584791382775,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4260.848166188225,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4530.73662519455,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 11773.147876141593,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 7113.385583972558,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4659.7622921690345,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10306.764581939206,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4920.512374956161,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5386.252206983045,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+                "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+                "parent": "7ed7c6c46fe9bf4469e8e5bc2d1ffb6e8c7845271b060a206dee1794cb2a894c",
+                "artifact_id": "635f9bdd62811b2a421f3b5822d1639f03f1bbdfb3d4f55430900985a4f7eff5"
+              },
+              "evaluation": {
+                "accuracy": 1.0,
+                "usage": {
+                  "input_tokens": 1291,
+                  "output_tokens": 93,
+                  "cost_usd": 0.0,
+                  "latency_ms": 8791.584791382775,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "42",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 650,
+                      "output_tokens": 47,
+                      "cost_usd": 0.0,
+                      "latency_ms": 4260.848166188225,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "60",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 641,
+                      "output_tokens": 46,
+                      "cost_usd": 0.0,
+                      "latency_ms": 4530.73662519455,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1387,
+            "dev_output_tokens": 283,
+            "heldout_input_tokens": 1391,
+            "heldout_output_tokens": 252,
+            "total_input_tokens": 2778,
+            "total_output_tokens": 535,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 45994.752457365394,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2778,
+            "combined_total_output_tokens": 535,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 45994.752457365394,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": 1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 2021,
+        "start_artifact_id": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:2021:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 2021,
+            "candidate_budget": 1,
+            "start_artifact_id": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c"
+          },
+          "successor": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 16141.817790921777,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5071.606915909797,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 11070.21087501198,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 16141.817790921777,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5071.606915909797,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 11070.21087501198,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 12215.047790901735,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 6582.486915867776,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5632.56087503396,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 12215.047790901735,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 6582.486915867776,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5632.56087503396,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 96,
+            "dev_output_tokens": 190,
+            "heldout_input_tokens": 188,
+            "heldout_output_tokens": 308,
+            "total_input_tokens": 284,
+            "total_output_tokens": 498,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 40571.91337272525,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 284,
+            "combined_total_output_tokens": 498,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 40571.91337272525,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-effective:2021:multi_step_instructions",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "multi_step_instructions",
+            "seed": 2021,
+            "candidate_budget": 1,
+            "start_artifact_id": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "Answer the user's question.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c",
+            "artifact_id": "a429da04b1dae9ce104140676116c5ac36357c38656bbc3bbf48d5fb7aa7059a"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 96,
+              "output_tokens": 190,
+              "cost_usd": 0.0,
+              "latency_ms": 16141.817790921777,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "To accurately perform this task, I would need access to a specific database or data structure where these keys are stored. Since I don't have direct access to such systems, please provide me with the values associated with 'price-apple' and 'quantity-apple', so I can multiply them for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 62,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5071.606915909797,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "To provide you with the accurate numeric result of multiplying the values stored under the keys `price-server` and `quantity-server`, I would need to access a specific database or data store where these keys hold numerical values. Since I don't have direct access to any external databases, I can simulate this process using example values.\n\nLet's assume:\n- The value for `price-server` is 15.\n- The value for `quantity-server` is 10.\n\nThe multiplication would be: \\( 15 \\times 10 = 150 \\).\n\nIf you provide the actual values from your data store, I can",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 128,
+                  "cost_usd": 0.0,
+                  "latency_ms": 11070.21087501198,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8978.423543041572,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4520.221958868206,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4458.201584173366,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 94,
+              "output_tokens": 154,
+              "cost_usd": 0.0,
+              "latency_ms": 12215.047790901735,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "To provide you with the correct numeric result, I would need to access a specific database or data store where these keys hold their respective values. Since I don't have direct access to any external databases, please provide me with the actual values for `price-book` and `quantity-book`, or the method to retrieve them if they are stored in a particular system like a database or a dictionary in a programming environment.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 83,
+                  "cost_usd": 0.0,
+                  "latency_ms": 6582.486915867776,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "To provide you with the accurate numeric result, I would need to access a specific database or data source where these values are stored. Since I don't have direct access to external databases, please provide me with the actual values for 'price-camera' and 'quantity-camera', or simulate this scenario with given numbers so I can perform the multiplication for you.",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 47,
+                  "output_tokens": 71,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5632.56087503396,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10650.962833082303,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4832.641457905993,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5818.3213751763105,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+                "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+                "parent": "b0116c304206fb637e1b5bd20b936138f099a3ad6fca921e6dc07bb1915ee61c",
+                "artifact_id": "a429da04b1dae9ce104140676116c5ac36357c38656bbc3bbf48d5fb7aa7059a"
+              },
+              "evaluation": {
+                "accuracy": 1.0,
+                "usage": {
+                  "input_tokens": 1291,
+                  "output_tokens": 93,
+                  "cost_usd": 0.0,
+                  "latency_ms": 8978.423543041572,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "42",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 650,
+                      "output_tokens": 47,
+                      "cost_usd": 0.0,
+                      "latency_ms": 4520.221958868206,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "60",
+                    "correct": true,
+                    "usage": {
+                      "input_tokens": 641,
+                      "output_tokens": 46,
+                      "cost_usd": 0.0,
+                      "latency_ms": 4458.201584173366,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 0.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 0.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1387,
+            "dev_output_tokens": 283,
+            "heldout_input_tokens": 1391,
+            "heldout_output_tokens": 252,
+            "total_input_tokens": 2778,
+            "total_output_tokens": 535,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 47986.25195794739,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2778,
+            "combined_total_output_tokens": 535,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 47986.25195794739,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": 1.0,
+        "controls": [],
+        "validation_task_digest": null
+      }
+    ],
+    "summary": {
+      "run_count": 4,
+      "metric": "heldout_exact_match_accuracy",
+      "improvement_definition": "challenger_accuracy - baseline_accuracy; positive favors challenger",
+      "mean_baseline_heldout_accuracy": 0.0,
+      "mean_challenger_heldout_accuracy": 1.0,
+      "mean_heldout_accuracy_improvement": 1.0,
+      "paired_bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "one_sided_sign_flip_p_value": 0.0625,
+      "candidate_budget_per_arm": 1,
+      "baseline_candidate_evaluations": 0,
+      "challenger_candidate_evaluations": 4,
+      "baseline_total_cost_usd": 0.0,
+      "challenger_total_cost_usd": 0.0,
+      "baseline_proposer_cost_usd": 0.0,
+      "challenger_proposer_cost_usd": 0.0,
+      "baseline_combined_cost_usd": 0.0,
+      "challenger_combined_cost_usd": 0.0,
+      "baseline_total_input_tokens": 1136,
+      "baseline_total_output_tokens": 1976,
+      "challenger_total_input_tokens": 11112,
+      "challenger_total_output_tokens": 2132,
+      "baseline_total_cost_reported": false,
+      "challenger_total_cost_reported": false,
+      "baseline_total_tokens_reported": true,
+      "challenger_total_tokens_reported": true,
+      "controls": {},
+      "scope": "Paired agent-improvement results are specific to the registered executor and task bundles",
+      "execution": {
+        "model": "qwen2.5:7b",
+        "endpoint": "http://127.0.0.1:11434/v1",
+        "network_calls_this_run": 0,
+        "cache_hits_this_run": 104,
+        "cached_response_files": 90,
+        "paid_api_calls": 0,
+        "base_seeds": [
+          101,
+          202
+        ],
+        "repetitions_per_seed": 2,
+        "max_steps_per_task": 5,
+        "model_steps": 104,
+        "host_tool_calls": 48,
+        "lookup_calls": 32,
+        "calculator_calls": 16
+      }
+    }
+  }
+}

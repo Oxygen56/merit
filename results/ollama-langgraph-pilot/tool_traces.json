@@ -1,0 +1,784 @@
+[
+  {
+    "task_id": "simple_python_1",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.factorial\",\n  \"arguments\": {\n    \"number\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.factorial",
+    "arguments": {
+      "number": 5
+    },
+    "final_output": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}"
+  },
+  {
+    "task_id": "simple_python_3",
+    "raw_model_output": "```json\n{\n  \"name\": \"algebra.quadratic_roots\",\n  \"arguments\": {\n    \"a\": 1,\n    \"b\": -3,\n    \"c\": 2\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "algebra.quadratic_roots",
+    "arguments": {
+      "a": 1,
+      "b": -3,
+      "c": 2
+    },
+    "final_output": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}"
+  },
+  {
+    "task_id": "simple_python_4",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic_equation\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 6,\n    \"c\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic_equation",
+    "arguments": {
+      "a": 2,
+      "b": 6,
+      "c": 5
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}"
+  },
+  {
+    "task_id": "simple_python_6",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 5,\n    \"c\": 3\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic",
+    "arguments": {
+      "a": 2,
+      "b": 5,
+      "c": 3
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}"
+  },
+  {
+    "task_id": "simple_python_22",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 12,\n    \"num2\": 15\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 12,
+      "num2": 15
+    },
+    "final_output": "{\"arguments\":{\"num1\":12,\"num2\":15},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_24",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 18,\n    \"num2\": 12\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 18,
+      "num2": 12
+    },
+    "final_output": "{\"arguments\":{\"num1\":18,\"num2\":12},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_27",
+    "raw_model_output": "```json\n{\n  \"name\": \"final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 10,\n    \"acceleration\": 2,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "final_velocity",
+    "arguments": {
+      "initial_velocity": 10,
+      "acceleration": 2,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":2,\"initial_velocity\":10,\"time\":5},\"name\":\"final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_31",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 0,\n    \"acceleration\": 9.8,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_final_velocity",
+    "arguments": {
+      "initial_velocity": 0,
+      "acceleration": 9.8,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":0,\"time\":5},\"name\":\"calculate_final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_47",
+    "raw_model_output": "```json\n{\n  \"name\": \"get_boiling_melting_points\",\n  \"arguments\": {\n    \"substance\": \"water\",\n    \"sea_level\": 5000\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "get_boiling_melting_points",
+    "arguments": {
+      "substance": "water",
+      "sea_level": 5000
+    },
+    "final_output": "{\"arguments\":{\"sea_level\":5000,\"substance\":\"water\"},\"name\":\"get_boiling_melting_points\"}"
+  },
+  {
+    "task_id": "simple_python_58",
+    "raw_model_output": "```json\n{\n  \"name\": \"cell_biology.function_lookup\",\n  \"arguments\": {\n    \"molecule\": \"ATP synthase\",\n    \"organelle\": \"mitochondria\",\n    \"specific_function\": true\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "cell_biology.function_lookup",
+    "arguments": {
+      "molecule": "ATP synthase",
+      "organelle": "mitochondria",
+      "specific_function": true
+    },
+    "final_output": "{\"arguments\":{\"molecule\":\"ATP synthase\",\"organelle\":\"mitochondria\",\"specific_function\":true},\"name\":\"cell_biology.function_lookup\"}"
+  },
+  {
+    "task_id": "simple_python_59",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_molecular_weight\",\n  \"arguments\": {\n    \"compound\": \"Glucose (C6H12O6)\",\n    \"to_unit\": \"grams/mole\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_molecular_weight",
+    "arguments": {
+      "compound": "Glucose (C6H12O6)",
+      "to_unit": "grams/mole"
+    },
+    "final_output": "{\"arguments\":{\"compound\":\"Glucose (C6H12O6)\",\"to_unit\":\"grams/mole\"},\"name\":\"calculate_molecular_weight\"}"
+  },
+  {
+    "task_id": "simple_python_61",
+    "raw_model_output": "```json\n{\n  \"name\": \"diabetes_prediction\",\n  \"arguments\": {\n    \"weight\": 150,\n    \"height\": 5,\n    \"activity_level\": \"sedentary\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "diabetes_prediction",
+    "arguments": {
+      "weight": 150,
+      "height": 5,
+      "activity_level": "sedentary"
+    },
+    "final_output": "{\"arguments\":{\"activity_level\":\"sedentary\",\"height\":5,\"weight\":150},\"name\":\"diabetes_prediction\"}"
+  },
+  {
+    "task_id": "simple_python_22",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 12,\n    \"num2\": 15\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 12,
+      "num2": 15
+    },
+    "final_output": "{\"arguments\":{\"num1\":12,\"num2\":15},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_24",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 18,\n    \"num2\": 12\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 18,
+      "num2": 12
+    },
+    "final_output": "{\"arguments\":{\"num1\":18,\"num2\":12},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_27",
+    "raw_model_output": "```json\n{\n  \"name\": \"final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 10,\n    \"acceleration\": 2,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "final_velocity",
+    "arguments": {
+      "initial_velocity": 10,
+      "acceleration": 2,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":2,\"initial_velocity\":10,\"time\":5},\"name\":\"final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_31",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 0,\n    \"acceleration\": 9.8,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_final_velocity",
+    "arguments": {
+      "initial_velocity": 0,
+      "acceleration": 9.8,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":0,\"time\":5},\"name\":\"calculate_final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_47",
+    "raw_model_output": "```json\n{\n  \"name\": \"get_boiling_melting_points\",\n  \"arguments\": {\n    \"substance\": \"water\",\n    \"sea_level\": 5000\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "get_boiling_melting_points",
+    "arguments": {
+      "substance": "water",
+      "sea_level": 5000
+    },
+    "final_output": "{\"arguments\":{\"sea_level\":5000,\"substance\":\"water\"},\"name\":\"get_boiling_melting_points\"}"
+  },
+  {
+    "task_id": "simple_python_58",
+    "raw_model_output": "```json\n{\n  \"name\": \"cell_biology.function_lookup\",\n  \"arguments\": {\n    \"molecule\": \"ATP synthase\",\n    \"organelle\": \"mitochondria\",\n    \"specific_function\": true\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "cell_biology.function_lookup",
+    "arguments": {
+      "molecule": "ATP synthase",
+      "organelle": "mitochondria",
+      "specific_function": true
+    },
+    "final_output": "{\"arguments\":{\"molecule\":\"ATP synthase\",\"organelle\":\"mitochondria\",\"specific_function\":true},\"name\":\"cell_biology.function_lookup\"}"
+  },
+  {
+    "task_id": "simple_python_59",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_molecular_weight\",\n  \"arguments\": {\n    \"compound\": \"Glucose (C6H12O6)\",\n    \"to_unit\": \"grams/mole\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_molecular_weight",
+    "arguments": {
+      "compound": "Glucose (C6H12O6)",
+      "to_unit": "grams/mole"
+    },
+    "final_output": "{\"arguments\":{\"compound\":\"Glucose (C6H12O6)\",\"to_unit\":\"grams/mole\"},\"name\":\"calculate_molecular_weight\"}"
+  },
+  {
+    "task_id": "simple_python_61",
+    "raw_model_output": "```json\n{\n  \"name\": \"diabetes_prediction\",\n  \"arguments\": {\n    \"weight\": 150,\n    \"height\": 5,\n    \"activity_level\": \"sedentary\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "diabetes_prediction",
+    "arguments": {
+      "weight": 150,
+      "height": 5,
+      "activity_level": "sedentary"
+    },
+    "final_output": "{\"arguments\":{\"activity_level\":\"sedentary\",\"height\":5,\"weight\":150},\"name\":\"diabetes_prediction\"}"
+  },
+  {
+    "task_id": "simple_python_1",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.factorial\",\n  \"arguments\": {\n    \"number\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.factorial",
+    "arguments": {
+      "number": 5
+    },
+    "final_output": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}"
+  },
+  {
+    "task_id": "simple_python_3",
+    "raw_model_output": "```json\n{\n  \"name\": \"algebra.quadratic_roots\",\n  \"arguments\": {\n    \"a\": 1,\n    \"b\": -3,\n    \"c\": 2\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "algebra.quadratic_roots",
+    "arguments": {
+      "a": 1,
+      "b": -3,
+      "c": 2
+    },
+    "final_output": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}"
+  },
+  {
+    "task_id": "simple_python_4",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic_equation\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 6,\n    \"c\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic_equation",
+    "arguments": {
+      "a": 2,
+      "b": 6,
+      "c": 5
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}"
+  },
+  {
+    "task_id": "simple_python_6",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 5,\n    \"c\": 3\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic",
+    "arguments": {
+      "a": 2,
+      "b": 5,
+      "c": 3
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}"
+  },
+  {
+    "task_id": "simple_python_22",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 12,\n    \"num2\": 15\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 12,
+      "num2": 15
+    },
+    "final_output": "{\"arguments\":{\"num1\":12,\"num2\":15},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_24",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 18,\n    \"num2\": 12\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 18,
+      "num2": 12
+    },
+    "final_output": "{\"arguments\":{\"num1\":18,\"num2\":12},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_27",
+    "raw_model_output": "```json\n{\n  \"name\": \"final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 10,\n    \"acceleration\": 2,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "final_velocity",
+    "arguments": {
+      "initial_velocity": 10,
+      "acceleration": 2,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":2,\"initial_velocity\":10,\"time\":5},\"name\":\"final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_31",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 0,\n    \"acceleration\": 9.8,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_final_velocity",
+    "arguments": {
+      "initial_velocity": 0,
+      "acceleration": 9.8,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":0,\"time\":5},\"name\":\"calculate_final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_47",
+    "raw_model_output": "```json\n{\n  \"name\": \"get_boiling_melting_points\",\n  \"arguments\": {\n    \"substance\": \"water\",\n    \"sea_level\": 5000\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "get_boiling_melting_points",
+    "arguments": {
+      "substance": "water",
+      "sea_level": 5000
+    },
+    "final_output": "{\"arguments\":{\"sea_level\":5000,\"substance\":\"water\"},\"name\":\"get_boiling_melting_points\"}"
+  },
+  {
+    "task_id": "simple_python_58",
+    "raw_model_output": "```json\n{\n  \"name\": \"cell_biology.function_lookup\",\n  \"arguments\": {\n    \"molecule\": \"ATP synthase\",\n    \"organelle\": \"mitochondria\",\n    \"specific_function\": true\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "cell_biology.function_lookup",
+    "arguments": {
+      "molecule": "ATP synthase",
+      "organelle": "mitochondria",
+      "specific_function": true
+    },
+    "final_output": "{\"arguments\":{\"molecule\":\"ATP synthase\",\"organelle\":\"mitochondria\",\"specific_function\":true},\"name\":\"cell_biology.function_lookup\"}"
+  },
+  {
+    "task_id": "simple_python_59",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_molecular_weight\",\n  \"arguments\": {\n    \"compound\": \"Glucose (C6H12O6)\",\n    \"to_unit\": \"grams/mole\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_molecular_weight",
+    "arguments": {
+      "compound": "Glucose (C6H12O6)",
+      "to_unit": "grams/mole"
+    },
+    "final_output": "{\"arguments\":{\"compound\":\"Glucose (C6H12O6)\",\"to_unit\":\"grams/mole\"},\"name\":\"calculate_molecular_weight\"}"
+  },
+  {
+    "task_id": "simple_python_61",
+    "raw_model_output": "```json\n{\n  \"name\": \"diabetes_prediction\",\n  \"arguments\": {\n    \"weight\": 150,\n    \"height\": 5,\n    \"activity_level\": \"sedentary\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "diabetes_prediction",
+    "arguments": {
+      "weight": 150,
+      "height": 5,
+      "activity_level": "sedentary"
+    },
+    "final_output": "{\"arguments\":{\"activity_level\":\"sedentary\",\"height\":5,\"weight\":150},\"name\":\"diabetes_prediction\"}"
+  },
+  {
+    "task_id": "simple_python_1",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.factorial\",\n  \"arguments\": {\n    \"number\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.factorial",
+    "arguments": {
+      "number": 5
+    },
+    "final_output": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}"
+  },
+  {
+    "task_id": "simple_python_3",
+    "raw_model_output": "```json\n{\n  \"name\": \"algebra.quadratic_roots\",\n  \"arguments\": {\n    \"a\": 1,\n    \"b\": -3,\n    \"c\": 2\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "algebra.quadratic_roots",
+    "arguments": {
+      "a": 1,
+      "b": -3,
+      "c": 2
+    },
+    "final_output": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}"
+  },
+  {
+    "task_id": "simple_python_4",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic_equation\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 6,\n    \"c\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic_equation",
+    "arguments": {
+      "a": 2,
+      "b": 6,
+      "c": 5
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}"
+  },
+  {
+    "task_id": "simple_python_6",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 5,\n    \"c\": 3\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic",
+    "arguments": {
+      "a": 2,
+      "b": 5,
+      "c": 3
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}"
+  },
+  {
+    "task_id": "simple_python_22",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 12,\n    \"num2\": 15\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 12,
+      "num2": 15
+    },
+    "final_output": "{\"arguments\":{\"num1\":12,\"num2\":15},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_24",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 18,\n    \"num2\": 12\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 18,
+      "num2": 12
+    },
+    "final_output": "{\"arguments\":{\"num1\":18,\"num2\":12},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_27",
+    "raw_model_output": "```json\n{\n  \"name\": \"final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 10,\n    \"acceleration\": 2,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "final_velocity",
+    "arguments": {
+      "initial_velocity": 10,
+      "acceleration": 2,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":2,\"initial_velocity\":10,\"time\":5},\"name\":\"final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_31",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 0,\n    \"acceleration\": 9.8,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_final_velocity",
+    "arguments": {
+      "initial_velocity": 0,
+      "acceleration": 9.8,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":0,\"time\":5},\"name\":\"calculate_final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_47",
+    "raw_model_output": "```json\n{\n  \"name\": \"get_boiling_melting_points\",\n  \"arguments\": {\n    \"substance\": \"water\",\n    \"sea_level\": 5000\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "get_boiling_melting_points",
+    "arguments": {
+      "substance": "water",
+      "sea_level": 5000
+    },
+    "final_output": "{\"arguments\":{\"sea_level\":5000,\"substance\":\"water\"},\"name\":\"get_boiling_melting_points\"}"
+  },
+  {
+    "task_id": "simple_python_58",
+    "raw_model_output": "```json\n{\n  \"name\": \"cell_biology.function_lookup\",\n  \"arguments\": {\n    \"molecule\": \"ATP synthase\",\n    \"organelle\": \"mitochondria\",\n    \"specific_function\": true\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "cell_biology.function_lookup",
+    "arguments": {
+      "molecule": "ATP synthase",
+      "organelle": "mitochondria",
+      "specific_function": true
+    },
+    "final_output": "{\"arguments\":{\"molecule\":\"ATP synthase\",\"organelle\":\"mitochondria\",\"specific_function\":true},\"name\":\"cell_biology.function_lookup\"}"
+  },
+  {
+    "task_id": "simple_python_59",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_molecular_weight\",\n  \"arguments\": {\n    \"compound\": \"Glucose (C6H12O6)\",\n    \"to_unit\": \"grams/mole\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_molecular_weight",
+    "arguments": {
+      "compound": "Glucose (C6H12O6)",
+      "to_unit": "grams/mole"
+    },
+    "final_output": "{\"arguments\":{\"compound\":\"Glucose (C6H12O6)\",\"to_unit\":\"grams/mole\"},\"name\":\"calculate_molecular_weight\"}"
+  },
+  {
+    "task_id": "simple_python_61",
+    "raw_model_output": "```json\n{\n  \"name\": \"diabetes_prediction\",\n  \"arguments\": {\n    \"weight\": 150,\n    \"height\": 5,\n    \"activity_level\": \"sedentary\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "diabetes_prediction",
+    "arguments": {
+      "weight": 150,
+      "height": 5,
+      "activity_level": "sedentary"
+    },
+    "final_output": "{\"arguments\":{\"activity_level\":\"sedentary\",\"height\":5,\"weight\":150},\"name\":\"diabetes_prediction\"}"
+  },
+  {
+    "task_id": "simple_python_1",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.factorial\",\n  \"arguments\": {\n    \"number\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.factorial",
+    "arguments": {
+      "number": 5
+    },
+    "final_output": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}"
+  },
+  {
+    "task_id": "simple_python_3",
+    "raw_model_output": "```json\n{\n  \"name\": \"algebra.quadratic_roots\",\n  \"arguments\": {\n    \"a\": 1,\n    \"b\": -3,\n    \"c\": 2\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "algebra.quadratic_roots",
+    "arguments": {
+      "a": 1,
+      "b": -3,
+      "c": 2
+    },
+    "final_output": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}"
+  },
+  {
+    "task_id": "simple_python_4",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic_equation\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 6,\n    \"c\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic_equation",
+    "arguments": {
+      "a": 2,
+      "b": 6,
+      "c": 5
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}"
+  },
+  {
+    "task_id": "simple_python_6",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 5,\n    \"c\": 3\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic",
+    "arguments": {
+      "a": 2,
+      "b": 5,
+      "c": 3
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}"
+  },
+  {
+    "task_id": "simple_python_22",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 12,\n    \"num2\": 15\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 12,
+      "num2": 15
+    },
+    "final_output": "{\"arguments\":{\"num1\":12,\"num2\":15},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_24",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 18,\n    \"num2\": 12\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 18,
+      "num2": 12
+    },
+    "final_output": "{\"arguments\":{\"num1\":18,\"num2\":12},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_27",
+    "raw_model_output": "```json\n{\n  \"name\": \"final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 10,\n    \"acceleration\": 2,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "final_velocity",
+    "arguments": {
+      "initial_velocity": 10,
+      "acceleration": 2,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":2,\"initial_velocity\":10,\"time\":5},\"name\":\"final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_31",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 0,\n    \"acceleration\": 9.8,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_final_velocity",
+    "arguments": {
+      "initial_velocity": 0,
+      "acceleration": 9.8,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":0,\"time\":5},\"name\":\"calculate_final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_47",
+    "raw_model_output": "```json\n{\n  \"name\": \"get_boiling_melting_points\",\n  \"arguments\": {\n    \"substance\": \"water\",\n    \"sea_level\": 5000\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "get_boiling_melting_points",
+    "arguments": {
+      "substance": "water",
+      "sea_level": 5000
+    },
+    "final_output": "{\"arguments\":{\"sea_level\":5000,\"substance\":\"water\"},\"name\":\"get_boiling_melting_points\"}"
+  },
+  {
+    "task_id": "simple_python_58",
+    "raw_model_output": "```json\n{\n  \"name\": \"cell_biology.function_lookup\",\n  \"arguments\": {\n    \"molecule\": \"ATP synthase\",\n    \"organelle\": \"mitochondria\",\n    \"specific_function\": true\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "cell_biology.function_lookup",
+    "arguments": {
+      "molecule": "ATP synthase",
+      "organelle": "mitochondria",
+      "specific_function": true
+    },
+    "final_output": "{\"arguments\":{\"molecule\":\"ATP synthase\",\"organelle\":\"mitochondria\",\"specific_function\":true},\"name\":\"cell_biology.function_lookup\"}"
+  },
+  {
+    "task_id": "simple_python_59",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_molecular_weight\",\n  \"arguments\": {\n    \"compound\": \"Glucose (C6H12O6)\",\n    \"to_unit\": \"grams/mole\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_molecular_weight",
+    "arguments": {
+      "compound": "Glucose (C6H12O6)",
+      "to_unit": "grams/mole"
+    },
+    "final_output": "{\"arguments\":{\"compound\":\"Glucose (C6H12O6)\",\"to_unit\":\"grams/mole\"},\"name\":\"calculate_molecular_weight\"}"
+  },
+  {
+    "task_id": "simple_python_61",
+    "raw_model_output": "```json\n{\n  \"name\": \"diabetes_prediction\",\n  \"arguments\": {\n    \"weight\": 150,\n    \"height\": 5,\n    \"activity_level\": \"sedentary\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "diabetes_prediction",
+    "arguments": {
+      "weight": 150,
+      "height": 5,
+      "activity_level": "sedentary"
+    },
+    "final_output": "{\"arguments\":{\"activity_level\":\"sedentary\",\"height\":5,\"weight\":150},\"name\":\"diabetes_prediction\"}"
+  },
+  {
+    "task_id": "simple_python_1",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.factorial\",\n  \"arguments\": {\n    \"number\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.factorial",
+    "arguments": {
+      "number": 5
+    },
+    "final_output": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}"
+  },
+  {
+    "task_id": "simple_python_3",
+    "raw_model_output": "```json\n{\n  \"name\": \"algebra.quadratic_roots\",\n  \"arguments\": {\n    \"a\": 1,\n    \"b\": -3,\n    \"c\": 2\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "algebra.quadratic_roots",
+    "arguments": {
+      "a": 1,
+      "b": -3,
+      "c": 2
+    },
+    "final_output": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}"
+  },
+  {
+    "task_id": "simple_python_4",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic_equation\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 6,\n    \"c\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic_equation",
+    "arguments": {
+      "a": 2,
+      "b": 6,
+      "c": 5
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}"
+  },
+  {
+    "task_id": "simple_python_6",
+    "raw_model_output": "```json\n{\n  \"name\": \"solve_quadratic\",\n  \"arguments\": {\n    \"a\": 2,\n    \"b\": 5,\n    \"c\": 3\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "solve_quadratic",
+    "arguments": {
+      "a": 2,
+      "b": 5,
+      "c": 3
+    },
+    "final_output": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}"
+  },
+  {
+    "task_id": "simple_python_22",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 12,\n    \"num2\": 15\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 12,
+      "num2": 15
+    },
+    "final_output": "{\"arguments\":{\"num1\":12,\"num2\":15},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_24",
+    "raw_model_output": "```json\n{\n  \"name\": \"math.gcd\",\n  \"arguments\": {\n    \"num1\": 18,\n    \"num2\": 12\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "math.gcd",
+    "arguments": {
+      "num1": 18,
+      "num2": 12
+    },
+    "final_output": "{\"arguments\":{\"num1\":18,\"num2\":12},\"name\":\"math.gcd\"}"
+  },
+  {
+    "task_id": "simple_python_27",
+    "raw_model_output": "```json\n{\n  \"name\": \"final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 10,\n    \"acceleration\": 2,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "final_velocity",
+    "arguments": {
+      "initial_velocity": 10,
+      "acceleration": 2,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":2,\"initial_velocity\":10,\"time\":5},\"name\":\"final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_31",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_final_velocity\",\n  \"arguments\": {\n    \"initial_velocity\": 0,\n    \"acceleration\": 9.8,\n    \"time\": 5\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_final_velocity",
+    "arguments": {
+      "initial_velocity": 0,
+      "acceleration": 9.8,
+      "time": 5
+    },
+    "final_output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":0,\"time\":5},\"name\":\"calculate_final_velocity\"}"
+  },
+  {
+    "task_id": "simple_python_47",
+    "raw_model_output": "```json\n{\n  \"name\": \"get_boiling_melting_points\",\n  \"arguments\": {\n    \"substance\": \"water\",\n    \"sea_level\": 5000\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "get_boiling_melting_points",
+    "arguments": {
+      "substance": "water",
+      "sea_level": 5000
+    },
+    "final_output": "{\"arguments\":{\"sea_level\":5000,\"substance\":\"water\"},\"name\":\"get_boiling_melting_points\"}"
+  },
+  {
+    "task_id": "simple_python_58",
+    "raw_model_output": "```json\n{\n  \"name\": \"cell_biology.function_lookup\",\n  \"arguments\": {\n    \"molecule\": \"ATP synthase\",\n    \"organelle\": \"mitochondria\",\n    \"specific_function\": true\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "cell_biology.function_lookup",
+    "arguments": {
+      "molecule": "ATP synthase",
+      "organelle": "mitochondria",
+      "specific_function": true
+    },
+    "final_output": "{\"arguments\":{\"molecule\":\"ATP synthase\",\"organelle\":\"mitochondria\",\"specific_function\":true},\"name\":\"cell_biology.function_lookup\"}"
+  },
+  {
+    "task_id": "simple_python_59",
+    "raw_model_output": "```json\n{\n  \"name\": \"calculate_molecular_weight\",\n  \"arguments\": {\n    \"compound\": \"Glucose (C6H12O6)\",\n    \"to_unit\": \"grams/mole\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "calculate_molecular_weight",
+    "arguments": {
+      "compound": "Glucose (C6H12O6)",
+      "to_unit": "grams/mole"
+    },
+    "final_output": "{\"arguments\":{\"compound\":\"Glucose (C6H12O6)\",\"to_unit\":\"grams/mole\"},\"name\":\"calculate_molecular_weight\"}"
+  },
+  {
+    "task_id": "simple_python_61",
+    "raw_model_output": "```json\n{\n  \"name\": \"diabetes_prediction\",\n  \"arguments\": {\n    \"weight\": 150,\n    \"height\": 5,\n    \"activity_level\": \"sedentary\"\n  }\n}\n```",
+    "valid_tool_call": true,
+    "tool_name": "diabetes_prediction",
+    "arguments": {
+      "weight": 150,
+      "height": 5,
+      "activity_level": "sedentary"
+    },
+    "final_output": "{\"arguments\":{\"activity_level\":\"sedentary\",\"height\":5,\"weight\":150},\"name\":\"diabetes_prediction\"}"
+  }
+]

@@ -1,0 +1,386 @@
+{
+  "d54190bcfed16810c5bd55435e5a5f1fb75f36793f3c894bc02e34e5f58313e2": {
+    "output": "TOOL calculator 7*8+5",
+    "usage": {
+      "input_tokens": 160,
+      "output_tokens": 237,
+      "cost_usd": 0.0,
+      "latency_ms": 6066.997707821429,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "e3243112ebea63d131731a98e7fda9faf20c0121c6612812b3a7af62679b2a8c": {
+    "output": "TOOL lookup billing-eu",
+    "usage": {
+      "input_tokens": 165,
+      "output_tokens": 79,
+      "cost_usd": 0.0,
+      "latency_ms": 3239.2337499186397,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "15e9be0adb81fb91fe624fa6cdbf60a8f9573d7ad1563d5971dee41f33175691": {
+    "output": "",
+    "usage": {
+      "input_tokens": 160,
+      "output_tokens": 256,
+      "cost_usd": 0.0,
+      "latency_ms": 5819.2017080727965,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "c87de7d4187382f71a31bc266cc11e250631ad05974a34f2d27d9151c0d0ba36": {
+    "output": "TOOL calculator 13*4-7",
+    "usage": {
+      "input_tokens": 160,
+      "output_tokens": 140,
+      "cost_usd": 0.0,
+      "latency_ms": 4917.295374907553,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "5120dbf82b19430f67f440bb6257eccc43ad5e2547dd6b06e1f9d91af4d22574": {
+    "output": "TOOL lookup search-cn",
+    "usage": {
+      "input_tokens": 164,
+      "output_tokens": 246,
+      "cost_usd": 0.0,
+      "latency_ms": 7108.024416957051,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "18d63e4c5503315b2f2f0414c8618355febe11520593a9b84eccc8dac5c2f26f": {
+    "output": "TOOL lookup payments-us",
+    "usage": {
+      "input_tokens": 164,
+      "output_tokens": 86,
+      "cost_usd": 0.0,
+      "latency_ms": 3257.8578339889646,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "ea97f49c659105de9a9e3d96ca74d0e8d4bb83c6586adc716a093dab31bd1853": {
+    "output": "TOOL calculator 72/8+11",
+    "usage": {
+      "input_tokens": 160,
+      "output_tokens": 231,
+      "cost_usd": 0.0,
+      "latency_ms": 5613.770165946335,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "6aa65523e928c72b9b49da625ccc1cffc26e16bd51725740e625a6cc2fe31e5c": {
+    "output": "",
+    "usage": {
+      "input_tokens": 268,
+      "output_tokens": 768,
+      "cost_usd": 0.0,
+      "latency_ms": 19999.826124869287,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "29dda5cf2dd5fc579600ae8b2af83b246d279d3a2f6a867152479c47da2daeba": {
+    "output": "You are a tool-using agent. Always return exactly one non-empty line with no explanation; never output nothing. When a task asks to use the calculator and return only the final numeric answer, compute the expression and return only the resulting number (e.g., (19-4)*3 → 45). For arithmetic tool invocation use exactly TOOL calculator <expression>. For stored statuses return exactly TOOL lookup <key>; never guess a stored value.",
+    "usage": {
+      "input_tokens": 268,
+      "output_tokens": 1420,
+      "cost_usd": 0.0,
+      "latency_ms": 31617.18925018795,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "b7c14f667d8c7e222fce8ae3f8d7e75b2c97a20889f5930cfc8094f5c41f11a8": {
+    "output": "61",
+    "usage": {
+      "input_tokens": 207,
+      "output_tokens": 82,
+      "cost_usd": 0.0,
+      "latency_ms": 3002.3847920820117,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "95809557a0f14a1259fe75fbca1a1ee2c13b76f16bb78357014bf218022b5d47": {
+    "output": "TOOL lookup billing-eu",
+    "usage": {
+      "input_tokens": 212,
+      "output_tokens": 82,
+      "cost_usd": 0.0,
+      "latency_ms": 2959.7434590104967,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "6458c980078405da9f7763a2fbffe48594e3680c7b7bcb1bdcb6dcdbf186e91e": {
+    "output": "45",
+    "usage": {
+      "input_tokens": 207,
+      "output_tokens": 146,
+      "cost_usd": 0.0,
+      "latency_ms": 4467.655667103827,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "ab1cdc42b43651c6937d205791181507945eebbbc17bb8542c59c4b2550abc67": {
+    "output": "You are a tool-using agent. Always return exactly one non-empty line with no explanation; never output nothing. When a task asks to use the calculator and return only the final numeric answer, compute the expression and return only the resulting number (e.g., (19-4)*3 → 45). For arithmetic tool invocation use exactly TOOL calculator <expression>. For stored statuses return exactly TOOL lookup <key>; never guess a stored value.",
+    "usage": {
+      "input_tokens": 269,
+      "output_tokens": 366,
+      "cost_usd": 0.0,
+      "latency_ms": 8910.299625014886,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "c278a44766c23bfb7418a36225445b3cd6a6f9b38677956d0abd335da5b436ab": {
+    "output": "61",
+    "usage": {
+      "input_tokens": 207,
+      "output_tokens": 79,
+      "cost_usd": 0.0,
+      "latency_ms": 4311.367416987196,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "09baaf3bac7e392540e0720123e9707b3199aec7c5adc288fb64585f77754537": {
+    "output": "TOOL lookup billing-eu",
+    "usage": {
+      "input_tokens": 212,
+      "output_tokens": 114,
+      "cost_usd": 0.0,
+      "latency_ms": 3582.5123749673367,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "3ca6a36f3d80999dcab24b849bbe87a2cee1f68d907c191f156e4c33a26cac53": {
+    "output": "45",
+    "usage": {
+      "input_tokens": 207,
+      "output_tokens": 114,
+      "cost_usd": 0.0,
+      "latency_ms": 2970.7031659781933,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "f617735edca2952a3ac1112265c0f3b0228c066c66f10b6f5f550f79cd6d12e5": {
+    "output": "TOOL calculator 13*4-7",
+    "usage": {
+      "input_tokens": 207,
+      "output_tokens": 99,
+      "cost_usd": 0.0,
+      "latency_ms": 2662.400749977678,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "8e159669510bbae0e14ff7f531a2f4b9401cc8f3af71f3852c9ae52618bd973f": {
+    "output": "TOOL lookup search-cn",
+    "usage": {
+      "input_tokens": 211,
+      "output_tokens": 162,
+      "cost_usd": 0.0,
+      "latency_ms": 3796.226875158027,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "49f5c89e849dfc5dfeba34a1f6663645658e604d84c167349c1ce5c9e402a1a0": {
+    "output": "TOOL lookup payments-us",
+    "usage": {
+      "input_tokens": 211,
+      "output_tokens": 65,
+      "cost_usd": 0.0,
+      "latency_ms": 1812.2506670188159,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "f5216ffdcc29293c5bd8714989f9d44c55070a50a1bde2421a3e820cbee0d56b": {
+    "output": "",
+    "usage": {
+      "input_tokens": 207,
+      "output_tokens": 256,
+      "cost_usd": 0.0,
+      "latency_ms": 5950.100582791492,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "58b8b794702be69e9afa7c222e31088114e7b6a105c5a0acc90edffbb24291a9": {
+    "output": "36",
+    "usage": {
+      "input_tokens": 157,
+      "output_tokens": 43,
+      "cost_usd": 0.0,
+      "latency_ms": 2002.484916942194,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "29155bac4cdf7b19995fbffbbfeafbd378ec543486b72ab3cd4cb70e9bb071e4": {
+    "output": "",
+    "usage": {
+      "input_tokens": 157,
+      "output_tokens": 256,
+      "cost_usd": 0.0,
+      "latency_ms": 6102.3472500965,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "97d07f5d62c0256cbd8f567c2e46ca2a6420937a1fe60df26fe4ff2d1ba5b5e1": {
+    "output": "13",
+    "usage": {
+      "input_tokens": 157,
+      "output_tokens": 65,
+      "cost_usd": 0.0,
+      "latency_ms": 1924.8621249571443,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "aaa76cd3d2b3130575e96cc5636848a7ee4af70f6c767bd196abd9be154bcb54": {
+    "output": "36",
+    "usage": {
+      "input_tokens": 204,
+      "output_tokens": 58,
+      "cost_usd": 0.0,
+      "latency_ms": 1871.4917078614235,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "bd37f62e6f290830c46c0e88f64ac1fbd4a3594057dfd7625ea7354f4d0e4ce7": {
+    "output": "12",
+    "usage": {
+      "input_tokens": 204,
+      "output_tokens": 56,
+      "cost_usd": 0.0,
+      "latency_ms": 1769.7838339954615,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "b286d3d6149e6abb0cdf62823f4866cee416f0464a3eee3fa92a60adbd707817": {
+    "output": "13",
+    "usage": {
+      "input_tokens": 204,
+      "output_tokens": 41,
+      "cost_usd": 0.0,
+      "latency_ms": 1464.033333119005,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "6be91018903fe2d3f691140d8dce1885df50fca23f6db4ed96d2cd63dfd71663": {
+    "output": "TOOL calculator 12*5+3",
+    "usage": {
+      "input_tokens": 160,
+      "output_tokens": 54,
+      "cost_usd": 0.0,
+      "latency_ms": 1763.613749993965,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "9d28961b90f8f59aca4ceabb1d788465eaa305538e624b45b2fb1aa404958347": {
+    "output": "TOOL lookup auth-br",
+    "usage": {
+      "input_tokens": 164,
+      "output_tokens": 54,
+      "cost_usd": 0.0,
+      "latency_ms": 1624.7003329917789,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "8bfde8861dcc894a60de07ac23e35b8a968d3da7615bc8e0817722bf47e64634": {
+    "output": "TOOL lookup mail-ca",
+    "usage": {
+      "input_tokens": 164,
+      "output_tokens": 183,
+      "cost_usd": 0.0,
+      "latency_ms": 7207.368416013196,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "1f7bd07323383337ca252fb949226c812f436cff34fbf809119f7281b5c7ddc0": {
+    "output": "63",
+    "usage": {
+      "input_tokens": 207,
+      "output_tokens": 45,
+      "cost_usd": 0.0,
+      "latency_ms": 1573.3082920778543,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "f44f989527c21554682b8623d9aba522a909ebe70327a59da1cea08da54fcdce": {
+    "output": "TOOL lookup auth-br",
+    "usage": {
+      "input_tokens": 211,
+      "output_tokens": 246,
+      "cost_usd": 0.0,
+      "latency_ms": 6754.567665979266,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  },
+  "208cf44e6917afd8cd3a4c0f670bd22c761d1771ce24de633c6d0d0a4dc5b421": {
+    "output": "TOOL lookup mail-ca",
+    "usage": {
+      "input_tokens": 211,
+      "output_tokens": 120,
+      "cost_usd": 0.0,
+      "latency_ms": 3082.350915996358,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    }
+  }
+}

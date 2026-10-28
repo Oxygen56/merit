@@ -1,0 +1,997 @@
+{
+  "protocol": "merit-support-validation-final-v1",
+  "model": "qwen2.5:7b",
+  "base_seeds": [
+    101,
+    202
+  ],
+  "repetitions_per_seed": 2,
+  "train_task_digest": "defb94a813c35a3a1cb26234102aff70aca5a24ef473f016ad24a88c64d80d57",
+  "validation_task_digest": "0abb601cc5a923bcedf7ef488878d6b50a111210fa009c8596eb20a0acca3b64",
+  "final_task_digest": "ffe9fc936ad0ef274a1dcec0bd73d3872d9f1a32dd806e26c727d0263309580b",
+  "validation_task_ids": [
+    "heldout-normal-6001",
+    "heldout-missing-order-6002",
+    "heldout-missing-policy-6003"
+  ],
+  "final_task_ids": [
+    "final-normal-7001",
+    "final-missing-order-7002",
+    "final-missing-policy-7003"
+  ],
+  "selection": "validation accuracy and valid validation trajectories only",
+  "final_policy": "run only when the candidate is accepted on validation; no final-task feedback",
+  "run_count": 4,
+  "accepted_validation_runs": 4,
+  "final_runs": 4,
+  "mean_baseline_final_accuracy": 1.0,
+  "mean_successor_final_accuracy": 1.0,
+  "runs": [
+    {
+      "base_seed": 101,
+      "repetition": 0,
+      "seed": 1010,
+      "initial_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 13781.295250169933,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 5051.363833947107,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 3278.475958155468,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1844,
+              "output_tokens": 69,
+              "cost_usd": 0.0,
+              "latency_ms": 5451.4554580673575,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "initial_validation_issues": {
+        "tasks_calculating_before_policy_lookup": [
+          "heldout-missing-policy-6003"
+        ],
+        "tasks_continuing_after_required_record_failure": [
+          "heldout-missing-policy-6003"
+        ]
+      },
+      "candidate_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "cost_usd": 0.0,
+          "latency_ms": 12522.938208188862,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 5278.129040962085,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 3070.1511250808835,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1448,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 4174.658042145893,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "candidate_validation_issues": {},
+      "candidate_accepted": true,
+      "successor": "candidate",
+      "baseline_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 14335.034541320056,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 5682.223082054406,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 3252.959875157103,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1848,
+              "output_tokens": 70,
+              "cost_usd": 0.0,
+              "latency_ms": 5399.851584108546,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "cost_usd": 0.0,
+          "latency_ms": 15509.626624640077,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 6375.345000997186,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 4365.0498748756945,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1450,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 4769.231748767197,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "base_seed": 101,
+      "repetition": 1,
+      "seed": 1011,
+      "initial_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 13641.048040473834,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 5468.888707924634,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 3124.689207645133,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1844,
+              "output_tokens": 69,
+              "cost_usd": 0.0,
+              "latency_ms": 5047.470124904066,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "initial_validation_issues": {
+        "tasks_calculating_before_policy_lookup": [
+          "heldout-missing-policy-6003"
+        ],
+        "tasks_continuing_after_required_record_failure": [
+          "heldout-missing-policy-6003"
+        ]
+      },
+      "candidate_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "cost_usd": 0.0,
+          "latency_ms": 13722.99408284016,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 5807.852208614349,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 3424.9454580713063,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1448,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 4490.196416154504,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "candidate_validation_issues": {},
+      "candidate_accepted": true,
+      "successor": "candidate",
+      "baseline_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 19552.307621575892,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 6107.112248195335,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 6537.097333231941,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1848,
+              "output_tokens": 70,
+              "cost_usd": 0.0,
+              "latency_ms": 6908.098040148616,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "cost_usd": 0.0,
+          "latency_ms": 27723.6664572265,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 9349.84083310701,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 6524.746916256845,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1450,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 11849.078707862645,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "base_seed": 202,
+      "repetition": 0,
+      "seed": 2020,
+      "initial_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 42715.45845991932,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 22821.1222498212,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 6146.634292090312,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1844,
+              "output_tokens": 69,
+              "cost_usd": 0.0,
+              "latency_ms": 13747.701918007806,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "initial_validation_issues": {
+        "tasks_calculating_before_policy_lookup": [
+          "heldout-missing-policy-6003"
+        ],
+        "tasks_continuing_after_required_record_failure": [
+          "heldout-missing-policy-6003"
+        ]
+      },
+      "candidate_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "cost_usd": 0.0,
+          "latency_ms": 29386.429666541517,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 13313.284457661211,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 7980.647124815732,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1448,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 8092.498084064573,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "candidate_validation_issues": {},
+      "candidate_accepted": true,
+      "successor": "candidate",
+      "baseline_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 33550.006043864414,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 14448.365168180317,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 7643.717583734542,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1848,
+              "output_tokens": 70,
+              "cost_usd": 0.0,
+              "latency_ms": 11457.923291949555,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "cost_usd": 0.0,
+          "latency_ms": 25439.529751893133,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 10589.440458919853,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 5643.982958979905,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1450,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 9206.106333993375,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "base_seed": 202,
+      "repetition": 1,
+      "seed": 2021,
+      "initial_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 33429.72983280197,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 12094.706957926974,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 7026.58616611734,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1844,
+              "output_tokens": 69,
+              "cost_usd": 0.0,
+              "latency_ms": 14308.436708757654,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "initial_validation_issues": {
+        "tasks_calculating_before_policy_lookup": [
+          "heldout-missing-policy-6003"
+        ],
+        "tasks_continuing_after_required_record_failure": [
+          "heldout-missing-policy-6003"
+        ]
+      },
+      "candidate_validation": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "cost_usd": 0.0,
+          "latency_ms": 25985.05541589111,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-normal-6001",
+            "output": "40.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1854,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 11274.954583030194,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-order-6002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 6854.257207829505,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-missing-policy-6003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1448,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 7855.843625031412,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "candidate_validation_issues": {},
+      "candidate_accepted": true,
+      "successor": "candidate",
+      "baseline_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "cost_usd": 0.0,
+          "latency_ms": 22750.594582408667,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 9050.53149885498,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 5293.832583585754,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1848,
+              "output_tokens": 70,
+              "cost_usd": 0.0,
+              "latency_ms": 8406.230499967933,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_final": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "cost_usd": 0.0,
+          "latency_ms": 23468.278540531173,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "final-normal-7001",
+            "output": "80.0",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1851,
+              "output_tokens": 72,
+              "cost_usd": 0.0,
+              "latency_ms": 8825.16170782037,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1048,
+              "output_tokens": 41,
+              "cost_usd": 0.0,
+              "latency_ms": 5094.405207782984,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "output": "REFUND_UNAVAILABLE",
+            "correct": true,
+            "usage": {
+              "input_tokens": 1450,
+              "output_tokens": 56,
+              "cost_usd": 0.0,
+              "latency_ms": 9548.711624927819,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "execution": {
+    "network_calls_this_run": 37,
+    "cache_hits_this_run": 163,
+    "model_steps": 200,
+    "paid_api_calls": 0
+  }
+}

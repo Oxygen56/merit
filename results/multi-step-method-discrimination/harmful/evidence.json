@@ -1,0 +1,2505 @@
+{
+  "schema_version": "merit-evidence-v1",
+  "project": "Merit",
+  "version": "0.1.0",
+  "generated_at": "2026-10-28T09:14:07.222785+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "manifest_digest": "47756c46938af27a7eb8d330937048b5f7b86aa0382d7608e438e82c4c71fe32",
+  "limitations": [
+    "Small local-model multi-step tool experiment; not a general model or optimizer ranking.",
+    "Two base seeds with two repetitions each; cached responses preserve first measured latency.",
+    "Exact-match final answers on four synthetic tasks; tool-use behavior is reported separately."
+  ],
+  "experiment": {
+    "manifest": {
+      "experiment": "local-multi-step-harmful",
+      "executor": "multi_step_tools:ollama:qwen2.5:7b",
+      "baseline": "no_change",
+      "challenger": "empty_json",
+      "candidate_budget": 1,
+      "runs": [
+        {
+          "seed": 1010,
+          "start_artifact_id": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 1011,
+          "start_artifact_id": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 2020,
+          "start_artifact_id": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 2021,
+          "start_artifact_id": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b",
+          "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+          "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+          "validation_task_digest": null
+        }
+      ],
+      "protocol_version": "merit-agent-paired-v0.1",
+      "controls": []
+    },
+    "runs": [
+      {
+        "seed": 1010,
+        "start_artifact_id": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:1010:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 1010,
+            "candidate_budget": 1,
+            "start_artifact_id": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 7448.7144984304905,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3813.399124192074,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3635.3153742384166,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 7448.7144984304905,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3813.399124192074,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3635.3153742384166,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 7607.559707015753,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3741.584040923044,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3865.9756660927087,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 7607.559707015753,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3741.584040923044,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3865.9756660927087,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1291,
+            "dev_output_tokens": 93,
+            "heldout_input_tokens": 2594,
+            "heldout_output_tokens": 196,
+            "total_input_tokens": 3885,
+            "total_output_tokens": 289,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 22663.833912461996,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3885,
+            "combined_total_output_tokens": 289,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 22663.833912461996,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:1010:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "empty_json",
+            "seed": 1010,
+            "candidate_budget": 1,
+            "start_artifact_id": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516",
+            "artifact_id": "ac7616b0247f80ea3ed49230627f2ea350f6932a65806996047f62b00887a496"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 7448.7144984304905,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3813.399124192074,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3635.3153742384166,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 100,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 880.9767079073936,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 51,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 567.3557498957962,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 313.6209580115974,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 7607.559707015753,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3741.584040923044,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3865.9756660927087,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 98,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 683.9141671080142,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 326.7267921473831,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 357.18737496063113,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+                "parent": "e4ced9c86c08ed9fc7bef9cce00c61d370420bce6f3ed381695605ae9e241516",
+                "artifact_id": "ac7616b0247f80ea3ed49230627f2ea350f6932a65806996047f62b00887a496"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 100,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 880.9767079073936,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 51,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 567.3557498957962,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 49,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 313.6209580115974,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1391,
+            "dev_output_tokens": 97,
+            "heldout_input_tokens": 1395,
+            "heldout_output_tokens": 102,
+            "total_input_tokens": 2786,
+            "total_output_tokens": 199,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 16621.16508046165,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2786,
+            "combined_total_output_tokens": 199,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 16621.16508046165,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 1011,
+        "start_artifact_id": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:1011:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 1011,
+            "candidate_budget": 1,
+            "start_artifact_id": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8812.252626055852,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4536.223249975592,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4276.02937608026,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8812.252626055852,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4536.223249975592,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4276.02937608026,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 9845.517540350556,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4807.712791720405,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5037.804748630151,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 9845.517540350556,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4807.712791720405,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5037.804748630151,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1291,
+            "dev_output_tokens": 93,
+            "heldout_input_tokens": 2594,
+            "heldout_output_tokens": 196,
+            "total_input_tokens": 3885,
+            "total_output_tokens": 289,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 28503.287706756964,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3885,
+            "combined_total_output_tokens": 289,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 28503.287706756964,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:1011:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "empty_json",
+            "seed": 1011,
+            "candidate_budget": 1,
+            "start_artifact_id": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f",
+            "artifact_id": "c8de82c2dac9a28ca4a51d4f51f32599bd09def490d6d0be8011092635003e23"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8812.252626055852,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4536.223249975592,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4276.02937608026,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 100,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 624.360459158197,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 51,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 358.2139590289444,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 266.1465001292527,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 9845.517540350556,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4807.712791720405,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5037.804748630151,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 98,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 489.58487599156797,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 238.94379194825888,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 250.6410840433091,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+                "parent": "32707018ca2eefa1263e5bce640cefe99dc541e649bd5cc3f89e03ca6a30212f",
+                "artifact_id": "c8de82c2dac9a28ca4a51d4f51f32599bd09def490d6d0be8011092635003e23"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 100,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 624.360459158197,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 51,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 358.2139590289444,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 49,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 266.1465001292527,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1391,
+            "dev_output_tokens": 97,
+            "heldout_input_tokens": 1395,
+            "heldout_output_tokens": 102,
+            "total_input_tokens": 2786,
+            "total_output_tokens": 199,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 19771.715501556173,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2786,
+            "combined_total_output_tokens": 199,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 19771.715501556173,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 2020,
+        "start_artifact_id": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:2020:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 2020,
+            "candidate_budget": 1,
+            "start_artifact_id": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8791.584791382775,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4260.848166188225,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4530.73662519455,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8791.584791382775,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4260.848166188225,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4530.73662519455,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10306.764581939206,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4920.512374956161,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5386.252206983045,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10306.764581939206,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4920.512374956161,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5386.252206983045,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1291,
+            "dev_output_tokens": 93,
+            "heldout_input_tokens": 2594,
+            "heldout_output_tokens": 196,
+            "total_input_tokens": 3885,
+            "total_output_tokens": 289,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 29405.113955261186,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3885,
+            "combined_total_output_tokens": 289,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 29405.113955261186,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:2020:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "empty_json",
+            "seed": 2020,
+            "candidate_budget": 1,
+            "start_artifact_id": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5",
+            "artifact_id": "1cc4eb56722bc5931d328aec26cd1ee1e9405134af8bf5478459e7d6d9eb3240"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8791.584791382775,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4260.848166188225,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4530.73662519455,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 100,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 397.65537483617663,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 51,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 202.67775002866983,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 194.9776248075068,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10306.764581939206,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4920.512374956161,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5386.252206983045,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 98,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 382.63524882495403,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 192.16958293691278,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 190.46566588804126,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+                "parent": "1b132b45821c61ee7573d34b85155fbb6cfe9aefaf778897a432e6be277125c5",
+                "artifact_id": "1cc4eb56722bc5931d328aec26cd1ee1e9405134af8bf5478459e7d6d9eb3240"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 100,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 397.65537483617663,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 51,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 202.67775002866983,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 49,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 194.9776248075068,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1391,
+            "dev_output_tokens": 97,
+            "heldout_input_tokens": 1395,
+            "heldout_output_tokens": 102,
+            "total_input_tokens": 2786,
+            "total_output_tokens": 199,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 19878.63999698311,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2786,
+            "combined_total_output_tokens": 199,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 19878.63999698311,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 2021,
+        "start_artifact_id": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b",
+        "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+        "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:2021:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "no_change",
+            "seed": 2021,
+            "candidate_budget": 1,
+            "start_artifact_id": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b"
+          },
+          "successor": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8978.423543041572,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4520.221958868206,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4458.201584173366,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8978.423543041572,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4520.221958868206,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4458.201584173366,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10650.962833082303,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4832.641457905993,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5818.3213751763105,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10650.962833082303,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4832.641457905993,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5818.3213751763105,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1291,
+            "dev_output_tokens": 93,
+            "heldout_input_tokens": 2594,
+            "heldout_output_tokens": 196,
+            "total_input_tokens": 3885,
+            "total_output_tokens": 289,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 30280.34920920618,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3885,
+            "combined_total_output_tokens": 289,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 30280.34920920618,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-multi-step-harmful:2021:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b",
+            "optimizer": "empty_json",
+            "seed": 2021,
+            "candidate_budget": 1,
+            "start_artifact_id": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b",
+            "train_task_digest": "9c592f4416609512b35dce27432228fe55a1c1fcf9f6e78fefe5e3fac3146199",
+            "heldout_task_digest": "0ff1cfaea27734df9f924b1afa536f532363fc6c1d9635c817a63000ba8dad78",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a multi-step tool agent. At each step, return one JSON object and nothing else.\nTo read a stored number, return {\"action\":\"lookup\",\"argument\":\"<key>\"}.\nAfter all needed values are available, return {\"action\":\"calculator\",\"argument\":\"<arithmetic expression>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<result>\"}.\nNever guess stored values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b",
+            "artifact_id": "21e9038e94ed36e0b10820c2f157933bb8c8e1c3c1cb3424eb86272ce6fc50e0"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-apple-total",
+              "prompt": "Find the stored values for keys price-apple and quantity-apple, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "42"
+            },
+            {
+              "task_id": "train-server-total",
+              "prompt": "Find the stored values for keys price-server and quantity-server, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "60"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-book-total",
+              "prompt": "Find the stored values for keys price-book and quantity-book, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "50.0"
+            },
+            {
+              "task_id": "heldout-camera-total",
+              "prompt": "Find the stored values for keys price-camera and quantity-camera, then multiply them. Use tools rather than guessing. Return only the numeric result.",
+              "expected": "398"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1291,
+              "output_tokens": 93,
+              "cost_usd": 0.0,
+              "latency_ms": 8978.423543041572,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "42",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 650,
+                  "output_tokens": 47,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4520.221958868206,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "60",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 641,
+                  "output_tokens": 46,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4458.201584173366,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 100,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 384.46545880287886,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-apple-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 51,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 189.7920418996364,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-server-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 194.67341690324247,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1297,
+              "output_tokens": 98,
+              "cost_usd": 0.0,
+              "latency_ms": 10650.962833082303,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "50.0",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 651,
+                  "output_tokens": 50,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4832.641457905993,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "398",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 646,
+                  "output_tokens": 48,
+                  "cost_usd": 0.0,
+                  "latency_ms": 5818.3213751763105,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 98,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 391.2326239515096,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-book-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 189.7348330821842,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-camera-total",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 49,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 201.4977908693254,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+                "parent": "7d7120d524964098edf36bcd6dec86ad783ff1cc423f1c48dc34af9b021fc54b",
+                "artifact_id": "21e9038e94ed36e0b10820c2f157933bb8c8e1c3c1cb3424eb86272ce6fc50e0"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 100,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 384.46545880287886,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-apple-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 51,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 189.7920418996364,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-server-total",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 49,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 194.67341690324247,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1391,
+            "dev_output_tokens": 97,
+            "heldout_input_tokens": 1395,
+            "heldout_output_tokens": 102,
+            "total_input_tokens": 2786,
+            "total_output_tokens": 199,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 20405.084458878264,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 2786,
+            "combined_total_output_tokens": 199,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 20405.084458878264,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      }
+    ],
+    "summary": {
+      "run_count": 4,
+      "metric": "heldout_exact_match_accuracy",
+      "improvement_definition": "challenger_accuracy - baseline_accuracy; positive favors challenger",
+      "mean_baseline_heldout_accuracy": 1.0,
+      "mean_challenger_heldout_accuracy": 0.0,
+      "mean_heldout_accuracy_improvement": -1.0,
+      "paired_bootstrap_95_ci": [
+        -1.0,
+        -1.0
+      ],
+      "one_sided_sign_flip_p_value": 1.0,
+      "candidate_budget_per_arm": 1,
+      "baseline_candidate_evaluations": 0,
+      "challenger_candidate_evaluations": 4,
+      "baseline_total_cost_usd": 0.0,
+      "challenger_total_cost_usd": 0.0,
+      "baseline_proposer_cost_usd": 0.0,
+      "challenger_proposer_cost_usd": 0.0,
+      "baseline_combined_cost_usd": 0.0,
+      "challenger_combined_cost_usd": 0.0,
+      "baseline_total_input_tokens": 15540,
+      "baseline_total_output_tokens": 1156,
+      "challenger_total_input_tokens": 11144,
+      "challenger_total_output_tokens": 796,
+      "baseline_total_cost_reported": false,
+      "challenger_total_cost_reported": false,
+      "baseline_total_tokens_reported": true,
+      "challenger_total_tokens_reported": true,
+      "controls": {},
+      "scope": "Paired agent-improvement results are specific to the registered executor and task bundles",
+      "execution": {
+        "model": "qwen2.5:7b",
+        "endpoint": "http://127.0.0.1:11434/v1",
+        "network_calls_this_run": 16,
+        "cache_hits_this_run": 160,
+        "cached_response_files": 106,
+        "paid_api_calls": 0,
+        "base_seeds": [
+          101,
+          202
+        ],
+        "repetitions_per_seed": 2,
+        "max_steps_per_task": 5,
+        "model_steps": 176,
+        "host_tool_calls": 120,
+        "lookup_calls": 80,
+        "calculator_calls": 40
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "experiment": "real-llm-transfer-101",
+  "base_manifest_digest": "96d5cfd3a7af74bc345e95212700807636be151ba4f20f0cdef702cb13ae4b8e",
+  "families": [
+    {
+      "name": "verbatim_records",
+      "role": "source",
+      "task_digest": "f60aa77f56b17f2fba8b9f14c51cd9a9fa43b2a3af8573b9fb5cb0e13814a998"
+    },
+    {
+      "name": "ticket_formatting",
+      "role": "target",
+      "task_digest": "dbb3d9f714e18351373889a27fbb3eceaf1446e3ff2d0639d477be15ddca9f83"
+    },
+    {
+      "name": "renamed_fields",
+      "role": "transfer",
+      "task_digest": "99ab667dd9c9c69f7dd79b50e4ed0393edb8d912be7356e13c567efd3940af16"
+    }
+  ],
+  "protocol_version": "merit-transfer-v0.1",
+  "manifest_digest": "d939a00edc3f7baa88eb8b99ef6ce8090d534d3d7cff8c5b7139aaba0653f5fa"
+}

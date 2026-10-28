@@ -1,0 +1,128 @@
+[
+  {
+    "artifact_id": "7e4fed5e50b9df6d7dff9f5ac2fc5f9a05671dafacb065ec34d047f6c4d59644",
+    "task_id": "train-normal-5001",
+    "step": 0,
+    "input": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+    "raw_model_output": "{\"action\":\"lookup\",\"argument\":\"order_key\"}",
+    "action": "lookup",
+    "argument": "order_key",
+    "tool_result": null,
+    "tool_error": "Unknown lookup key",
+    "usage": {
+      "input_tokens": 206,
+      "output_tokens": 11,
+      "cost_usd": 0.0,
+      "latency_ms": 8531.883291900158,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "final_output": "{\"action\":\"lookup\",\"argument\":\"order_key\"}"
+  },
+  {
+    "artifact_id": "7e4fed5e50b9df6d7dff9f5ac2fc5f9a05671dafacb065ec34d047f6c4d59644",
+    "task_id": "train-normal-5001",
+    "step": 1,
+    "input": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.\nTool results so far:\nlookup order_key => error: Unknown lookup key",
+    "raw_model_output": "{\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}",
+    "action": "final",
+    "argument": "REFUND_UNAVAILABLE",
+    "tool_result": null,
+    "tool_error": null,
+    "usage": {
+      "input_tokens": 220,
+      "output_tokens": 13,
+      "cost_usd": 0.0,
+      "latency_ms": 958.8000839576125,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "final_output": "REFUND_UNAVAILABLE"
+  },
+  {
+    "artifact_id": "7e4fed5e50b9df6d7dff9f5ac2fc5f9a05671dafacb065ec34d047f6c4d59644",
+    "task_id": "train-missing-order-5002",
+    "step": 0,
+    "input": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+    "raw_model_output": "{\"action\":\"lookup\",\"argument\":\"order_key\"}",
+    "action": "lookup",
+    "argument": "order_key",
+    "tool_result": null,
+    "tool_error": "Unknown lookup key",
+    "usage": {
+      "input_tokens": 206,
+      "output_tokens": 11,
+      "cost_usd": 0.0,
+      "latency_ms": 994.7093341033906,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "final_output": "{\"action\":\"lookup\",\"argument\":\"order_key\"}"
+  },
+  {
+    "artifact_id": "7e4fed5e50b9df6d7dff9f5ac2fc5f9a05671dafacb065ec34d047f6c4d59644",
+    "task_id": "train-missing-order-5002",
+    "step": 1,
+    "input": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.\nTool results so far:\nlookup order_key => error: Unknown lookup key",
+    "raw_model_output": "{\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}",
+    "action": "final",
+    "argument": "REFUND_UNAVAILABLE",
+    "tool_result": null,
+    "tool_error": null,
+    "usage": {
+      "input_tokens": 220,
+      "output_tokens": 13,
+      "cost_usd": 0.0,
+      "latency_ms": 877.2739998530596,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "final_output": "REFUND_UNAVAILABLE"
+  },
+  {
+    "artifact_id": "7e4fed5e50b9df6d7dff9f5ac2fc5f9a05671dafacb065ec34d047f6c4d59644",
+    "task_id": "train-missing-policy-5003",
+    "step": 0,
+    "input": "Resolve support ticket ticket-5003. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+    "raw_model_output": "{\"action\":\"lookup\",\"argument\":\"order_key\"}",
+    "action": "lookup",
+    "argument": "order_key",
+    "tool_result": null,
+    "tool_error": "Unknown lookup key",
+    "usage": {
+      "input_tokens": 206,
+      "output_tokens": 11,
+      "cost_usd": 0.0,
+      "latency_ms": 923.5062499064952,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "final_output": "{\"action\":\"lookup\",\"argument\":\"order_key\"}"
+  },
+  {
+    "artifact_id": "7e4fed5e50b9df6d7dff9f5ac2fc5f9a05671dafacb065ec34d047f6c4d59644",
+    "task_id": "train-missing-policy-5003",
+    "step": 1,
+    "input": "Resolve support ticket ticket-5003. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.\nTool results so far:\nlookup order_key => error: Unknown lookup key",
+    "raw_model_output": "{\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}",
+    "action": "final",
+    "argument": "REFUND_UNAVAILABLE",
+    "tool_result": null,
+    "tool_error": null,
+    "usage": {
+      "input_tokens": 220,
+      "output_tokens": 13,
+      "cost_usd": 0.0,
+      "latency_ms": 882.7666249126196,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "final_output": "REFUND_UNAVAILABLE"
+  }
+]

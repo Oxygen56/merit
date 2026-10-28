@@ -1,0 +1,60 @@
+{
+  "experiment": "support-real-early-late-plasticity-m8",
+  "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+  "proposer_name": "real_dynamic_priority_patch",
+  "proposer_source": "ollama:qwen2.5:7b",
+  "proposer_config_json": "{\"accept\":\"greedy train exact-match accuracy\",\"feedback\":\"sanitized common-start train trajectories only\",\"max_attempts\":3,\"max_failures\":5,\"renderer\":\"required-record-failure-first\"}",
+  "accept_policy": "greedy_accuracy",
+  "candidate_budget": 1,
+  "dev_threshold": 1.0,
+  "trajectories": [
+    {
+      "trajectory_id": "support-1010",
+      "early_snapshot_id": "71bab03f35c400e7819d5aa432b024c7e2f7ab855d71d97a8e18dd5c53f53fbf",
+      "late_snapshot_id": "4aa873813799213fc6f60092026328677779a835575bd0601d5aacfe3836df27",
+      "early_improver_artifact_id": "9bf7d8e2291bcc5b239d807ba6a11d21547df1e7927412b4a8de3939ff1d6667",
+      "late_improver_artifact_id": "742afc41dcda1a1eea50bdaf87827e657958d599ec3f1c2b9ab5d97f0973b1b2",
+      "early_current_agent_artifact_id": "66c577cf09883d280aa6ad5c461f8a300e6190374992183221e66b7c3095446e",
+      "late_current_agent_artifact_id": "17dde979e5bd076ec8820da986b578a0b156ec21b77195b403d0235355081c83"
+    },
+    {
+      "trajectory_id": "support-2020",
+      "early_snapshot_id": "db93af4aaa63b041358e49bbea3e205d7070aaba4d81fa33c1c54597b471c98c",
+      "late_snapshot_id": "cde2637d9d68fe88076b37472fadf783223429fdae1141b3f592f81c603f8da4",
+      "early_improver_artifact_id": "9bf7d8e2291bcc5b239d807ba6a11d21547df1e7927412b4a8de3939ff1d6667",
+      "late_improver_artifact_id": "846f9fcdccaae52ca238276bef37d53dc2faa509f8a586308eca8630cd3d7af2",
+      "early_current_agent_artifact_id": "ac1733dc3f8d4de8122ad1cbe02cbeba3c95652253cada6ec32b898fa0537db9",
+      "late_current_agent_artifact_id": "64442a1bb073fc45eb8267b5d5113a8edb63d6cd06a7459a8d41cfa97be3c349"
+    }
+  ],
+  "followup_runs": [
+    {
+      "seed": 3030,
+      "start_artifact_id": "fee9cb1ba173cd154d7264f508f52f80f95c86eb74378884c45e56d266075654",
+      "train_task_digest": "defb94a813c35a3a1cb26234102aff70aca5a24ef473f016ad24a88c64d80d57",
+      "heldout_task_digest": "0abb601cc5a923bcedf7ef488878d6b50a111210fa009c8596eb20a0acca3b64",
+      "validation_task_digest": null
+    },
+    {
+      "seed": 4040,
+      "start_artifact_id": "eba2e664724e1e8c897e19b4c53906d7d49a7a362c659c850cb749c854acb3fb",
+      "train_task_digest": "defb94a813c35a3a1cb26234102aff70aca5a24ef473f016ad24a88c64d80d57",
+      "heldout_task_digest": "0abb601cc5a923bcedf7ef488878d6b50a111210fa009c8596eb20a0acca3b64",
+      "validation_task_digest": null
+    }
+  ],
+  "families": [
+    {
+      "name": "support_final_source",
+      "role": "source",
+      "task_digest": "5175342a2ed4da04bd45515b653816cd323125d15b726fc1f26f1c409adef664"
+    },
+    {
+      "name": "support_transfer",
+      "role": "transfer",
+      "task_digest": "9abb67be70b928d266d1a72afeb827bd64f7f7d48127440b381215dfa6711dbe"
+    }
+  ],
+  "protocol_version": "merit-meta-plasticity-v0.1",
+  "manifest_digest": "8fe0530a952ae28ac82852ac588d0052e809bbaa82e1c11b5cdc99b7d9dff9d7"
+}

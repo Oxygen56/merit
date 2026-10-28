@@ -1,0 +1,33 @@
+{
+  "experiment": "ollama-langgraph-bfcl-pilot",
+  "executor": "langgraph_tool",
+  "model": {
+    "name": "qwen2.5:0.5b",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "timeout_seconds": 120,
+    "max_network_calls": 500
+  },
+  "agent": {
+    "instructions": "Read the JSON input. Select the appropriate tool and return a JSON object with name and arguments.",
+    "config": {
+      "temperature": 0,
+      "max_tokens": 192
+    }
+  },
+  "dataset": "data/bfcl_tool_subset.json",
+  "limits": {
+    "train": 4,
+    "heldout": 8
+  },
+  "seeds": [
+    101
+  ],
+  "candidate_budget": 1,
+  "methods": {
+    "baseline": "no_change",
+    "challenger": "model_reflection",
+    "controls": [
+      "random_prompt_edit"
+    ]
+  }
+}

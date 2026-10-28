@@ -1,0 +1,457 @@
+{
+  "scope": "M6 train-only repeated dynamic-patch evaluation",
+  "base_seeds": [
+    101,
+    202
+  ],
+  "repetitions_per_seed": 2,
+  "run_count": 4,
+  "heldout_tasks_evaluated": 0,
+  "accepted_runs": 4,
+  "valid_trajectory_runs": 4,
+  "full_accuracy_runs": 4,
+  "m6_passed": true,
+  "runs": [
+    {
+      "base_seed": 101,
+      "repetition": 0,
+      "seed": 1010,
+      "candidate_train_accuracy": 1.0,
+      "candidate_accepted": true,
+      "candidate_trajectory_valid": true,
+      "candidate_selection_issues": {},
+      "proposal_model_calls": 1,
+      "candidate_evaluations": 1,
+      "proposer_usage": {
+        "input_tokens": 1127,
+        "output_tokens": 231,
+        "cost_usd": 0.0,
+        "latency_ms": 19871.04683299549,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      },
+      "initial_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 6375.285082729533,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 3591.2646260112524,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1844,
+            "output_tokens": 69,
+            "cost_usd": 0.0,
+            "latency_ms": 5205.713748931885,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "candidate_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 5711.820290889591,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 3161.3996657542884,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1448,
+            "output_tokens": 56,
+            "cost_usd": 0.0,
+            "latency_ms": 4910.456250188872,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "heldout_tasks_evaluated": 0,
+      "result_directory": "results/support-error-dynamic-patch-train-repeated/seed-1010"
+    },
+    {
+      "base_seed": 101,
+      "repetition": 1,
+      "seed": 1011,
+      "candidate_train_accuracy": 1.0,
+      "candidate_accepted": true,
+      "candidate_trajectory_valid": true,
+      "candidate_selection_issues": {},
+      "proposal_model_calls": 1,
+      "candidate_evaluations": 1,
+      "proposer_usage": {
+        "input_tokens": 1127,
+        "output_tokens": 231,
+        "cost_usd": 0.0,
+        "latency_ms": 23674.786583986133,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      },
+      "initial_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 6796.3529182597995,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 4451.829584082589,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1844,
+            "output_tokens": 69,
+            "cost_usd": 0.0,
+            "latency_ms": 5693.973500747234,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "candidate_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 6262.333499966189,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 3677.2093747276813,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1448,
+            "output_tokens": 56,
+            "cost_usd": 0.0,
+            "latency_ms": 5048.0720421765,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "heldout_tasks_evaluated": 0,
+      "result_directory": "results/support-error-dynamic-patch-train-repeated/seed-1011"
+    },
+    {
+      "base_seed": 202,
+      "repetition": 0,
+      "seed": 2020,
+      "candidate_train_accuracy": 1.0,
+      "candidate_accepted": true,
+      "candidate_trajectory_valid": true,
+      "candidate_selection_issues": {},
+      "proposal_model_calls": 1,
+      "candidate_evaluations": 1,
+      "proposer_usage": {
+        "input_tokens": 1127,
+        "output_tokens": 231,
+        "cost_usd": 0.0,
+        "latency_ms": 25915.708584012464,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      },
+      "initial_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 6326.908583985642,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 4263.604125007987,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1844,
+            "output_tokens": 69,
+            "cost_usd": 0.0,
+            "latency_ms": 7589.189543155953,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "candidate_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 7928.419333649799,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 3542.840749025345,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1448,
+            "output_tokens": 56,
+            "cost_usd": 0.0,
+            "latency_ms": 5170.090542174876,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "heldout_tasks_evaluated": 0,
+      "result_directory": "results/support-error-dynamic-patch-train-repeated/seed-2020"
+    },
+    {
+      "base_seed": 202,
+      "repetition": 1,
+      "seed": 2021,
+      "candidate_train_accuracy": 1.0,
+      "candidate_accepted": true,
+      "candidate_trajectory_valid": true,
+      "candidate_selection_issues": {},
+      "proposal_model_calls": 1,
+      "candidate_evaluations": 1,
+      "proposer_usage": {
+        "input_tokens": 1127,
+        "output_tokens": 231,
+        "cost_usd": 0.0,
+        "latency_ms": 28134.35029098764,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      },
+      "initial_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 6681.995957624167,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 4606.173290871084,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1844,
+            "output_tokens": 69,
+            "cost_usd": 0.0,
+            "latency_ms": 7546.717708231881,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "candidate_results": [
+        {
+          "task_id": "train-normal-5001",
+          "output": "60.0",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1851,
+            "output_tokens": 72,
+            "cost_usd": 0.0,
+            "latency_ms": 7286.894042277709,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-order-5002",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1048,
+            "output_tokens": 41,
+            "cost_usd": 0.0,
+            "latency_ms": 3801.8192080780864,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "task_id": "train-missing-policy-5003",
+          "output": "REFUND_UNAVAILABLE",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1448,
+            "output_tokens": 56,
+            "cost_usd": 0.0,
+            "latency_ms": 5253.838957753032,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "heldout_tasks_evaluated": 0,
+      "result_directory": "results/support-error-dynamic-patch-train-repeated/seed-2021"
+    }
+  ],
+  "paid_api_calls": 0
+}

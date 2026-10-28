@@ -1,0 +1,13 @@
+{
+  "experiment": "real-tool-agent-two-round-reflection",
+  "executor": "openai_compatible:kimi-for-coding+host_tools_v1",
+  "optimizer": "model_reflection",
+  "seed": 303,
+  "candidate_budget": 2,
+  "start_artifact_id": "60d52106a2060b34531463f972d6ceb3565c2b723e390086579de01762cf3a08",
+  "train_task_digest": "30894833b01ed48cec8e93e7188b86eb06635bdbac9fec451c26142d121b5247",
+  "heldout_task_digest": "08567f8e37ae59202a37601a8dbe4b248ceb5a24e646b068a9b848591c136a9a",
+  "protocol_version": "merit-agent-contract-v0.1",
+  "proposer_source": "openai_compatible:kimi-for-coding",
+  "manifest_digest": "ad35ac1daac058b7477f39f0c05eeac1c805b081a146925049ed8a2908c9fb56"
+}

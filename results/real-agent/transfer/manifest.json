@@ -1,0 +1,23 @@
+{
+  "experiment": "real-tool-agent-transfer",
+  "base_manifest_digest": "ad35ac1daac058b7477f39f0c05eeac1c805b081a146925049ed8a2908c9fb56",
+  "families": [
+    {
+      "name": "direct_arithmetic",
+      "role": "source",
+      "task_digest": "3f4f8d29b1d88eee724384eeea48958f2646e79dac0d4e5925cf32ffd69b231b"
+    },
+    {
+      "name": "tool_use",
+      "role": "target",
+      "task_digest": "08567f8e37ae59202a37601a8dbe4b248ceb5a24e646b068a9b848591c136a9a"
+    },
+    {
+      "name": "unseen_tool_arguments",
+      "role": "transfer",
+      "task_digest": "a3054cd48d4ee4252cb031201938a92a520cacafcb5c36b71829686482e54627"
+    }
+  ],
+  "protocol_version": "merit-transfer-v0.1",
+  "manifest_digest": "1d1219b005ade4213bab4529c1bfe373acd5e0eab2673000491d683f223e0ae8"
+}

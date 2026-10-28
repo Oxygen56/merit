@@ -1,0 +1,949 @@
+{
+  "scope": "Independent M6/M7 recomputation and separate BFCL-adapted method comparison",
+  "m6": {
+    "passed": true,
+    "run_count": 4,
+    "clean_trajectory_runs": 4,
+    "heldout_tasks_evaluated": 0,
+    "runs": [
+      {
+        "seed": 1010,
+        "train_accuracy": 1.0,
+        "initial_agent_usage": {
+          "input_tokens": 4743,
+          "output_tokens": 182,
+          "latency_ms": 15172.26345767267
+        },
+        "candidate_agent_usage": {
+          "input_tokens": 4347,
+          "output_tokens": 169,
+          "latency_ms": 13783.676206832752
+        },
+        "proposer_usage": {
+          "input_tokens": 1127,
+          "output_tokens": 231,
+          "cost_usd": 0.0,
+          "latency_ms": 19871.04683299549,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "candidate_evaluations": 1,
+        "candidate_trajectories": [
+          {
+            "task_id": "train-normal-5001",
+            "artifact_id": "9bfe4197d2b098763ffef78b5f1db332cd2b587b55b569c64e8ae51a8b79096d",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-order-5002",
+            "artifact_id": "9bfe4197d2b098763ffef78b5f1db332cd2b587b55b569c64e8ae51a8b79096d",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-policy-5003",
+            "artifact_id": "9bfe4197d2b098763ffef78b5f1db332cd2b587b55b569c64e8ae51a8b79096d",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      },
+      {
+        "seed": 1011,
+        "train_accuracy": 1.0,
+        "initial_agent_usage": {
+          "input_tokens": 4743,
+          "output_tokens": 182,
+          "latency_ms": 16942.15600308962
+        },
+        "candidate_agent_usage": {
+          "input_tokens": 4347,
+          "output_tokens": 169,
+          "latency_ms": 14987.61491687037
+        },
+        "proposer_usage": {
+          "input_tokens": 1127,
+          "output_tokens": 231,
+          "cost_usd": 0.0,
+          "latency_ms": 23674.786583986133,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "candidate_evaluations": 1,
+        "candidate_trajectories": [
+          {
+            "task_id": "train-normal-5001",
+            "artifact_id": "dacd2b2e0da9eb2eb40178924f1b058e1a44f1837febddc8494b4f0af2fe744d",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-order-5002",
+            "artifact_id": "dacd2b2e0da9eb2eb40178924f1b058e1a44f1837febddc8494b4f0af2fe744d",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-policy-5003",
+            "artifact_id": "dacd2b2e0da9eb2eb40178924f1b058e1a44f1837febddc8494b4f0af2fe744d",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      },
+      {
+        "seed": 2020,
+        "train_accuracy": 1.0,
+        "initial_agent_usage": {
+          "input_tokens": 4743,
+          "output_tokens": 182,
+          "latency_ms": 18179.702252149582
+        },
+        "candidate_agent_usage": {
+          "input_tokens": 4347,
+          "output_tokens": 169,
+          "latency_ms": 16641.35062485002
+        },
+        "proposer_usage": {
+          "input_tokens": 1127,
+          "output_tokens": 231,
+          "cost_usd": 0.0,
+          "latency_ms": 25915.708584012464,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "candidate_evaluations": 1,
+        "candidate_trajectories": [
+          {
+            "task_id": "train-normal-5001",
+            "artifact_id": "1e0970154a9873473eea863ae5d7699c1ee3294b5b7cdc254a011fe55a1c0a1a",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-order-5002",
+            "artifact_id": "1e0970154a9873473eea863ae5d7699c1ee3294b5b7cdc254a011fe55a1c0a1a",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-policy-5003",
+            "artifact_id": "1e0970154a9873473eea863ae5d7699c1ee3294b5b7cdc254a011fe55a1c0a1a",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      },
+      {
+        "seed": 2021,
+        "train_accuracy": 1.0,
+        "initial_agent_usage": {
+          "input_tokens": 4743,
+          "output_tokens": 182,
+          "latency_ms": 18834.886956727132
+        },
+        "candidate_agent_usage": {
+          "input_tokens": 4347,
+          "output_tokens": 169,
+          "latency_ms": 16342.552208108827
+        },
+        "proposer_usage": {
+          "input_tokens": 1127,
+          "output_tokens": 231,
+          "cost_usd": 0.0,
+          "latency_ms": 28134.35029098764,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "candidate_evaluations": 1,
+        "candidate_trajectories": [
+          {
+            "task_id": "train-normal-5001",
+            "artifact_id": "2e02e58fbb7a652c863556e3dc4c1bf62accf3c2d6dd65ae282df3cffd7d79b0",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-order-5002",
+            "artifact_id": "2e02e58fbb7a652c863556e3dc4c1bf62accf3c2d6dd65ae282df3cffd7d79b0",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "train-missing-policy-5003",
+            "artifact_id": "2e02e58fbb7a652c863556e3dc4c1bf62accf3c2d6dd65ae282df3cffd7d79b0",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      }
+    ]
+  },
+  "m7_support": {
+    "task_digests_recomputed": true,
+    "split_sizes": {
+      "train": 3,
+      "validation": 3,
+      "final": 3
+    },
+    "run_count": 4,
+    "mean_baseline_final_accuracy": 1.0,
+    "mean_successor_final_accuracy": 1.0,
+    "base_seed_mean_deltas": [
+      0.0,
+      0.0
+    ],
+    "base_seed_bootstrap_95_ci": [
+      0.0,
+      0.0
+    ],
+    "one_sided_base_seed_sign_flip_p_value": 1.0,
+    "conclusion": "Final exact-match accuracy did not improve; all successor normal/missing-order/missing-policy paths used clean 5/3/4-step trajectories.",
+    "runs": [
+      {
+        "base_seed": 101,
+        "seed": 1010,
+        "baseline_final_accuracy": 1.0,
+        "successor_final_accuracy": 1.0,
+        "final_accuracy_delta": 0.0,
+        "initial_validation_issues": {
+          "tasks_calculating_before_policy_lookup": [
+            "heldout-missing-policy-6003"
+          ],
+          "tasks_continuing_after_required_record_failure": [
+            "heldout-missing-policy-6003"
+          ]
+        },
+        "candidate_validation_issues": {},
+        "baseline_final_usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "latency_ms": 14335.034541320056
+        },
+        "successor_final_usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "latency_ms": 15509.626624640077
+        },
+        "initial_validation_usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "latency_ms": 13781.295250169933
+        },
+        "candidate_validation_usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "latency_ms": 12522.938208188862
+        },
+        "baseline_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "66c577cf09883d280aa6ad5c461f8a300e6190374992183221e66b7c3095446e",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "66c577cf09883d280aa6ad5c461f8a300e6190374992183221e66b7c3095446e",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "66c577cf09883d280aa6ad5c461f8a300e6190374992183221e66b7c3095446e",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": true,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 1,
+            "ended_with_final": true
+          }
+        ],
+        "successor_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "17dde979e5bd076ec8820da986b578a0b156ec21b77195b403d0235355081c83",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "17dde979e5bd076ec8820da986b578a0b156ec21b77195b403d0235355081c83",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "17dde979e5bd076ec8820da986b578a0b156ec21b77195b403d0235355081c83",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      },
+      {
+        "base_seed": 101,
+        "seed": 1011,
+        "baseline_final_accuracy": 1.0,
+        "successor_final_accuracy": 1.0,
+        "final_accuracy_delta": 0.0,
+        "initial_validation_issues": {
+          "tasks_calculating_before_policy_lookup": [
+            "heldout-missing-policy-6003"
+          ],
+          "tasks_continuing_after_required_record_failure": [
+            "heldout-missing-policy-6003"
+          ]
+        },
+        "candidate_validation_issues": {},
+        "baseline_final_usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "latency_ms": 19552.307621575892
+        },
+        "successor_final_usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "latency_ms": 27723.6664572265
+        },
+        "initial_validation_usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "latency_ms": 13641.048040473834
+        },
+        "candidate_validation_usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "latency_ms": 13722.99408284016
+        },
+        "baseline_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "663b3f4dca4039f43576cd57ad3429a29b69497ac0175558ddb5362d9bfbc61e",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "663b3f4dca4039f43576cd57ad3429a29b69497ac0175558ddb5362d9bfbc61e",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "663b3f4dca4039f43576cd57ad3429a29b69497ac0175558ddb5362d9bfbc61e",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": true,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 1,
+            "ended_with_final": true
+          }
+        ],
+        "successor_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "bd5fd8af684facb141da3a6fc6ed9f1202ad46fa9045d6c2efd23a2d10514639",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "bd5fd8af684facb141da3a6fc6ed9f1202ad46fa9045d6c2efd23a2d10514639",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "bd5fd8af684facb141da3a6fc6ed9f1202ad46fa9045d6c2efd23a2d10514639",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      },
+      {
+        "base_seed": 202,
+        "seed": 2020,
+        "baseline_final_accuracy": 1.0,
+        "successor_final_accuracy": 1.0,
+        "final_accuracy_delta": 0.0,
+        "initial_validation_issues": {
+          "tasks_calculating_before_policy_lookup": [
+            "heldout-missing-policy-6003"
+          ],
+          "tasks_continuing_after_required_record_failure": [
+            "heldout-missing-policy-6003"
+          ]
+        },
+        "candidate_validation_issues": {},
+        "baseline_final_usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "latency_ms": 33550.006043864414
+        },
+        "successor_final_usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "latency_ms": 25439.529751893133
+        },
+        "initial_validation_usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "latency_ms": 42715.45845991932
+        },
+        "candidate_validation_usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "latency_ms": 29386.429666541517
+        },
+        "baseline_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "ac1733dc3f8d4de8122ad1cbe02cbeba3c95652253cada6ec32b898fa0537db9",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "ac1733dc3f8d4de8122ad1cbe02cbeba3c95652253cada6ec32b898fa0537db9",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "ac1733dc3f8d4de8122ad1cbe02cbeba3c95652253cada6ec32b898fa0537db9",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": true,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 1,
+            "ended_with_final": true
+          }
+        ],
+        "successor_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "64442a1bb073fc45eb8267b5d5113a8edb63d6cd06a7459a8d41cfa97be3c349",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "64442a1bb073fc45eb8267b5d5113a8edb63d6cd06a7459a8d41cfa97be3c349",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "64442a1bb073fc45eb8267b5d5113a8edb63d6cd06a7459a8d41cfa97be3c349",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      },
+      {
+        "base_seed": 202,
+        "seed": 2021,
+        "baseline_final_accuracy": 1.0,
+        "successor_final_accuracy": 1.0,
+        "final_accuracy_delta": 0.0,
+        "initial_validation_issues": {
+          "tasks_calculating_before_policy_lookup": [
+            "heldout-missing-policy-6003"
+          ],
+          "tasks_continuing_after_required_record_failure": [
+            "heldout-missing-policy-6003"
+          ]
+        },
+        "candidate_validation_issues": {},
+        "baseline_final_usage": {
+          "input_tokens": 4747,
+          "output_tokens": 183,
+          "latency_ms": 22750.594582408667
+        },
+        "successor_final_usage": {
+          "input_tokens": 4349,
+          "output_tokens": 169,
+          "latency_ms": 23468.278540531173
+        },
+        "initial_validation_usage": {
+          "input_tokens": 4746,
+          "output_tokens": 183,
+          "latency_ms": 33429.72983280197
+        },
+        "candidate_validation_usage": {
+          "input_tokens": 4350,
+          "output_tokens": 170,
+          "latency_ms": 25985.05541589111
+        },
+        "baseline_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "94d133eee11da42f77530f9750dbfc331dee1c22c3bc98b82586ac599d7cec76",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "94d133eee11da42f77530f9750dbfc331dee1c22c3bc98b82586ac599d7cec76",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "94d133eee11da42f77530f9750dbfc331dee1c22c3bc98b82586ac599d7cec76",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": true,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 1,
+            "ended_with_final": true
+          }
+        ],
+        "successor_final_trajectories": [
+          {
+            "task_id": "final-normal-7001",
+            "artifact_id": "c3df2214642f5154df57bb5b996e3a2263db1e6a9f821f4ad8e65a81c0fb8ae8",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "calculator",
+              "final"
+            ],
+            "model_steps": 5,
+            "tool_errors": 0,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-order-7002",
+            "artifact_id": "c3df2214642f5154df57bb5b996e3a2263db1e6a9f821f4ad8e65a81c0fb8ae8",
+            "actions": [
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 3,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          },
+          {
+            "task_id": "final-missing-policy-7003",
+            "artifact_id": "c3df2214642f5154df57bb5b996e3a2263db1e6a9f821f4ad8e65a81c0fb8ae8",
+            "actions": [
+              "lookup",
+              "lookup",
+              "lookup",
+              "final"
+            ],
+            "model_steps": 4,
+            "tool_errors": 1,
+            "calculation_before_successful_policy_lookup": false,
+            "repeated_failed_lookup_count": 0,
+            "actions_after_required_record_failure": 0,
+            "ended_with_final": true
+          }
+        ]
+      }
+    ],
+    "model_steps": 200,
+    "cached_response_files": 200,
+    "network_calls_last_cached_continuation": 37,
+    "cache_hits_last_cached_continuation": 163,
+    "network_accounting_note": "The first attempt timed out; the successful cached continuation does not report the total network calls across both attempts."
+  },
+  "m7_bfcl_adapted_subset": {
+    "split_sizes": {
+      "train": 22,
+      "validation": 30,
+      "heldout": 30
+    },
+    "candidate_budget": 3,
+    "methods": {
+      "no_change": {
+        "mean_final_accuracy": 0.6333333333333333,
+        "per_seed_final_accuracy": [
+          0.6333333333333333,
+          0.6333333333333333
+        ],
+        "candidate_evaluations_total": 0,
+        "proposer_usage_total": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0.0
+        }
+      },
+      "gepa": {
+        "mean_final_accuracy": 0.6333333333333333,
+        "per_seed_final_accuracy": [
+          0.6333333333333333,
+          0.6333333333333333
+        ],
+        "candidate_evaluations_total": 6,
+        "proposer_usage_total": {
+          "input_tokens": 6492,
+          "output_tokens": 1822,
+          "latency_ms": 309987.9200833384
+        }
+      },
+      "random_prompt_edit": {
+        "mean_final_accuracy": 0.6,
+        "per_seed_final_accuracy": [
+          0.6,
+          0.6
+        ],
+        "candidate_evaluations_total": 6,
+        "proposer_usage_total": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "latency_ms": 0.0
+        }
+      },
+      "model_reflection": {
+        "mean_final_accuracy": 0.6333333333333333,
+        "per_seed_final_accuracy": [
+          0.6333333333333333,
+          0.6333333333333333
+        ],
+        "candidate_evaluations_total": 6,
+        "proposer_usage_total": {
+          "input_tokens": 7866,
+          "output_tokens": 222,
+          "latency_ms": 114882.61350011453
+        }
+      }
+    },
+    "conclusion": "No-change, model reflection, and GEPA tied; random editing regressed. More candidates did not improve final-test transfer.",
+    "official_bfcl_score": false
+  },
+  "cross_task_comparison_policy": "Report task families separately; do not average support and BFCL-adapted accuracies.",
+  "paid_api_calls": 0
+}

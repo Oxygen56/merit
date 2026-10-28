@@ -1,0 +1,13 @@
+{
+  "experiment": "local-agent-contract",
+  "executor": "local_text_normalizer",
+  "optimizer": "toggle_normalization",
+  "seed": 7,
+  "candidate_budget": 4,
+  "start_artifact_id": "9ae167c688b58124cb97a160b9fb1beabc289e4574e57e3cb04d65cb44662175",
+  "train_task_digest": "5ed6adb06f7b511b307590c06e67fa3092abade1d7bcd76e047e93b6556197a2",
+  "heldout_task_digest": "534251de621b7d4e3fbed77a5cf74725a6affa436bb4fab766686c77dd8be25c",
+  "protocol_version": "merit-agent-contract-v0.1",
+  "proposer_source": "python",
+  "manifest_digest": "b13c3d1951c5b71b5420a52f0d7d362bdbfa40b62d891a91e351fafc87df0cd7"
+}

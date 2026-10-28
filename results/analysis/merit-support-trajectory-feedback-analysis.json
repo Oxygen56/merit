@@ -1,0 +1,54 @@
+{
+  "scope": "train-only structured trajectory-feedback pilot",
+  "initial_train_accuracy": 0.6666666666666666,
+  "proposal_model_calls": 3,
+  "structurally_valid_proposals": 0,
+  "candidate_evaluations": 0,
+  "candidate_train_accuracy": null,
+  "heldout_tasks_evaluated": 0,
+  "feedback_flags_all_three_placeholder_ticket_skips": true,
+  "feedback_contains_record_keys": false,
+  "all_three_raw_proposals_contain_placeholders_and_omit_required_prompt_lines": true,
+  "initial_train_usage": {
+    "input_tokens": 1278,
+    "output_tokens": 72,
+    "latency_ms": 13168.939584633335
+  },
+  "failed_proposer_usage": {
+    "input_tokens": 2586,
+    "output_tokens": 303,
+    "latency_ms": 27731.426249956712
+  },
+  "proposals": [
+    {
+      "cache_file": "109770feecb66c0247cea0e24ba8c2b22265e23f41c7578af0197766ca07ea98.json",
+      "missing_required_lines": 5,
+      "markdown_fences": true,
+      "placeholder_fragments": [
+        "<ticket_key>",
+        "order_key",
+        "{order_key}"
+      ]
+    },
+    {
+      "cache_file": "ec0a8e6d9d9819e8f9d3e88eabe593851d6e11666a43c3144635c9739cfd27f4.json",
+      "missing_required_lines": 5,
+      "markdown_fences": true,
+      "placeholder_fragments": [
+        "<refund_amount>",
+        "<ticket_key>"
+      ]
+    },
+    {
+      "cache_file": "4bdf30233883714a121d2787b1ea190464728da062abdf6d0066a7e6deee3433.json",
+      "missing_required_lines": 5,
+      "markdown_fences": false,
+      "placeholder_fragments": [
+        "<refund_amount>",
+        "<ticket_key>",
+        "{returned_order_key}"
+      ]
+    }
+  ],
+  "paid_api_calls": 0
+}

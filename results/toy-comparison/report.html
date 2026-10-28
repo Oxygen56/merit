@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merit · toy-random-vs-coordinate</title>
+<style>
+:root{--ink:#15263b;--muted:#64748b;--line:#dce4ec;--paper:#f5f7fa;--card:#fff;--accent:#0f766e}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:1120px;margin:0 auto;padding:48px 24px}header{margin-bottom:28px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:36px;line-height:1.2;margin:8px 0}h2{margin-top:32px}.subtitle{color:var(--muted);max-width:760px;font-size:17px}
+.notice{background:#fff7df;border:1px solid #ecd28a;border-radius:12px;padding:14px 18px;margin:22px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.label{color:var(--muted);font-size:13px}.value{font-size:25px;font-weight:750;margin-top:5px}table{width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{background:#eaf0f5;color:#475569;font-size:12px}th:nth-child(1),th:nth-child(2),td:nth-child(1),td:nth-child(2){text-align:left}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}.positive{color:#047857;font-weight:700}.negative{color:#b91c1c;font-weight:700}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}footer{margin-top:30px;color:var(--muted);font-size:13px}dt{color:var(--muted);float:left;clear:left;width:210px}dd{margin-left:230px;margin-bottom:6px}
+@media(max-width:640px){main{padding:28px 14px}h1{font-size:28px}dt{float:none;width:auto}dd{margin-left:0;margin-bottom:12px}}
+</style>
+</head>
+<body><main>
+<header><div class="eyebrow">Merit Evidence Card</div><h1>toy-random-vs-coordinate</h1>
+<p class="subtitle">同一起点、相同优化候选预算、按种子配对的改进方法对照。评价指标为 held-out RMSE，改善值 = 基线 RMSE − 挑战者 RMSE，正值表示挑战者更好。</p></header>
+<div class="notice"><strong>边界：</strong>这是确定性线性玩具任务，只用于验证 Merit 的实验协议和报告链路，不是 LLM、真实 Agent 或 RSI 的效果结论。</div>
+<section class="cards">
+<div class="card"><div class="label">平均 held-out RMSE 改善</div><div class="value">-0.154734</div></div>
+<div class="card"><div class="label">配对 Bootstrap 95% CI</div><div class="value">[-0.230796, -0.066988]</div></div>
+<div class="card"><div class="label">优化臂候选预算</div><div class="value">64</div></div>
+<div class="card"><div class="label">配对种子数</div><div class="value">12</div></div>
+</section>
+<h2>结果摘要</h2>
+<div class="card"><dl>
+<dt>基线</dt><dd>random_search，平均 RMSE 0.148420</dd>
+<dt>挑战者</dt><dd>coordinate_search，平均 RMSE 0.303154</dd>
+<dt>对照：no_change</dt><dd>保留起点；平均 RMSE 2.020936；平均候选评估 0 次</dd><dt>对照：random_edit</dt><dd>随机编辑并无条件采纳；平均 RMSE 5.301494；平均候选评估 64 次</dd><dt>对照：memory_reset</dt><dd>每轮从共同起点重新提案，按开发集贪心保留最佳候选；这是搜索状态重置，不是真实记忆模块；平均 RMSE 1.451665；平均候选评估 64 次</dd>
+<dt>单侧符号翻转检验</dt><dd>p = 0.996582；探索性参考，不替代正式功效分析</dd>
+<dt>Manifest digest</dt><dd><code>dc305b05412ccb922d718909efac2ca5ab145c4a2c01bf6e67b688c39e714b4b</code></dd>
+</dl></div>
+<h2>逐种子结果</h2>
+<div class="table-wrap"><table><thead><tr><th>Seed</th><th>共同起点</th><th>基线 RMSE</th><th>挑战者 RMSE</th><th>no_change RMSE</th><th>random_edit RMSE</th><th>memory_reset RMSE</th><th>改善值</th><th>基线采纳</th><th>挑战者采纳</th></tr></thead>
+<tbody><tr><td>1001</td><td><code>e0291e726fd5</code></td><td>0.397704</td><td>0.290824</td><td>2.119319</td><td>8.078284</td><td>1.739268</td><td class="positive">0.106880</td><td>14/64</td><td>9/64</td></tr><tr><td>1002</td><td><code>e0291e726fd5</code></td><td>0.096370</td><td>0.277990</td><td>1.830982</td><td>8.436047</td><td>1.537490</td><td class="negative">-0.181619</td><td>14/64</td><td>9/64</td></tr><tr><td>1003</td><td><code>e0291e726fd5</code></td><td>0.224491</td><td>0.297095</td><td>1.684684</td><td>3.516915</td><td>1.296723</td><td class="negative">-0.072603</td><td>12/64</td><td>7/64</td></tr><tr><td>1004</td><td><code>e0291e726fd5</code></td><td>0.064384</td><td>0.329601</td><td>2.011111</td><td>8.054892</td><td>1.604124</td><td class="negative">-0.265217</td><td>10/64</td><td>8/64</td></tr><tr><td>1005</td><td><code>e0291e726fd5</code></td><td>0.066511</td><td>0.367081</td><td>2.056023</td><td>7.329785</td><td>1.257767</td><td class="negative">-0.300570</td><td>15/64</td><td>13/64</td></tr><tr><td>1006</td><td><code>e0291e726fd5</code></td><td>0.043983</td><td>0.339109</td><td>2.191219</td><td>3.926455</td><td>1.306186</td><td class="negative">-0.295126</td><td>12/64</td><td>11/64</td></tr><tr><td>1007</td><td><code>e0291e726fd5</code></td><td>0.092815</td><td>0.357545</td><td>2.171447</td><td>1.371152</td><td>1.030524</td><td class="negative">-0.264730</td><td>10/64</td><td>7/64</td></tr><tr><td>1008</td><td><code>e0291e726fd5</code></td><td>0.108445</td><td>0.353236</td><td>1.917710</td><td>4.940160</td><td>1.277993</td><td class="negative">-0.244791</td><td>17/64</td><td>7/64</td></tr><tr><td>1009</td><td><code>e0291e726fd5</code></td><td>0.045398</td><td>0.244215</td><td>1.965723</td><td>3.985702</td><td>1.495733</td><td class="negative">-0.198818</td><td>10/64</td><td>8/64</td></tr><tr><td>1010</td><td><code>e0291e726fd5</code></td><td>0.078671</td><td>0.290825</td><td>2.115529</td><td>3.887631</td><td>1.654609</td><td class="negative">-0.212154</td><td>10/64</td><td>17/64</td></tr><tr><td>1011</td><td><code>e0291e726fd5</code></td><td>0.192240</td><td>0.264505</td><td>2.022616</td><td>3.890317</td><td>1.512884</td><td class="negative">-0.072265</td><td>17/64</td><td>10/64</td></tr><tr><td>1012</td><td><code>e0291e726fd5</code></td><td>0.370029</td><td>0.225827</td><td>2.164865</td><td>6.200593</td><td>1.706686</td><td class="positive">0.144202</td><td>16/64</td><td>12/64</td></tr></tbody></table></div>
+<footer>协议：merit-paired-v0.1 · no-change 对照不消耗候选评估；所有候选历史、产物 lineage、任务摘要和环境信息见 evidence.json。</footer>
+</main></body></html>

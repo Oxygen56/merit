@@ -1,0 +1,144 @@
+{
+  "seed": 101,
+  "heldout_tasks_evaluated": 0,
+  "source_heldout_tasks_evaluated": 0,
+  "proposal_model_calls": 3,
+  "initial_train_accuracy": 0.6666666666666666,
+  "initial_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": false,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 2030.3881249856204,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 1813.6931241024286,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 1804.3283752631396,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_train_accuracy": 0.6666666666666666,
+  "candidate_accepted": false,
+  "candidate_instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nTo calculate, return {\"action\":\"calculator\",\"argument\":\"<numeric expression>\"}.\nTo finish, return {\"action\":\"final\",\"argument\":\"<answer>\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.\n\nFollow these workflow rules using actual runtime values. Never execute placeholder text from examples:\n- At task start: lookup the ticket key supplied in the task input.\n- After a ticket is found: lookup the order key returned by that ticket.\n- After an order is found: lookup the policy key returned by that order.\n- After a policy is found: calculate the order total multiplied by the policy rate using returned numeric values.\n- If any required record is actually missing: return REFUND_UNAVAILABLE.\n- After a successful calculation: return only the calculator result.",
+  "candidate_patch": [
+    {
+      "when": "task_start",
+      "action": "lookup",
+      "argument_source": "ticket_key_from_input"
+    },
+    {
+      "when": "ticket_found",
+      "action": "lookup",
+      "argument_source": "order_key_from_ticket"
+    },
+    {
+      "when": "order_found",
+      "action": "lookup",
+      "argument_source": "policy_key_from_order"
+    },
+    {
+      "when": "policy_found",
+      "action": "calculator",
+      "argument_source": "order_total_times_policy_rate"
+    },
+    {
+      "when": "required_record_missing",
+      "action": "final",
+      "argument_source": "unavailable_status"
+    },
+    {
+      "when": "calculation_complete",
+      "action": "final",
+      "argument_source": "calculator_result"
+    }
+  ],
+  "candidate_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "60.0",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1893,
+        "output_tokens": 89,
+        "cost_usd": 0.0,
+        "latency_ms": 8507.075794041157,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1151,
+        "output_tokens": 54,
+        "cost_usd": 0.0,
+        "latency_ms": 4060.0407503079623,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "{\"action\":\"lookup\",\"argument\":\"policy-X71\"}",
+      "correct": false,
+      "usage": {
+        "input_tokens": 1884,
+        "output_tokens": 85,
+        "cost_usd": 0.0,
+        "latency_ms": 6245.744165033102,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_evaluations": 1,
+  "proposer_usage": {
+    "input_tokens": 3205,
+    "output_tokens": 510,
+    "cost_usd": 0.0,
+    "latency_ms": 41149.08929192461,
+    "tokens_reported": true,
+    "cost_reported": false,
+    "cost_is_estimate": false
+  },
+  "model_steps": 22,
+  "network_calls_this_run": 25,
+  "cache_hits_this_run": 0,
+  "paid_api_calls": 0
+}

@@ -1,0 +1,71 @@
+{
+  "seed": 101,
+  "heldout_tasks_evaluated": 0,
+  "source_heldout_tasks_evaluated": 0,
+  "source_candidate_train_accuracy": 0.6666666666666666,
+  "proposal_model_calls": 3,
+  "initial_train_accuracy": 0.6666666666666666,
+  "initial_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": false,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 9490.68337585777,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 1871.9833339564502,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 1806.2728748191148,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_train_accuracy": null,
+  "candidate_accepted": null,
+  "candidate_instructions": null,
+  "candidate_results": [],
+  "candidate_evaluations": 0,
+  "proposal_error": "Proposer returned invalid instructions after 3 attempts: Remove Markdown fences and return a standalone instruction prompt.",
+  "proposer_usage": {
+    "input_tokens": 2586,
+    "output_tokens": 303,
+    "cost_usd": 0.0,
+    "latency_ms": 27731.426249956712,
+    "tokens_reported": true,
+    "cost_reported": false,
+    "cost_is_estimate": false
+  },
+  "model_steps": 6,
+  "network_calls_this_run": 0,
+  "cache_hits_this_run": 9,
+  "paid_api_calls": 0
+}

@@ -1,0 +1,14 @@
+{
+  "seed": 101,
+  "heldout_tasks_evaluated": 0,
+  "train": {
+    "initial_accuracy": 0.8181818181818182,
+    "candidate_accuracy": 0.8181818181818182
+  },
+  "validation": {
+    "initial_accuracy": 0.6666666666666666,
+    "candidate_accuracy": 0.5333333333333333
+  },
+  "network_calls_this_run": 52,
+  "cache_hits_this_run": 52
+}

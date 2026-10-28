@@ -1,0 +1,98 @@
+{
+  "seed": 101,
+  "heldout_tasks_evaluated": 0,
+  "initial_train_accuracy": 0.6666666666666666,
+  "candidate_train_accuracy": 0.0,
+  "candidate_accepted": false,
+  "candidate_instructions": "{\n  \"action\": \"lookup\",\n  \"argument\": \"<order_key>\"\n}\n\n{\n  \"action\": \"calculator\",\n  \"argument\": \"(order_total * refund_policy)\"\n}\n\n{\n  \"action\": \"final\",\n  \"argument\": \"<refund_amount>\"\n}",
+  "initial_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": false,
+      "usage": {
+        "input_tokens": 733,
+        "output_tokens": 55,
+        "cost_usd": 0.0,
+        "latency_ms": 11473.278958816081,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 715,
+        "output_tokens": 54,
+        "cost_usd": 0.0,
+        "latency_ms": 3934.1087921056896,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 729,
+        "output_tokens": 54,
+        "cost_usd": 0.0,
+        "latency_ms": 3977.48483507894,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "To resolve the support ticket `ticket-5001`, we need to follow these steps:\n\n1. **Lookup**: Find the order associated with the ticket.\n2. **Calculator**: Use the order total and refund policy to calculate the refund amount.\n3. **Final**: Provide the calculated refund amount or `REFUND_UNAVAILABLE` if any required record is missing.\n\nLet's assume we have a hypothetical system where we can perform these actions. Here’s how it would look in a structured format:\n\n### Step 1: Lookup\n```json\n{\n  \"action\": \"lookup\",\n  \"argument\": \"ticket-50",
+      "correct": false,
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 128,
+        "cost_usd": 0.0,
+        "latency_ms": 7612.271958962083,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "To resolve the support ticket `ticket-5002`, we need to follow these steps:\n\n1. **Lookup**: Find the order associated with the ticket.\n2. **Calculator**: Use the order total and refund policy to calculate the refund amount.\n3. **Final**: Provide the calculated refund amount or `REFUND_UNAVAILABLE` if any required record is missing.\n\nLet's assume we have a hypothetical system where we can perform these actions. Here’s how it would look in a structured format:\n\n### Step 1: Lookup\n```json\n{\n  \"action\": \"lookup\",\n  \"argument\": \"ticket-50",
+      "correct": false,
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 128,
+        "cost_usd": 0.0,
+        "latency_ms": 7595.527834026143,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "To resolve the support ticket `ticket-5003`, we need to follow these steps:\n\n1. **Lookup**: Find the order associated with the ticket.\n2. **Calculator**: Use the order total and refund policy to calculate the refund amount.\n3. **Final**: Provide the calculated refund amount or `REFUND_UNAVAILABLE` if any required record is missing.\n\nLet's assume we have a hypothetical system where we can perform these actions. Here’s how it would look in a structured format:\n\n### Step 1: Lookup\n```json\n{\n  \"action\": \"lookup\",\n  \"argument\": \"ticket-50",
+      "correct": false,
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 128,
+        "cost_usd": 0.0,
+        "latency_ms": 7548.42604114674,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "model_steps": 15,
+  "network_calls_this_run": 0
+}

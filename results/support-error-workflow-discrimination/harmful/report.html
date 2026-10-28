@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merit · Paired Agent Improvement</title>
+<style>
+:root{--ink:#15263b;--muted:#64748b;--line:#dce4ec;--paper:#f5f7fa;--accent:#0f766e}*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:42px 22px}
+h1{margin:6px 0;font-size:34px}h2{margin-top:28px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em}.subtitle{color:var(--muted)}.notice{background:#fff7df;border:1px solid #ecd28a;border-radius:12px;padding:14px 18px;margin:20px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.label{color:var(--muted);font-size:13px}.value{font-size:25px;font-weight:750}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-top:26px}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{background:#eaf0f5;color:#475569;font-size:12px}th:nth-child(1),th:nth-child(2),td:nth-child(1),td:nth-child(2){text-align:left}
+.positive{color:#047857;font-weight:700}.negative{color:#b91c1c;font-weight:700}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}footer{margin-top:26px;color:var(--muted);font-size:13px}
+</style></head><body><main>
+<div class="eyebrow">MERIT PAIRED AGENT EVALUATION</div><h1>多种子 Agent 改进对照</h1>
+<p class="subtitle">每个种子内，所有方法使用同一起点、相同训练／隐藏任务；主动优化臂使用相同候选预算。改善值 = 挑战者后继准确率 − 基线后继准确率。</p>
+<div class="notice"><strong>来源：</strong>执行器 <code>multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors</code>。结果仅适用于本次配对任务与预算；usage 完整性和实验限制见 evidence.json。</div>
+<div class="notice"><strong>运行环境：</strong>模型 <code>qwen2.5:7b</code>；地址 <code>http://127.0.0.1:11434/v1</code>；付费 API 调用 0 次。<br>本次命令网络请求 24 次，缓存命中 240 次；结果目录共有 144 份缓存响应。续跑次数分别记录，不把单次进程的请求数当成实验总数。<br><strong>数据与评分：</strong>custom dataset；见结果文件中的任务定义。</div>
+<section class="cards">
+<div class="card"><div class="label">基线平均隐藏集准确率</div><div class="value">100.00%</div></div>
+<div class="card"><div class="label">挑战者平均隐藏集准确率</div><div class="value">0.00%</div></div>
+<div class="card"><div class="label">平均改善值</div><div class="value positive">-100.00%</div></div>
+<div class="card"><div class="label">配对 Bootstrap 95% CI</div><div class="value">[-100.00%, -100.00%]</div></div>
+<div class="card"><div class="label">主动优化臂候选预算</div><div class="value">1</div></div>
+</section>
+<h2>消融对照</h2><div class="card"><p>未注册对照臂</p></div>
+<div class="table-wrap"><table><thead><tr><th>Seed</th><th>共同起点</th><th>基线后继</th><th>挑战者后继</th><th>改善值</th><th>基线候选</th><th>挑战者候选</th></tr></thead><tbody><tr><td>1010</td><td><code>38401e4f94e1</code></td><td>100.00%</td><td>0.00%</td><td class="negative">-100.00%</td><td>0</td><td>1</td></tr><tr><td>1011</td><td><code>830012443f96</code></td><td>100.00%</td><td>0.00%</td><td class="negative">-100.00%</td><td>0</td><td>1</td></tr><tr><td>2020</td><td><code>f698bb85a2e2</code></td><td>100.00%</td><td>0.00%</td><td class="negative">-100.00%</td><td>0</td><td>1</td></tr><tr><td>2021</td><td><code>c1b0e6bf64ed</code></td><td>100.00%</td><td>0.00%</td><td class="negative">-100.00%</td><td>0</td><td>1</td></tr></tbody></table></div>
+<footer>协议：merit-agent-paired-v0.1 · no-change 不消耗候选预算 · 基线／挑战者 proposer 成本：$0.00 / $0.00 · 被评 Agent 成本与 proposer 成本分账保存在 evidence.json。</footer>
+</main></body></html>

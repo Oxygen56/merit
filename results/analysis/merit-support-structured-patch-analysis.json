@@ -1,0 +1,141 @@
+{
+  "scope": "two train-only constrained patch pilots; no final-test tasks",
+  "dotted_enum_pilot": {
+    "proposal_model_calls": 3,
+    "candidate_evaluations": 0,
+    "outcome": "three invalid patches; no candidate",
+    "proposer_usage": {
+      "input_tokens": 3261,
+      "output_tokens": 561,
+      "cost_usd": 0.0,
+      "latency_ms": 54008.07258300483,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "heldout_tasks_evaluated": 0
+  },
+  "simple_enum_pilot": {
+    "proposal_model_calls": 3,
+    "candidate_evaluations": 1,
+    "candidate_rule_count": 6,
+    "initial_train_accuracy": 0.6666666666666666,
+    "candidate_train_accuracy": 0.6666666666666666,
+    "candidate_accepted": false,
+    "initial_train_usage": {
+      "input_tokens": 1278,
+      "output_tokens": 72,
+      "latency_ms": 5648.4096243511885
+    },
+    "candidate_train_usage": {
+      "input_tokens": 4928,
+      "output_tokens": 228,
+      "latency_ms": 18812.86070938222
+    },
+    "proposer_usage": {
+      "input_tokens": 3205,
+      "output_tokens": 510,
+      "cost_usd": 0.0,
+      "latency_ms": 41149.08929192461,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "per_task_changes": [
+      {
+        "task_id": "train-normal-5001",
+        "before": false,
+        "after": true,
+        "change": "fixed"
+      },
+      {
+        "task_id": "train-missing-policy-5003",
+        "before": true,
+        "after": false,
+        "change": "regressed"
+      }
+    ],
+    "candidate_tasks": [
+      {
+        "task_id": "train-normal-5001",
+        "correct": true,
+        "output": "60.0",
+        "actions": [
+          "lookup",
+          "lookup",
+          "calculator",
+          "lookup",
+          "calculator",
+          "final"
+        ],
+        "arguments": [
+          "ticket-5001",
+          "order-5001",
+          "120*政策_N01",
+          "policy-N01",
+          "120*0.5",
+          "60.0"
+        ],
+        "tool_errors": [
+          "Only numeric +, -, *, / and parentheses are allowed"
+        ],
+        "model_steps": 6,
+        "ended_with_final": true
+      },
+      {
+        "task_id": "train-missing-order-5002",
+        "correct": true,
+        "output": "REFUND_UNAVAILABLE",
+        "actions": [
+          "lookup",
+          "lookup",
+          "lookup",
+          "final"
+        ],
+        "arguments": [
+          "ticket-5002",
+          "order-X71",
+          "order-X71",
+          "REFUND_UNAVAILABLE"
+        ],
+        "tool_errors": [
+          "Unknown lookup key",
+          "Unknown lookup key"
+        ],
+        "model_steps": 4,
+        "ended_with_final": true
+      },
+      {
+        "task_id": "train-missing-policy-5003",
+        "correct": false,
+        "output": "{\"action\":\"lookup\",\"argument\":\"policy-X71\"}",
+        "actions": [
+          "lookup",
+          "lookup",
+          "calculator",
+          "lookup",
+          "lookup",
+          "lookup"
+        ],
+        "arguments": [
+          "ticket-5003",
+          "order-5003",
+          "90*政策X71",
+          "policy-X71",
+          "policy-X71",
+          "policy-X71"
+        ],
+        "tool_errors": [
+          "Only numeric +, -, *, / and parentheses are allowed",
+          "Unknown lookup key",
+          "Unknown lookup key",
+          "Unknown lookup key"
+        ],
+        "model_steps": 6,
+        "ended_with_final": false
+      }
+    ],
+    "heldout_tasks_evaluated": 0
+  },
+  "paid_api_calls": 0
+}

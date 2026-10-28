@@ -1,0 +1,1316 @@
+{
+  "schema_version": "merit-evidence-v1",
+  "project": "Merit",
+  "version": "0.1.0",
+  "generated_at": "2026-10-28T00:40:25.319944+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "manifest_digest": "b6ea9deac454f38168a5d00ffa4a28fd86ae787cb2a66e10dec8efcdfa38b7c8",
+  "limitations": [
+    "This is a deterministic local executor example, not an LLM transfer result.",
+    "The source family intentionally conflicts with the target normalization behavior to test regression detection.",
+    "Token counts are local proxies; cost and latency are not real provider measurements."
+  ],
+  "experiment": {
+    "manifest": {
+      "experiment": "local-transfer-regression",
+      "base_manifest_digest": "b13c3d1951c5b71b5420a52f0d7d362bdbfa40b62d891a91e351fafc87df0cd7",
+      "families": [
+        {
+          "name": "verbatim_echo",
+          "role": "source",
+          "task_digest": "40a87095caa099abf31e2a806ef41935dd7b2907883e0897a6d62afd58f74177"
+        },
+        {
+          "name": "normalization",
+          "role": "target",
+          "task_digest": "534251de621b7d4e3fbed77a5cf74725a6affa436bb4fab766686c77dd8be25c"
+        },
+        {
+          "name": "unicode_normalization",
+          "role": "transfer",
+          "task_digest": "6d2e1244e85da84df5bdf0137fa69d184571aee44f3170aa88ce663138b68914"
+        }
+      ],
+      "protocol_version": "merit-transfer-v0.1"
+    },
+    "base": {
+      "manifest": {
+        "experiment": "local-agent-contract",
+        "executor": "local_text_normalizer",
+        "optimizer": "toggle_normalization",
+        "seed": 7,
+        "candidate_budget": 4,
+        "start_artifact_id": "9ae167c688b58124cb97a160b9fb1beabc289e4574e57e3cb04d65cb44662175",
+        "train_task_digest": "5ed6adb06f7b511b307590c06e67fa3092abade1d7bcd76e047e93b6556197a2",
+        "heldout_task_digest": "534251de621b7d4e3fbed77a5cf74725a6affa436bb4fab766686c77dd8be25c",
+        "protocol_version": "merit-agent-contract-v0.1",
+        "proposer_source": "python"
+      },
+      "start": {
+        "instructions": "Normalize the input according to the supplied configuration.",
+        "config_json": "{\"lowercase\":false,\"strip\":false}",
+        "parent": null,
+        "artifact_id": "9ae167c688b58124cb97a160b9fb1beabc289e4574e57e3cb04d65cb44662175"
+      },
+      "successor": {
+        "instructions": "Normalize the input according to the supplied configuration.",
+        "config_json": "{\"lowercase\":true,\"strip\":true}",
+        "parent": "04c2874a677703a03f1decd2411a91fdd76cffb372cb12db85e2a4b5be25e134",
+        "artifact_id": "f57226dd6f423a6c222900a8cd8be4cb45a477721300b2c294d6148fa2729e52"
+      },
+      "train_tasks": [
+        {
+          "task_id": "train-lowercase",
+          "prompt": "HELLO",
+          "expected": "hello"
+        },
+        {
+          "task_id": "train-strip",
+          "prompt": "  world  ",
+          "expected": "world"
+        },
+        {
+          "task_id": "train-both",
+          "prompt": "  MIXED CASE  ",
+          "expected": "mixed case"
+        },
+        {
+          "task_id": "train-noop",
+          "prompt": "plain",
+          "expected": "plain"
+        }
+      ],
+      "heldout_tasks": [
+        {
+          "task_id": "heldout-lowercase",
+          "prompt": "NEW TASK",
+          "expected": "new task"
+        },
+        {
+          "task_id": "heldout-strip",
+          "prompt": "  FRESH  ",
+          "expected": "fresh"
+        },
+        {
+          "task_id": "heldout-both",
+          "prompt": "  HELD OUT  ",
+          "expected": "held out"
+        },
+        {
+          "task_id": "heldout-noop",
+          "prompt": "unchanged",
+          "expected": "unchanged"
+        }
+      ],
+      "initial_dev": {
+        "accuracy": 0.25,
+        "usage": {
+          "input_tokens": 37,
+          "output_tokens": 5,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0,
+          "tokens_reported": true,
+          "cost_reported": true,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "train-lowercase",
+            "output": "HELLO",
+            "correct": false,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "train-strip",
+            "output": "  world  ",
+            "correct": false,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "train-both",
+            "output": "  MIXED CASE  ",
+            "correct": false,
+            "usage": {
+              "input_tokens": 10,
+              "output_tokens": 2,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "train-noop",
+            "output": "plain",
+            "correct": true,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_dev": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 37,
+          "output_tokens": 5,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0,
+          "tokens_reported": true,
+          "cost_reported": true,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "train-lowercase",
+            "output": "hello",
+            "correct": true,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "train-strip",
+            "output": "world",
+            "correct": true,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "train-both",
+            "output": "mixed case",
+            "correct": true,
+            "usage": {
+              "input_tokens": 10,
+              "output_tokens": 2,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "train-noop",
+            "output": "plain",
+            "correct": true,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "baseline_heldout": {
+        "accuracy": 0.25,
+        "usage": {
+          "input_tokens": 38,
+          "output_tokens": 6,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0,
+          "tokens_reported": true,
+          "cost_reported": true,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-lowercase",
+            "output": "NEW TASK",
+            "correct": false,
+            "usage": {
+              "input_tokens": 10,
+              "output_tokens": 2,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-strip",
+            "output": "  FRESH  ",
+            "correct": false,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-both",
+            "output": "  HELD OUT  ",
+            "correct": false,
+            "usage": {
+              "input_tokens": 10,
+              "output_tokens": 2,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-noop",
+            "output": "unchanged",
+            "correct": true,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_heldout": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 38,
+          "output_tokens": 6,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0,
+          "tokens_reported": true,
+          "cost_reported": true,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "heldout-lowercase",
+            "output": "new task",
+            "correct": true,
+            "usage": {
+              "input_tokens": 10,
+              "output_tokens": 2,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-strip",
+            "output": "fresh",
+            "correct": true,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-both",
+            "output": "held out",
+            "correct": true,
+            "usage": {
+              "input_tokens": 10,
+              "output_tokens": 2,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "heldout-noop",
+            "output": "unchanged",
+            "correct": true,
+            "usage": {
+              "input_tokens": 9,
+              "output_tokens": 1,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "history": [
+        {
+          "iteration": 0,
+          "candidate": {
+            "instructions": "Normalize the input according to the supplied configuration.",
+            "config_json": "{\"lowercase\":true,\"strip\":false}",
+            "parent": "9ae167c688b58124cb97a160b9fb1beabc289e4574e57e3cb04d65cb44662175",
+            "artifact_id": "04c2874a677703a03f1decd2411a91fdd76cffb372cb12db85e2a4b5be25e134"
+          },
+          "evaluation": {
+            "accuracy": 0.5,
+            "usage": {
+              "input_tokens": 37,
+              "output_tokens": 5,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-lowercase",
+                "output": "hello",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-strip",
+                "output": "  world  ",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-both",
+                "output": "  mixed case  ",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 10,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-noop",
+                "output": "plain",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "accepted": true,
+          "remaining_budget": 3,
+          "proposer_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "iteration": 1,
+          "candidate": {
+            "instructions": "Normalize the input according to the supplied configuration.",
+            "config_json": "{\"lowercase\":true,\"strip\":true}",
+            "parent": "04c2874a677703a03f1decd2411a91fdd76cffb372cb12db85e2a4b5be25e134",
+            "artifact_id": "f57226dd6f423a6c222900a8cd8be4cb45a477721300b2c294d6148fa2729e52"
+          },
+          "evaluation": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 37,
+              "output_tokens": 5,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-lowercase",
+                "output": "hello",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-strip",
+                "output": "world",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-both",
+                "output": "mixed case",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 10,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-noop",
+                "output": "plain",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "accepted": true,
+          "remaining_budget": 2,
+          "proposer_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "iteration": 2,
+          "candidate": {
+            "instructions": "Normalize the input according to the supplied configuration.",
+            "config_json": "{\"lowercase\":false,\"strip\":true}",
+            "parent": "f57226dd6f423a6c222900a8cd8be4cb45a477721300b2c294d6148fa2729e52",
+            "artifact_id": "045de2d62cd587ff3cf3b12ba5fdb71fdfee217ac0699fd9073c8cb418dfce4b"
+          },
+          "evaluation": {
+            "accuracy": 0.5,
+            "usage": {
+              "input_tokens": 37,
+              "output_tokens": 5,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-lowercase",
+                "output": "HELLO",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-strip",
+                "output": "world",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-both",
+                "output": "MIXED CASE",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 10,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-noop",
+                "output": "plain",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "accepted": false,
+          "remaining_budget": 1,
+          "proposer_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        },
+        {
+          "iteration": 3,
+          "candidate": {
+            "instructions": "Normalize the input according to the supplied configuration.",
+            "config_json": "{\"lowercase\":true,\"strip\":false}",
+            "parent": "f57226dd6f423a6c222900a8cd8be4cb45a477721300b2c294d6148fa2729e52",
+            "artifact_id": "69c930d1d2688f74beb52842c38b74f45345a1fc8cd61b22dbfc28a6580b5731"
+          },
+          "evaluation": {
+            "accuracy": 0.5,
+            "usage": {
+              "input_tokens": 37,
+              "output_tokens": 5,
+              "cost_usd": 0.0,
+              "latency_ms": 0.0,
+              "tokens_reported": true,
+              "cost_reported": true,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-lowercase",
+                "output": "hello",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-strip",
+                "output": "  world  ",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-both",
+                "output": "  mixed case  ",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 10,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-noop",
+                "output": "plain",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 9,
+                  "output_tokens": 1,
+                  "cost_usd": 0.0,
+                  "latency_ms": 0.0,
+                  "tokens_reported": true,
+                  "cost_reported": true,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "accepted": false,
+          "remaining_budget": 0,
+          "proposer_usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "summary": {
+        "metric": "exact_match_accuracy",
+        "initial_dev_accuracy": 0.25,
+        "successor_dev_accuracy": 1.0,
+        "baseline_heldout_accuracy": 0.25,
+        "successor_heldout_accuracy": 1.0,
+        "heldout_accuracy_improvement": 0.75,
+        "candidate_evaluations": 4,
+        "accepted_candidates": 2,
+        "proposal_calls": 4,
+        "proposer_source": "python",
+        "dev_agent_invocations": 20,
+        "heldout_agent_invocations": 8,
+        "dev_input_tokens": 185,
+        "dev_output_tokens": 25,
+        "heldout_input_tokens": 76,
+        "heldout_output_tokens": 12,
+        "total_input_tokens": 261,
+        "total_output_tokens": 37,
+        "total_cost_usd": 0.0,
+        "total_latency_ms": 0.0,
+        "total_tokens_reported": true,
+        "total_cost_reported": true,
+        "total_cost_is_estimate": false,
+        "proposer_input_tokens": 0,
+        "proposer_output_tokens": 0,
+        "proposer_cost_usd": 0.0,
+        "proposer_latency_ms": 0.0,
+        "proposer_tokens_reported": true,
+        "proposer_cost_reported": true,
+        "proposer_cost_is_estimate": false,
+        "combined_total_input_tokens": 261,
+        "combined_total_output_tokens": 37,
+        "combined_total_cost_usd": 0.0,
+        "combined_total_latency_ms": 0.0,
+        "combined_total_tokens_reported": true,
+        "combined_total_cost_reported": true,
+        "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+        "scope": "Agent contract validation; claims depend on the registered executor"
+      }
+    },
+    "comparisons": [
+      {
+        "family": "verbatim_echo",
+        "role": "source",
+        "tasks": [
+          {
+            "task_id": "source-case",
+            "prompt": "Keep CASE",
+            "expected": "Keep CASE"
+          },
+          {
+            "task_id": "source-spaces",
+            "prompt": "  keep spaces  ",
+            "expected": "  keep spaces  "
+          },
+          {
+            "task_id": "source-plain",
+            "prompt": "plain",
+            "expected": "plain"
+          },
+          {
+            "task_id": "source-capital",
+            "prompt": "Already",
+            "expected": "Already"
+          }
+        ],
+        "baseline": {
+          "accuracy": 1.0,
+          "usage": {
+            "input_tokens": 38,
+            "output_tokens": 6,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "source-case",
+              "output": "Keep CASE",
+              "correct": true,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "source-spaces",
+              "output": "  keep spaces  ",
+              "correct": true,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "source-plain",
+              "output": "plain",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "source-capital",
+              "output": "Already",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "successor": {
+          "accuracy": 0.25,
+          "usage": {
+            "input_tokens": 38,
+            "output_tokens": 6,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "source-case",
+              "output": "keep case",
+              "correct": false,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "source-spaces",
+              "output": "keep spaces",
+              "correct": false,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "source-plain",
+              "output": "plain",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "source-capital",
+              "output": "already",
+              "correct": false,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "reused_base_evaluation": false
+      },
+      {
+        "family": "normalization",
+        "role": "target",
+        "tasks": [
+          {
+            "task_id": "heldout-lowercase",
+            "prompt": "NEW TASK",
+            "expected": "new task"
+          },
+          {
+            "task_id": "heldout-strip",
+            "prompt": "  FRESH  ",
+            "expected": "fresh"
+          },
+          {
+            "task_id": "heldout-both",
+            "prompt": "  HELD OUT  ",
+            "expected": "held out"
+          },
+          {
+            "task_id": "heldout-noop",
+            "prompt": "unchanged",
+            "expected": "unchanged"
+          }
+        ],
+        "baseline": {
+          "accuracy": 0.25,
+          "usage": {
+            "input_tokens": 38,
+            "output_tokens": 6,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "heldout-lowercase",
+              "output": "NEW TASK",
+              "correct": false,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "heldout-strip",
+              "output": "  FRESH  ",
+              "correct": false,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "heldout-both",
+              "output": "  HELD OUT  ",
+              "correct": false,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "heldout-noop",
+              "output": "unchanged",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "successor": {
+          "accuracy": 1.0,
+          "usage": {
+            "input_tokens": 38,
+            "output_tokens": 6,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "heldout-lowercase",
+              "output": "new task",
+              "correct": true,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "heldout-strip",
+              "output": "fresh",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "heldout-both",
+              "output": "held out",
+              "correct": true,
+              "usage": {
+                "input_tokens": 10,
+                "output_tokens": 2,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "heldout-noop",
+              "output": "unchanged",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "reused_base_evaluation": true
+      },
+      {
+        "family": "unicode_normalization",
+        "role": "transfer",
+        "tasks": [
+          {
+            "task_id": "transfer-accent",
+            "prompt": "CAFÉ",
+            "expected": "café"
+          },
+          {
+            "task_id": "transfer-cjk",
+            "prompt": "  中文  ",
+            "expected": "中文"
+          },
+          {
+            "task_id": "transfer-both",
+            "prompt": "  NAÏVE  ",
+            "expected": "naïve"
+          },
+          {
+            "task_id": "transfer-noop",
+            "prompt": "déjà",
+            "expected": "déjà"
+          }
+        ],
+        "baseline": {
+          "accuracy": 0.25,
+          "usage": {
+            "input_tokens": 36,
+            "output_tokens": 4,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "transfer-accent",
+              "output": "CAFÉ",
+              "correct": false,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "transfer-cjk",
+              "output": "  中文  ",
+              "correct": false,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "transfer-both",
+              "output": "  NAÏVE  ",
+              "correct": false,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "transfer-noop",
+              "output": "déjà",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "successor": {
+          "accuracy": 1.0,
+          "usage": {
+            "input_tokens": 36,
+            "output_tokens": 4,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "transfer-accent",
+              "output": "café",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "transfer-cjk",
+              "output": "中文",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "transfer-both",
+              "output": "naïve",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "transfer-noop",
+              "output": "déjà",
+              "correct": true,
+              "usage": {
+                "input_tokens": 9,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "reused_base_evaluation": false
+      }
+    ],
+    "summary": {
+      "metric": "exact_match_accuracy",
+      "target_baseline_accuracy": 0.25,
+      "target_successor_accuracy": 1.0,
+      "target_improvement": 0.75,
+      "min_source_baseline_accuracy": 1.0,
+      "min_source_successor_accuracy": 0.25,
+      "worst_source_accuracy_delta": -0.75,
+      "mean_transfer_baseline_accuracy": 0.25,
+      "mean_transfer_successor_accuracy": 1.0,
+      "mean_transfer_improvement": 0.75,
+      "additional_agent_invocations": 16,
+      "additional_input_tokens": 148,
+      "additional_output_tokens": 20,
+      "additional_cost_usd": 0.0,
+      "total_matrix_input_tokens": 224,
+      "total_matrix_output_tokens": 32,
+      "total_matrix_cost_usd": 0.0,
+      "interpretation": "Accuracy delta is successor minus baseline; negative source delta indicates regression",
+      "scope": "Task-family transfer and regression results are specific to the registered executor and tasks"
+    }
+  }
+}

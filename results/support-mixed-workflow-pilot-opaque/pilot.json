@@ -1,0 +1,8 @@
+{
+  "seed": 101,
+  "heldout_tasks_evaluated": 0,
+  "initial_train_accuracy": 0.0,
+  "candidate_train_accuracy": 1.0,
+  "model_steps": 15,
+  "network_calls_this_run": 15
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merit · Meta-Plasticity</title>
+<style>
+:root{--ink:#15263b;--muted:#64748b;--line:#dce4ec;--paper:#f5f7fa;--accent:#0f766e}*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1200px;margin:auto;padding:42px 22px}
+h1{margin:6px 0;font-size:34px}h2{margin-top:30px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em}.subtitle{color:var(--muted)}
+.notice{background:#fff7df;border:1px solid #ecd28a;border-radius:12px;padding:14px 18px;margin:20px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.label{color:var(--muted);font-size:13px}.value{font-size:26px;font-weight:750}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{background:#eaf0f5;color:#475569;font-size:12px}th:first-child,td:first-child{text-align:left}.positive{color:#047857;font-weight:700}.negative{color:#b91c1c;font-weight:700}footer{margin-top:26px;color:var(--muted);font-size:13px}
+</style></head><body><main>
+<div class="eyebrow">MERIT META-PLASTICITY</div><h1>早期／晚期改进器可塑性</h1>
+<p class="subtitle">当前 Agent 与改进器快照分开评测。早晚改进器从共同后继起点出发，使用相同后续任务、候选预算与 proposer 配置；差值均为晚期 − 早期。</p>
+<div class="notice"><strong>边界：</strong>早晚快照来自本机 qwen2.5:7b 的真实训练运行。后续优化从同一个 BASE Agent 出发，候选预算、训练任务和测试任务一致。样本只有 2 条轨迹 × 2 个后续种子，结果只描述这组受限提示修改，不能证明开放式 RSI 可塑性。</div>
+<section class="cards">
+<div class="card"><div class="label">当前 Agent 差值（晚 − 早）</div><div class="value">+0.00%</div></div>
+<div class="card"><div class="label">后继质量差值（晚 − 早）</div><div class="value negative">+0.00%</div></div>
+<div class="card"><div class="label">轨迹层级 Bootstrap 95% CI</div><div class="value">[+0.00%, +0.00%]</div></div>
+<div class="card"><div class="label">早期／晚期达开发阈值的平均评估数</div><div class="value">1 / 1</div></div>
+</section>
+<p>开发阈值：100%；早期／晚期达阈率：100.00% / 100.00%。未达到预算内阈值的运行按右删失保留，不当作 0 次或任意填入预算值。</p>
+<h2>逐轨迹结果</h2>
+<div class="table-wrap"><table><thead><tr><th>轨迹</th><th>配对种子</th><th>当前 Agent 差值</th><th>后继质量差值</th><th>早期达阈评估</th><th>晚期达阈评估</th></tr></thead><tbody><tr><td>support-1010</td><td>2</td><td>+0.00%</td><td class="positive">+0.00%</td><td>1</td><td>1</td></tr><tr><td>support-2020</td><td>2</td><td>+0.00%</td><td class="positive">+0.00%</td><td>1</td><td>1</td></tr></tbody></table></div>
+<h2>迁移与旧能力</h2>
+<div class="table-wrap"><table><thead><tr><th>任务族</th><th>角色</th><th>早期后继</th><th>晚期后继</th><th>早期相对共同起点</th><th>晚期相对共同起点</th><th>后继差值（晚 − 早）</th></tr></thead><tbody><tr><td>support_final_source</td><td>source</td><td>50.00%</td><td>50.00%</td><td>+0.00%</td><td>+0.00%</td><td>+0.00%</td></tr><tr><td>support_transfer</td><td>transfer</td><td>100.00%</td><td>100.00%</td><td>+50.00%</td><td>+50.00%</td><td>+0.00%</td></tr></tbody></table></div>
+<h2>成本口径</h2>
+<div class="card"><p>早期／晚期方法成本：$0.0000 / $0.0000。方法成本包含后续被评 Agent、proposer 和迁移后继复评。</p><p>共同起点复评、早晚当前 Agent 快照复评单独记录；全部观测成本 $0.0000。逐阶段 token、usage 和调用记录见 evidence.json。</p></div>
+<footer>协议：merit-meta-plasticity-v0.1 · 轨迹 2 条 × 每条 2 个种子 · 每阶段候选预算 1 · 统计单位是轨迹而不是全部种子。</footer>
+</main></body></html>

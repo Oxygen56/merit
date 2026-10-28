@@ -1,0 +1,74 @@
+{
+  "scope": "train-only pilot; no final-test tasks were evaluated",
+  "strict_validator_pilot": {
+    "proposal_model_calls": 3,
+    "candidate_evaluations": 0,
+    "outcome": "no structurally valid candidate after three attempts",
+    "heldout_tasks_evaluated": 0
+  },
+  "normalized_validator_pilot": {
+    "proposal_model_calls": 2,
+    "candidate_evaluations": 1,
+    "initial_train_accuracy": 0.6666666666666666,
+    "candidate_train_accuracy": 0.6666666666666666,
+    "candidate_accepted": false,
+    "initial_train_usage": {
+      "input_tokens": 2177,
+      "output_tokens": 163,
+      "latency_ms": 18516.609206795692
+    },
+    "candidate_train_usage": {
+      "input_tokens": 1278,
+      "output_tokens": 72,
+      "latency_ms": 5976.709124399349
+    },
+    "proposer_usage": {
+      "input_tokens": 889,
+      "output_tokens": 202,
+      "cost_usd": 0.0,
+      "latency_ms": 12691.821792162955,
+      "tokens_reported": true,
+      "cost_reported": false,
+      "cost_is_estimate": false
+    },
+    "copied_record_keys": [],
+    "candidate_used_placeholder_order_key_on_every_task": true,
+    "candidate_correct_missing_record_outputs_did_not_follow_ticket_lookup": true,
+    "heldout_tasks_evaluated": 0,
+    "candidate_tasks": [
+      {
+        "task_id": "train-normal-5001",
+        "correct": false,
+        "actions": [
+          "lookup",
+          "final"
+        ],
+        "lookup_argument": "order_key",
+        "lookup_error": "Unknown lookup key",
+        "final_output": "REFUND_UNAVAILABLE"
+      },
+      {
+        "task_id": "train-missing-order-5002",
+        "correct": true,
+        "actions": [
+          "lookup",
+          "final"
+        ],
+        "lookup_argument": "order_key",
+        "lookup_error": "Unknown lookup key",
+        "final_output": "REFUND_UNAVAILABLE"
+      },
+      {
+        "task_id": "train-missing-policy-5003",
+        "correct": true,
+        "actions": [
+          "lookup",
+          "final"
+        ],
+        "lookup_argument": "order_key",
+        "lookup_error": "Unknown lookup key",
+        "final_output": "REFUND_UNAVAILABLE"
+      }
+    ]
+  }
+}

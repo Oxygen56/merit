@@ -1,0 +1,64 @@
+{
+  "task_traces": [
+    {
+      "task_id": "train-normal-5001",
+      "correct": false,
+      "action_sequence": [
+        "lookup",
+        "final"
+      ],
+      "first_lookup_used_input_ticket": false,
+      "literal_placeholder_lookup_arguments": [
+        "order_key"
+      ],
+      "tool_errors": [
+        "Unknown lookup key"
+      ]
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "correct": true,
+      "action_sequence": [
+        "lookup",
+        "final"
+      ],
+      "first_lookup_used_input_ticket": false,
+      "literal_placeholder_lookup_arguments": [
+        "order_key"
+      ],
+      "tool_errors": [
+        "Unknown lookup key"
+      ]
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "correct": true,
+      "action_sequence": [
+        "lookup",
+        "final"
+      ],
+      "first_lookup_used_input_ticket": false,
+      "literal_placeholder_lookup_arguments": [
+        "order_key"
+      ],
+      "tool_errors": [
+        "Unknown lookup key"
+      ]
+    }
+  ],
+  "detected_issues": {
+    "tasks_skipping_input_ticket_lookup": [
+      "train-normal-5001",
+      "train-missing-order-5002",
+      "train-missing-policy-5003"
+    ],
+    "literal_placeholder_arguments": [
+      "order_key"
+    ]
+  },
+  "general_corrections": [
+    "Treat placeholders in instruction examples as non-executable text.",
+    "Start each task by looking up the ticket key supplied in that task input.",
+    "Use returned record keys for dependent lookups; stop only after an actual required record is missing."
+  ]
+}

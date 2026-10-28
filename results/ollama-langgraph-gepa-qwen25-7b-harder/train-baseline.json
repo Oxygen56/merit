@@ -1,0 +1,339 @@
+{
+  "experiment": "ollama-langgraph-gepa-qwen25-7b-diagnostic-v1:training-only-pilot",
+  "model": "qwen2.5:7b",
+  "train_tasks": 22,
+  "seeds": [
+    101,
+    202
+  ],
+  "per_seed_accuracy": {
+    "101": 0.8181818181818182,
+    "202": 0.8181818181818182
+  },
+  "failure_tasks": {
+    "simple_python_0": 2,
+    "simple_python_15": 2,
+    "simple_python_89": 2,
+    "simple_python_260": 2
+  },
+  "network_calls_this_run": 24,
+  "cache_hits_this_run": 20,
+  "paid_api_calls": 0,
+  "dataset_source": {
+    "name": "BFCL v4 simple_python",
+    "url": "https://github.com/ShishirPatil/gorilla/tree/main/berkeley-function-call-leaderboard/bfcl_eval/data",
+    "license": "Apache-2.0",
+    "selection": "The original 10 training tasks plus 12 source-feature-stratified additions covering optional parameters, arrays, nested objects, numeric types, and exact values. The original 30 held-out tasks are unchanged. Difficulty is assessed on training tasks only.",
+    "metric_notice": "BFCL-derived required-argument JSON exact match; not an official BFCL score. Public tasks may occur in model training data. Optional defaults use the first BFCL alternative; nested objects and arrays follow the supplied schema. This is a diagnostic follow-up after inspecting earlier test errors, not an untouched benchmark."
+  },
+  "results": [
+    {
+      "seed": 101,
+      "task_id": "simple_python_1",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}",
+      "output": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_3",
+      "correct": true,
+      "expected": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}",
+      "output": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_4",
+      "correct": true,
+      "expected": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}",
+      "output": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_6",
+      "correct": true,
+      "expected": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}",
+      "output": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_11",
+      "correct": true,
+      "expected": "{\"arguments\":{\"base\":10,\"height\":5},\"name\":\"calculate_triangle_area\"}",
+      "output": "{\"arguments\":{\"base\":10,\"height\":5},\"name\":\"calculate_triangle_area\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_17",
+      "correct": true,
+      "expected": "{\"arguments\":{\"formatted\":true,\"number\":450},\"name\":\"get_prime_factors\"}",
+      "output": "{\"arguments\":{\"formatted\":true,\"number\":450},\"name\":\"get_prime_factors\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_18",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number\":123456},\"name\":\"number_analysis.prime_factors\"}",
+      "output": "{\"arguments\":{\"number\":123456},\"name\":\"number_analysis.prime_factors\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_19",
+      "correct": true,
+      "expected": "{\"arguments\":{\"num1\":40,\"num2\":50},\"name\":\"math.gcd\"}",
+      "output": "{\"arguments\":{\"num1\":40,\"num2\":50},\"name\":\"math.gcd\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_20",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number1\":36,\"number2\":24},\"name\":\"math.hcf\"}",
+      "output": "{\"arguments\":{\"number1\":36,\"number2\":24},\"name\":\"math.hcf\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_21",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number1\":36,\"number2\":48},\"name\":\"number_theory.gcd\"}",
+      "output": "{\"arguments\":{\"number1\":36,\"number2\":48},\"name\":\"number_theory.gcd\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_0",
+      "correct": false,
+      "expected": "{\"arguments\":{\"base\":10,\"height\":5,\"unit\":\"units\"},\"name\":\"calculate_triangle_area\"}",
+      "output": "{\"arguments\":{\"base\":10,\"height\":5},\"name\":\"calculate_triangle_area\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_15",
+      "correct": false,
+      "expected": "{\"arguments\":{\"end_x\":3,\"function\":\"x**3\",\"method\":\"simpson\",\"start_x\":-2},\"name\":\"integrate\"}",
+      "output": "{\"arguments\":{\"end_x\":3,\"function\":\"x^3\",\"method\":\"simpson\",\"start_x\":-2},\"name\":\"integrate\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_28",
+      "correct": true,
+      "expected": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":10,\"time\":5},\"name\":\"calculate_displacement\"}",
+      "output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":10,\"time\":5},\"name\":\"calculate_displacement\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_34",
+      "correct": true,
+      "expected": "{\"arguments\":{\"daily_budget\":100,\"days\":7,\"destination\":\"Tokyo\",\"exploration_type\":\"nature\"},\"name\":\"travel_itinerary_generator\"}",
+      "output": "{\"arguments\":{\"daily_budget\":100,\"days\":7,\"destination\":\"Tokyo\",\"exploration_type\":\"nature\"},\"name\":\"travel_itinerary_generator\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_89",
+      "correct": false,
+      "expected": "{\"arguments\":{\"conditions\":{\"department\":\"Science\",\"school\":\"Bluebird High School\"},\"database_name\":\"StudentDB\",\"table_name\":\"students\"},\"name\":\"db_fetch_records\"}",
+      "output": "{\"arguments\":{\"conditions\":{\"department\":\"Science\",\"school\":\"Bluebird High School\"},\"database_name\":\"StudentDB\",\"fetch_limit\":0,\"table_name\":\"students\"},\"name\":\"db_fetch_records\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_94",
+      "correct": true,
+      "expected": "{\"arguments\":{\"database\":\"CustomerInfo\",\"update_info\":{\"email\":\"johndoe@email.com\",\"name\":\"John Doe\"},\"user_id\":43523},\"name\":\"update_user_info\"}",
+      "output": "{\"arguments\":{\"database\":\"CustomerInfo\",\"update_info\":{\"email\":\"johndoe@email.com\",\"name\":\"John Doe\"},\"user_id\":43523},\"name\":\"update_user_info\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_108",
+      "correct": true,
+      "expected": "{\"arguments\":{\"predictors\":[\"Age\",\"Income\",\"Education\"],\"standardize\":true,\"target\":\"Purchase_Amount\"},\"name\":\"run_linear_regression\"}",
+      "output": "{\"arguments\":{\"predictors\":[\"Age\",\"Income\",\"Education\"],\"standardize\":true,\"target\":\"Purchase_Amount\"},\"name\":\"run_linear_regression\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_119",
+      "correct": true,
+      "expected": "{\"arguments\":{\"sample1\":[22,33,42,12,34],\"sample2\":[23,45,44,14,38],\"significance_level\":0.05},\"name\":\"hypothesis_testing.ttest_ind\"}",
+      "output": "{\"arguments\":{\"sample1\":[22,33,42,12,34],\"sample2\":[23,45,44,14,38],\"significance_level\":0.05},\"name\":\"hypothesis_testing.ttest_ind\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_120",
+      "correct": true,
+      "expected": "{\"arguments\":{\"equal_variance\":true,\"group1\":[3,4,5,6,4],\"group2\":[7,8,9,8,7]},\"name\":\"run_two_sample_ttest\"}",
+      "output": "{\"arguments\":{\"equal_variance\":true,\"group1\":[3,4,5,6,4],\"group2\":[7,8,9,8,7]},\"name\":\"run_two_sample_ttest\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_122",
+      "correct": true,
+      "expected": "{\"arguments\":{\"alpha\":0.05,\"table\":[[10,20],[30,40]]},\"name\":\"chi_squared_test\"}",
+      "output": "{\"arguments\":{\"alpha\":0.05,\"table\":[[10,20],[30,40]]},\"name\":\"chi_squared_test\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_126",
+      "correct": true,
+      "expected": "{\"arguments\":{\"dataset_path\":\"C:/data/cars.csv\",\"dependent_variable\":\"car_price\",\"independent_variables\":[\"engine_size\",\"fuel_economy\"]},\"name\":\"linear_regression.get_r_squared\"}",
+      "output": "{\"arguments\":{\"dataset_path\":\"C:/data/cars.csv\",\"dependent_variable\":\"car_price\",\"independent_variables\":[\"engine_size\",\"fuel_economy\"]},\"name\":\"linear_regression.get_r_squared\"}"
+    },
+    {
+      "seed": 101,
+      "task_id": "simple_python_260",
+      "correct": false,
+      "expected": "{\"arguments\":{\"area\":{\"height\":12,\"width\":20},\"exclusion\":{\"area\":15,\"type\":\"window\"},\"paint_coverage\":350},\"name\":\"paint_requirement.calculate\"}",
+      "output": "{\"arguments\":{\"area\":{\"height\":12,\"width\":20},\"exclusion\":{\"area\":15},\"paint_coverage\":350},\"name\":\"paint_requirement.calculate\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_1",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}",
+      "output": "{\"arguments\":{\"number\":5},\"name\":\"math.factorial\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_3",
+      "correct": true,
+      "expected": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}",
+      "output": "{\"arguments\":{\"a\":1,\"b\":-3,\"c\":2},\"name\":\"algebra.quadratic_roots\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_4",
+      "correct": true,
+      "expected": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}",
+      "output": "{\"arguments\":{\"a\":2,\"b\":6,\"c\":5},\"name\":\"solve_quadratic_equation\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_6",
+      "correct": true,
+      "expected": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}",
+      "output": "{\"arguments\":{\"a\":2,\"b\":5,\"c\":3},\"name\":\"solve_quadratic\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_11",
+      "correct": true,
+      "expected": "{\"arguments\":{\"base\":10,\"height\":5},\"name\":\"calculate_triangle_area\"}",
+      "output": "{\"arguments\":{\"base\":10,\"height\":5},\"name\":\"calculate_triangle_area\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_17",
+      "correct": true,
+      "expected": "{\"arguments\":{\"formatted\":true,\"number\":450},\"name\":\"get_prime_factors\"}",
+      "output": "{\"arguments\":{\"formatted\":true,\"number\":450},\"name\":\"get_prime_factors\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_18",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number\":123456},\"name\":\"number_analysis.prime_factors\"}",
+      "output": "{\"arguments\":{\"number\":123456},\"name\":\"number_analysis.prime_factors\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_19",
+      "correct": true,
+      "expected": "{\"arguments\":{\"num1\":40,\"num2\":50},\"name\":\"math.gcd\"}",
+      "output": "{\"arguments\":{\"num1\":40,\"num2\":50},\"name\":\"math.gcd\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_20",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number1\":36,\"number2\":24},\"name\":\"math.hcf\"}",
+      "output": "{\"arguments\":{\"number1\":36,\"number2\":24},\"name\":\"math.hcf\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_21",
+      "correct": true,
+      "expected": "{\"arguments\":{\"number1\":36,\"number2\":48},\"name\":\"number_theory.gcd\"}",
+      "output": "{\"arguments\":{\"number1\":36,\"number2\":48},\"name\":\"number_theory.gcd\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_0",
+      "correct": false,
+      "expected": "{\"arguments\":{\"base\":10,\"height\":5,\"unit\":\"units\"},\"name\":\"calculate_triangle_area\"}",
+      "output": "{\"arguments\":{\"base\":10,\"height\":5},\"name\":\"calculate_triangle_area\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_15",
+      "correct": false,
+      "expected": "{\"arguments\":{\"end_x\":3,\"function\":\"x**3\",\"method\":\"simpson\",\"start_x\":-2},\"name\":\"integrate\"}",
+      "output": "{\"arguments\":{\"end_x\":3,\"function\":\"x^3\",\"method\":\"simpson\",\"start_x\":-2},\"name\":\"integrate\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_28",
+      "correct": true,
+      "expected": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":10,\"time\":5},\"name\":\"calculate_displacement\"}",
+      "output": "{\"arguments\":{\"acceleration\":9.8,\"initial_velocity\":10,\"time\":5},\"name\":\"calculate_displacement\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_34",
+      "correct": true,
+      "expected": "{\"arguments\":{\"daily_budget\":100,\"days\":7,\"destination\":\"Tokyo\",\"exploration_type\":\"nature\"},\"name\":\"travel_itinerary_generator\"}",
+      "output": "{\"arguments\":{\"daily_budget\":100,\"days\":7,\"destination\":\"Tokyo\",\"exploration_type\":\"nature\"},\"name\":\"travel_itinerary_generator\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_89",
+      "correct": false,
+      "expected": "{\"arguments\":{\"conditions\":{\"department\":\"Science\",\"school\":\"Bluebird High School\"},\"database_name\":\"StudentDB\",\"table_name\":\"students\"},\"name\":\"db_fetch_records\"}",
+      "output": "{\"arguments\":{\"conditions\":{\"department\":\"Science\",\"school\":\"Bluebird High School\"},\"database_name\":\"StudentDB\",\"fetch_limit\":0,\"table_name\":\"students\"},\"name\":\"db_fetch_records\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_94",
+      "correct": true,
+      "expected": "{\"arguments\":{\"database\":\"CustomerInfo\",\"update_info\":{\"email\":\"johndoe@email.com\",\"name\":\"John Doe\"},\"user_id\":43523},\"name\":\"update_user_info\"}",
+      "output": "{\"arguments\":{\"database\":\"CustomerInfo\",\"update_info\":{\"email\":\"johndoe@email.com\",\"name\":\"John Doe\"},\"user_id\":43523},\"name\":\"update_user_info\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_108",
+      "correct": true,
+      "expected": "{\"arguments\":{\"predictors\":[\"Age\",\"Income\",\"Education\"],\"standardize\":true,\"target\":\"Purchase_Amount\"},\"name\":\"run_linear_regression\"}",
+      "output": "{\"arguments\":{\"predictors\":[\"Age\",\"Income\",\"Education\"],\"standardize\":true,\"target\":\"Purchase_Amount\"},\"name\":\"run_linear_regression\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_119",
+      "correct": true,
+      "expected": "{\"arguments\":{\"sample1\":[22,33,42,12,34],\"sample2\":[23,45,44,14,38],\"significance_level\":0.05},\"name\":\"hypothesis_testing.ttest_ind\"}",
+      "output": "{\"arguments\":{\"sample1\":[22,33,42,12,34],\"sample2\":[23,45,44,14,38],\"significance_level\":0.05},\"name\":\"hypothesis_testing.ttest_ind\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_120",
+      "correct": true,
+      "expected": "{\"arguments\":{\"equal_variance\":true,\"group1\":[3,4,5,6,4],\"group2\":[7,8,9,8,7]},\"name\":\"run_two_sample_ttest\"}",
+      "output": "{\"arguments\":{\"equal_variance\":true,\"group1\":[3,4,5,6,4],\"group2\":[7,8,9,8,7]},\"name\":\"run_two_sample_ttest\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_122",
+      "correct": true,
+      "expected": "{\"arguments\":{\"alpha\":0.05,\"table\":[[10,20],[30,40]]},\"name\":\"chi_squared_test\"}",
+      "output": "{\"arguments\":{\"alpha\":0.05,\"table\":[[10,20],[30,40]]},\"name\":\"chi_squared_test\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_126",
+      "correct": true,
+      "expected": "{\"arguments\":{\"dataset_path\":\"C:/data/cars.csv\",\"dependent_variable\":\"car_price\",\"independent_variables\":[\"engine_size\",\"fuel_economy\"]},\"name\":\"linear_regression.get_r_squared\"}",
+      "output": "{\"arguments\":{\"dataset_path\":\"C:/data/cars.csv\",\"dependent_variable\":\"car_price\",\"independent_variables\":[\"engine_size\",\"fuel_economy\"]},\"name\":\"linear_regression.get_r_squared\"}"
+    },
+    {
+      "seed": 202,
+      "task_id": "simple_python_260",
+      "correct": false,
+      "expected": "{\"arguments\":{\"area\":{\"height\":12,\"width\":20},\"exclusion\":{\"area\":15,\"type\":\"window\"},\"paint_coverage\":350},\"name\":\"paint_requirement.calculate\"}",
+      "output": "{\"arguments\":{\"area\":{\"height\":12,\"width\":20},\"exclusion\":{\"area\":15},\"paint_coverage\":350},\"name\":\"paint_requirement.calculate\"}"
+    }
+  ]
+}

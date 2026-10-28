@@ -1,0 +1,60 @@
+{
+  "seed": 101,
+  "heldout_tasks_evaluated": 0,
+  "validation_retry_enabled": true,
+  "proposal_model_calls": 3,
+  "initial_train_accuracy": 0.6666666666666666,
+  "initial_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": false,
+      "usage": {
+        "input_tokens": 733,
+        "output_tokens": 55,
+        "cost_usd": 0.0,
+        "latency_ms": 11311.830541817471,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 715,
+        "output_tokens": 54,
+        "cost_usd": 0.0,
+        "latency_ms": 3592.7758330944926,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 729,
+        "output_tokens": 54,
+        "cost_usd": 0.0,
+        "latency_ms": 3612.0028318837285,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_train_accuracy": null,
+  "candidate_accepted": null,
+  "candidate_instructions": null,
+  "candidate_results": [],
+  "candidate_evaluations": 0,
+  "network_calls_this_run": 15,
+  "proposal_error": "Proposer returned invalid instructions after 3 attempts: The response is not a complete replacement prompt. Preserve these required lines verbatim: To read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}. | To calculate, return {\"action\":\"calculator\",\"argument\":\"<numeric expression>\"}. | To finish, return {\"action\":\"final\",\"argument\":\"<answer>\"}. | Never guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+  "model_steps": 12,
+  "cache_hits_this_run": 0
+}

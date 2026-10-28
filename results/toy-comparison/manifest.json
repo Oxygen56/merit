@@ -1,0 +1,30 @@
+{
+  "experiment": "toy-random-vs-coordinate",
+  "baseline": "random_search",
+  "challenger": "coordinate_search",
+  "seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012
+  ],
+  "candidate_budget": 64,
+  "train_size": 40,
+  "test_size": 80,
+  "feature_dim": 4,
+  "controls": [
+    "no_change",
+    "random_edit",
+    "memory_reset"
+  ],
+  "protocol_version": "merit-paired-v0.1",
+  "manifest_digest": "dc305b05412ccb922d718909efac2ca5ab145c4a2c01bf6e67b688c39e714b4b"
+}

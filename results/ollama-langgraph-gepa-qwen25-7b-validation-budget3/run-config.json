@@ -1,0 +1,36 @@
+{
+  "experiment": "ollama-langgraph-gepa-qwen25-7b-validation-budget3-v1",
+  "executor": "langgraph_tool",
+  "model": {
+    "name": "qwen2.5:7b",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "timeout_seconds": 120,
+    "max_network_calls": 1200
+  },
+  "agent": {
+    "instructions": "Read the JSON input. Select the appropriate tool and return a JSON object with name and arguments.",
+    "config": {
+      "temperature": 0,
+      "max_tokens": 192
+    }
+  },
+  "dataset": "data/bfcl_tool_validation_split.json",
+  "seeds": [
+    101,
+    202
+  ],
+  "candidate_budget": 3,
+  "methods": {
+    "baseline": "no_change",
+    "challenger": "gepa",
+    "controls": [
+      "random_prompt_edit",
+      "model_reflection"
+    ]
+  },
+  "gepa": {
+    "reflection_minibatch_size": 3,
+    "feedback_format": "structured_json_diff",
+    "selection_data": "validation"
+  }
+}

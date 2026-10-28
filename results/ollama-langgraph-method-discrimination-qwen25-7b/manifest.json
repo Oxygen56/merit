@@ -1,0 +1,28 @@
+{
+  "experiment": "ollama-langgraph-method-discrimination-qwen25-7b-v1",
+  "executor": "langgraph_tools:ollama:qwen2.5:7b",
+  "baseline": "no_change",
+  "challenger": "empty_json",
+  "candidate_budget": 1,
+  "runs": [
+    {
+      "seed": 101,
+      "start_artifact_id": "1013316388328a5f2e1c7cdc3389108d627c7cf837a9e95d324937eab258cf16",
+      "train_task_digest": "ca9de92de9eeeffe610e79e2ca6b8e3228eb2a8c44b03fa928592dc34dff47ec",
+      "heldout_task_digest": "75602dacf9b6a07c31c6162d455153b48a93e36226e5da5b46d6987f47d07eda",
+      "validation_task_digest": null
+    },
+    {
+      "seed": 202,
+      "start_artifact_id": "3ff172a8fae852a5980a793c143b93c99243bb5eb6c5cf2a9be24a1e2c2e5016",
+      "train_task_digest": "ca9de92de9eeeffe610e79e2ca6b8e3228eb2a8c44b03fa928592dc34dff47ec",
+      "heldout_task_digest": "75602dacf9b6a07c31c6162d455153b48a93e36226e5da5b46d6987f47d07eda",
+      "validation_task_digest": null
+    }
+  ],
+  "protocol_version": "merit-agent-paired-v0.1",
+  "controls": [
+    "schema_guided_prompt"
+  ],
+  "manifest_digest": "40439b49d6cefb7a8da273a56b28261f2acbc8de897c4fd0111b4d30e9edce5f"
+}

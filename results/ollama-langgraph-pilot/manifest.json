@@ -1,0 +1,20 @@
+{
+  "experiment": "ollama-langgraph-bfcl-pilot",
+  "executor": "langgraph_tools:ollama:qwen2.5:0.5b",
+  "baseline": "no_change",
+  "challenger": "model_reflection",
+  "candidate_budget": 1,
+  "runs": [
+    {
+      "seed": 101,
+      "start_artifact_id": "1013316388328a5f2e1c7cdc3389108d627c7cf837a9e95d324937eab258cf16",
+      "train_task_digest": "078ca213f8ef2d9aeaa9a6cd385d6694a2c03a276b2dcc943b9a9ffda6acca31",
+      "heldout_task_digest": "0f85e4fde4fc9b46e568be24bd023c8b5ebe3de7e6547e2f86d6c75c87222f2b"
+    }
+  ],
+  "protocol_version": "merit-agent-paired-v0.1",
+  "controls": [
+    "random_prompt_edit"
+  ],
+  "manifest_digest": "27c74c389cb92082d362233891dabf81b47b729471b9f7d0e5c25bb16ab1cfc6"
+}

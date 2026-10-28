@@ -1,0 +1,40 @@
+{
+  "experiment": "local-support-workflow-harmful",
+  "executor": "multi_step_tools:ollama:qwen2.5:7b",
+  "baseline": "no_change",
+  "challenger": "empty_json",
+  "candidate_budget": 1,
+  "runs": [
+    {
+      "seed": 1010,
+      "start_artifact_id": "2d2835ffe5769fbe8f1175f18b5733caaa7e42e6d0549f81e110fb6f437020cc",
+      "train_task_digest": "18d372658da1db740487c238106d59b05a46a189a0e975dde6eeedeea1d03fa9",
+      "heldout_task_digest": "f6511107e84695526abb6c2ecd77246c686f81d3797808fe8d2d9019d7052ad9",
+      "validation_task_digest": null
+    },
+    {
+      "seed": 1011,
+      "start_artifact_id": "55355ffcdedaa894393e828dc95dd695fb5d641cd6a92776ff7ce2b265a798ee",
+      "train_task_digest": "18d372658da1db740487c238106d59b05a46a189a0e975dde6eeedeea1d03fa9",
+      "heldout_task_digest": "f6511107e84695526abb6c2ecd77246c686f81d3797808fe8d2d9019d7052ad9",
+      "validation_task_digest": null
+    },
+    {
+      "seed": 2020,
+      "start_artifact_id": "1655749423de07683c1349bc6192c4bd6256d651339cc01196afe56ba1ddf952",
+      "train_task_digest": "18d372658da1db740487c238106d59b05a46a189a0e975dde6eeedeea1d03fa9",
+      "heldout_task_digest": "f6511107e84695526abb6c2ecd77246c686f81d3797808fe8d2d9019d7052ad9",
+      "validation_task_digest": null
+    },
+    {
+      "seed": 2021,
+      "start_artifact_id": "b12d18f1515761773f7a039897b33efeb1629ae7dc8a28eb83a014e8fa091a72",
+      "train_task_digest": "18d372658da1db740487c238106d59b05a46a189a0e975dde6eeedeea1d03fa9",
+      "heldout_task_digest": "f6511107e84695526abb6c2ecd77246c686f81d3797808fe8d2d9019d7052ad9",
+      "validation_task_digest": null
+    }
+  ],
+  "protocol_version": "merit-agent-paired-v0.1",
+  "controls": [],
+  "manifest_digest": "97e2a20f04a9f3a3d0094e3316ec2c4545c703c76c0fe0ce40d11fbba33c7869"
+}

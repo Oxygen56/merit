@@ -1,0 +1,82 @@
+{
+  "task_traces": [
+    {
+      "task_id": "train-normal-5001",
+      "correct": true,
+      "action_sequence": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "calculator",
+        "final"
+      ],
+      "first_lookup_used_input_ticket": true,
+      "literal_placeholder_lookup_arguments": [],
+      "calculation_before_successful_policy_lookup": false,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 0,
+      "ended_with_final": true,
+      "tool_errors": []
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "correct": true,
+      "action_sequence": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "final"
+      ],
+      "first_lookup_used_input_ticket": true,
+      "literal_placeholder_lookup_arguments": [],
+      "calculation_before_successful_policy_lookup": false,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 1,
+      "ended_with_final": true,
+      "tool_errors": [
+        "Unknown lookup key"
+      ]
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "correct": true,
+      "action_sequence": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "calculator",
+        "final"
+      ],
+      "first_lookup_used_input_ticket": true,
+      "literal_placeholder_lookup_arguments": [],
+      "calculation_before_successful_policy_lookup": true,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 1,
+      "ended_with_final": true,
+      "tool_errors": [
+        "Unknown lookup key"
+      ]
+    }
+  ],
+  "detected_issues": {
+    "tasks_skipping_input_ticket_lookup": [],
+    "literal_placeholder_arguments": [],
+    "tasks_calculating_before_policy_lookup": [
+      "train-missing-policy-5003"
+    ],
+    "tasks_repeating_failed_lookups": [],
+    "tasks_continuing_after_required_record_failure": [
+      "train-missing-order-5002",
+      "train-missing-policy-5003"
+    ],
+    "tasks_without_final_answer": []
+  },
+  "general_corrections": [
+    "Treat placeholders in instruction examples as non-executable text.",
+    "Start each task by looking up the ticket key supplied in that task input.",
+    "Use returned record keys for dependent lookups; stop only after an actual required record is missing.",
+    "Do not calculate until the policy lookup has succeeded and returned a numeric rate.",
+    "Never repeat a failed lookup with the same key; after a required record is missing, return REFUND_UNAVAILABLE.",
+    "Once a required record lookup fails, return REFUND_UNAVAILABLE immediately without further lookups or calculations."
+  ]
+}

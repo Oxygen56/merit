@@ -1,0 +1,27 @@
+{
+  "experiment": "ollama-langgraph-gepa-qwen25-7b-v1",
+  "executor": "langgraph_tools:ollama:qwen2.5:7b",
+  "baseline": "no_change",
+  "challenger": "gepa",
+  "candidate_budget": 1,
+  "runs": [
+    {
+      "seed": 101,
+      "start_artifact_id": "1013316388328a5f2e1c7cdc3389108d627c7cf837a9e95d324937eab258cf16",
+      "train_task_digest": "db2a418ea3884372efb926a2ec9dcd8cb3d9482e77ab73ad5d29476637a3fed5",
+      "heldout_task_digest": "6995baf2abfc6d26d8d855055a34bcb77a68626ab8e484ac1de85340dbede202"
+    },
+    {
+      "seed": 202,
+      "start_artifact_id": "3ff172a8fae852a5980a793c143b93c99243bb5eb6c5cf2a9be24a1e2c2e5016",
+      "train_task_digest": "db2a418ea3884372efb926a2ec9dcd8cb3d9482e77ab73ad5d29476637a3fed5",
+      "heldout_task_digest": "6995baf2abfc6d26d8d855055a34bcb77a68626ab8e484ac1de85340dbede202"
+    }
+  ],
+  "protocol_version": "merit-agent-paired-v0.1",
+  "controls": [
+    "random_prompt_edit",
+    "model_reflection"
+  ],
+  "manifest_digest": "ef80ecd98b925e60bf3f070869a6065640227f5e3b76fe0c782e900fa335563a"
+}

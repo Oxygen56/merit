@@ -1,0 +1,29 @@
+{
+  "experiment": "ollama-langgraph-gepa-qwen25-7b-validation-budget3-v1",
+  "executor": "langgraph_tools:ollama:qwen2.5:7b",
+  "baseline": "no_change",
+  "challenger": "gepa",
+  "candidate_budget": 3,
+  "runs": [
+    {
+      "seed": 101,
+      "start_artifact_id": "1013316388328a5f2e1c7cdc3389108d627c7cf837a9e95d324937eab258cf16",
+      "train_task_digest": "ca9de92de9eeeffe610e79e2ca6b8e3228eb2a8c44b03fa928592dc34dff47ec",
+      "heldout_task_digest": "75602dacf9b6a07c31c6162d455153b48a93e36226e5da5b46d6987f47d07eda",
+      "validation_task_digest": "12443fa2b90aea34f2b143ecf2402010f9cc955c83ae4720e94576ad7d802c70"
+    },
+    {
+      "seed": 202,
+      "start_artifact_id": "3ff172a8fae852a5980a793c143b93c99243bb5eb6c5cf2a9be24a1e2c2e5016",
+      "train_task_digest": "ca9de92de9eeeffe610e79e2ca6b8e3228eb2a8c44b03fa928592dc34dff47ec",
+      "heldout_task_digest": "75602dacf9b6a07c31c6162d455153b48a93e36226e5da5b46d6987f47d07eda",
+      "validation_task_digest": "12443fa2b90aea34f2b143ecf2402010f9cc955c83ae4720e94576ad7d802c70"
+    }
+  ],
+  "protocol_version": "merit-agent-paired-v0.1",
+  "controls": [
+    "random_prompt_edit",
+    "model_reflection"
+  ],
+  "manifest_digest": "f7e694c0b9d3d26a4967340a3ecd9ae31292200530c730f0eaf72aaffaa24dbd"
+}

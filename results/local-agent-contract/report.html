@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merit · Agent Contract</title>
+<style>
+:root{--ink:#15263b;--muted:#64748b;--line:#dce4ec;--paper:#f5f7fa;--accent:#0f766e}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:1180px;margin:auto;padding:42px 22px}h1{margin:6px 0;font-size:34px}h2{margin-top:30px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em}
+.subtitle,.muted{color:var(--muted)}.notice{background:#fff7df;border:1px solid #ecd28a;border-radius:12px;padding:14px 18px;margin:20px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.label{color:var(--muted);font-size:13px}.value{font-size:26px;font-weight:750}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{background:#eaf0f5;color:#475569;font-size:12px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}footer{margin-top:26px;color:var(--muted);font-size:13px}
+</style></head><body><main>
+<div class="eyebrow">MERIT AGENT CONTRACT</div><h1>本地 Agent 契约样例</h1>
+<p class="subtitle">同一份 artifact 先只在训练任务上改进，再对起点与后继 artifact 分别执行隐藏任务复评，并汇总调用量、token 与成本。</p>
+<div class="notice"><strong>边界：</strong>执行器是确定性的本地文本规范化器，不是 LLM，也没有调用外部模型。token 是空白分词的本地代理计数，成本为 0；这里验证的是接口与证据链，不是模型能力。</div>
+<section class="cards">
+<div class="card"><div class="label">起点隐藏集准确率</div><div class="value">25.00%</div></div>
+<div class="card"><div class="label">后继隐藏集准确率</div><div class="value">100.00%</div></div>
+<div class="card"><div class="label">候选评估 / 采纳</div><div class="value">4 / 2</div></div>
+<div class="card"><div class="label">总 token</div><div class="value">298</div></div>
+<div class="card"><div class="label">总成本</div><div class="value">$0.00</div></div>
+</section>
+<h2>Artifact 与执行边界</h2>
+<div class="card">
+<p><strong>执行器：</strong><code>local_text_normalizer</code></p>
+<p><strong>起点：</strong><code>9ae167c688b58124cb97a160b9fb1beabc289e4574e57e3cb04d65cb44662175</code></p>
+<p><strong>后继：</strong><code>f57226dd6f423a6c222900a8cd8be4cb45a477721300b2c294d6148fa2729e52</code></p>
+<p><strong>后继配置：</strong><code>{&quot;lowercase&quot;: true, &quot;strip&quot;: true}</code></p>
+<p><strong>开发 / 隐藏执行次数：</strong>20 / 8</p>
+<p><strong>Manifest digest：</strong><code>b13c3d1951c5b71b5420a52f0d7d362bdbfa40b62d891a91e351fafc87df0cd7</code></p>
+</div>
+<h2>训练集候选历史</h2>
+<div class="table-wrap"><table><thead><tr><th>迭代</th><th>候选 artifact</th><th>训练准确率</th><th>采纳</th><th>token 代理</th><th>剩余预算</th></tr></thead>
+<tbody><tr><td>0</td><td><code>04c2874a6777</code></td><td>50.00%</td><td>是</td><td>42</td><td>3</td></tr><tr><td>1</td><td><code>f57226dd6f42</code></td><td>100.00%</td><td>是</td><td>42</td><td>2</td></tr><tr><td>2</td><td><code>045de2d62cd5</code></td><td>50.00%</td><td>否</td><td>42</td><td>1</td></tr><tr><td>3</td><td><code>69c930d1d268</code></td><td>50.00%</td><td>否</td><td>42</td><td>0</td></tr></tbody></table></div>
+<h2>隐藏集逐任务复评</h2>
+<div class="table-wrap"><table><thead><tr><th>任务</th><th>输入</th><th>起点输出</th><th>后继输出</th><th>期望输出</th><th>后继正确</th></tr></thead>
+<tbody><tr><td>heldout-lowercase</td><td>NEW TASK</td><td>NEW TASK</td><td>new task</td><td>new task</td><td>✓</td></tr><tr><td>heldout-strip</td><td>  FRESH  </td><td>  FRESH  </td><td>fresh</td><td>fresh</td><td>✓</td></tr><tr><td>heldout-both</td><td>  HELD OUT  </td><td>  HELD OUT  </td><td>held out</td><td>held out</td><td>✓</td></tr><tr><td>heldout-noop</td><td>unchanged</td><td>unchanged</td><td>unchanged</td><td>unchanged</td><td>✓</td></tr></tbody></table></div>
+<footer>协议：merit-agent-contract-v0.1 · 完整任务定义、逐任务输出、usage、候选历史与 lineage 见 evidence.json。</footer>
+</main></body></html>

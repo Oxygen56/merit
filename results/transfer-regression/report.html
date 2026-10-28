@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merit · Transfer and Regression</title>
+<style>
+:root{--ink:#15263b;--muted:#64748b;--line:#dce4ec;--paper:#f5f7fa;--accent:#0f766e}*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:42px 22px}
+h1{margin:6px 0;font-size:34px}h2{margin-top:30px}h3{margin-top:26px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em}.subtitle{color:var(--muted)}
+.notice{background:#fff7df;border:1px solid #ecd28a;border-radius:12px;padding:14px 18px;margin:20px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.label{color:var(--muted);font-size:13px}.value{font-size:26px;font-weight:750}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{background:#eaf0f5;color:#475569;font-size:12px}.positive{color:#047857;font-weight:700}.negative{color:#b91c1c;font-weight:700}footer{margin-top:26px;color:var(--muted);font-size:13px}
+</style></head><body><main>
+<div class="eyebrow">MERIT TRANSFER MATRIX</div><h1>迁移与旧能力回归</h1>
+<p class="subtitle">对同一个起点 artifact 和后继 artifact 逐任务族复评。改善值 = 后继准确率 − 起点准确率；source 为旧能力，target 为优化目标，transfer 为未参与优化的新任务族。</p>
+<div class="notice"><strong>边界：</strong>这是本地文本规范化器的契约样例，不是 LLM 或真实 Agent 的迁移结论。source 的逐字保留要求与 target 的规范化要求有意设置冲突，用于验证回归检测链路。</div>
+<section class="cards">
+<div class="card"><div class="label">目标域提升</div><div class="value positive">+75.00%</div></div>
+<div class="card"><div class="label">迁移任务族提升</div><div class="value positive">+75.00%</div></div>
+<div class="card"><div class="label">旧能力最大回归</div><div class="value negative">-75.00%</div></div>
+<div class="card"><div class="label">新增 Agent 调用</div><div class="value">16</div></div>
+</section>
+<h2>任务族矩阵</h2>
+<div class="table-wrap"><table><thead><tr><th>任务族</th><th>角色</th><th>起点准确率</th><th>后继准确率</th><th>改善值</th><th>token 代理</th></tr></thead>
+<tbody><tr><td>verbatim_echo</td><td>source</td><td>100.00%</td><td>25.00%</td><td class="negative">-75.00%</td><td>88</td></tr><tr><td>normalization</td><td>target</td><td>25.00%</td><td>100.00%</td><td class="positive">+75.00%</td><td>88</td></tr><tr><td>unicode_normalization</td><td>transfer</td><td>25.00%</td><td>100.00%</td><td class="positive">+75.00%</td><td>80</td></tr></tbody></table></div>
+<h2>逐任务证据</h2><h3>verbatim_echo · source</h3><div class="table-wrap"><table><thead><tr><th>任务</th><th>起点输出</th><th>后继输出</th><th>期望输出</th><th>后继正确</th></tr></thead><tbody><tr><td>source-case</td><td>Keep CASE</td><td>keep case</td><td>Keep CASE</td><td>✗</td></tr><tr><td>source-spaces</td><td>  keep spaces  </td><td>keep spaces</td><td>  keep spaces  </td><td>✗</td></tr><tr><td>source-plain</td><td>plain</td><td>plain</td><td>plain</td><td>✓</td></tr><tr><td>source-capital</td><td>Already</td><td>already</td><td>Already</td><td>✗</td></tr></tbody></table></div><h3>normalization · target</h3><div class="table-wrap"><table><thead><tr><th>任务</th><th>起点输出</th><th>后继输出</th><th>期望输出</th><th>后继正确</th></tr></thead><tbody><tr><td>heldout-lowercase</td><td>NEW TASK</td><td>new task</td><td>new task</td><td>✓</td></tr><tr><td>heldout-strip</td><td>  FRESH  </td><td>fresh</td><td>fresh</td><td>✓</td></tr><tr><td>heldout-both</td><td>  HELD OUT  </td><td>held out</td><td>held out</td><td>✓</td></tr><tr><td>heldout-noop</td><td>unchanged</td><td>unchanged</td><td>unchanged</td><td>✓</td></tr></tbody></table></div><h3>unicode_normalization · transfer</h3><div class="table-wrap"><table><thead><tr><th>任务</th><th>起点输出</th><th>后继输出</th><th>期望输出</th><th>后继正确</th></tr></thead><tbody><tr><td>transfer-accent</td><td>CAFÉ</td><td>café</td><td>café</td><td>✓</td></tr><tr><td>transfer-cjk</td><td>  中文  </td><td>中文</td><td>中文</td><td>✓</td></tr><tr><td>transfer-both</td><td>  NAÏVE  </td><td>naïve</td><td>naïve</td><td>✓</td></tr><tr><td>transfer-noop</td><td>déjà</td><td>déjà</td><td>déjà</td><td>✓</td></tr></tbody></table></div>
+<footer>协议：merit-transfer-v0.1 · 起点 artifact <code>9ae167c688b5</code> · 后继 artifact <code>f57226dd6f42</code> · 完整数据见 evidence.json。</footer>
+</main></body></html>

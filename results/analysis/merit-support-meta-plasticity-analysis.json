@@ -1,0 +1,408 @@
+{
+  "scope": "M8 real early/late local-model snapshots with paired follow-up optimization",
+  "manifest_digest_recomputed": "8fe0530a952ae28ac82852ac588d0052e809bbaa82e1c11b5cdc99b7d9dff9d7",
+  "snapshot_sources_verified": true,
+  "snapshot_independence_note": "The two late snapshots come from separate real runs; both trajectory IDs share the same earlier stop-patch source run. Treat this as a small paired diagnostic, not two independent early optimization replicates.",
+  "paired_run_count": 4,
+  "candidate_budget_per_phase": 1,
+  "all_candidates_accepted": true,
+  "identical_early_late_successor_prompt_runs": 4,
+  "mean_current_agent_delta_late_minus_early": 0.0,
+  "mean_successor_delta_late_minus_early": 0.0,
+  "trajectory_bootstrap_95_ci": [
+    0.0,
+    0.0
+  ],
+  "one_sided_trajectory_sign_flip_p_value": 1.0,
+  "early_method_usage_total": {
+    "input_tokens": 80776,
+    "output_tokens": 4936,
+    "latency_ms": 483231.4789253287
+  },
+  "late_method_usage_total": {
+    "input_tokens": 82397,
+    "output_tokens": 5156,
+    "latency_ms": 481190.4405087698
+  },
+  "shared_family_start_usage_total": {
+    "input_tokens": 8488,
+    "output_tokens": 664,
+    "latency_ms": 60952.99883047119
+  },
+  "execution": {
+    "model": "qwen2.5:7b",
+    "network_calls_this_run": 69,
+    "cache_hits_this_run": 608,
+    "cached_response_files": 209,
+    "model_steps": 660,
+    "proposal_calls": {
+      "early": 8,
+      "late": 9
+    },
+    "common_start_train_accuracy": {
+      "fee9cb1ba173cd154d7264f508f52f80f95c86eb74378884c45e56d266075654": 0.6666666666666666,
+      "eba2e664724e1e8c897e19b4c53906d7d49a7a362c659c850cb749c854acb3fb": 0.6666666666666666
+    },
+    "paid_api_calls": 0
+  },
+  "network_accounting_note": "The first attempt timed out after writing 140 cache responses; the cached continuation added 69. The result directory contains 209 unique response files.",
+  "conclusion": "Both phases produced perfect held-out successors with one accepted candidate, but late-minus-early deltas were zero. Transfer improved from 50% to 100% in both arms; the source family stayed at 50%. No late-improver advantage or open-ended RSI effect was observed.",
+  "runs": [
+    {
+      "trajectory_id": "support-1010",
+      "seed": 3030,
+      "common_start_artifact_id": "fee9cb1ba173cd154d7264f508f52f80f95c86eb74378884c45e56d266075654",
+      "current_agent_delta": 0.0,
+      "early_current_agent_usage": {
+        "input_tokens": 4746,
+        "output_tokens": 183,
+        "latency_ms": 15671.977875055745
+      },
+      "late_current_agent_usage": {
+        "input_tokens": 4350,
+        "output_tokens": 170,
+        "latency_ms": 13363.726377952844
+      },
+      "early_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 60696.583583485335
+      },
+      "early_proposer_usage": {
+        "input_tokens": 2470,
+        "output_tokens": 385,
+        "latency_ms": 37503.73720773496
+      },
+      "early_evaluations_to_threshold": 1,
+      "late_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 60696.583583485335
+      },
+      "late_proposer_usage": {
+        "input_tokens": 2494,
+        "output_tokens": 385,
+        "latency_ms": 46722.25120803341
+      },
+      "late_evaluations_to_threshold": 1,
+      "successor_delta": 0.0,
+      "families": {
+        "support_final_source": {
+          "role": "source",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 0.5,
+          "late_successor_accuracy": 0.5,
+          "early_improvement": 0.0,
+          "late_improvement": 0.0,
+          "common_start_usage": {
+            "input_tokens": 656,
+            "output_tokens": 56,
+            "latency_ms": 5547.18383285217
+          },
+          "early_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6812.85437499173
+          },
+          "late_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6812.85437499173
+          }
+        },
+        "support_transfer": {
+          "role": "transfer",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 1.0,
+          "late_successor_accuracy": 1.0,
+          "early_improvement": 0.5,
+          "late_improvement": 0.5,
+          "common_start_usage": {
+            "input_tokens": 1466,
+            "output_tokens": 110,
+            "latency_ms": 10418.651459505782
+          },
+          "early_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 11652.926624985412
+          },
+          "late_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 11652.926624985412
+          }
+        }
+      }
+    },
+    {
+      "trajectory_id": "support-1010",
+      "seed": 4040,
+      "common_start_artifact_id": "eba2e664724e1e8c897e19b4c53906d7d49a7a362c659c850cb749c854acb3fb",
+      "current_agent_delta": 0.0,
+      "early_current_agent_usage": {
+        "input_tokens": 4746,
+        "output_tokens": 183,
+        "latency_ms": 15671.977875055745
+      },
+      "late_current_agent_usage": {
+        "input_tokens": 4350,
+        "output_tokens": 170,
+        "latency_ms": 13363.726377952844
+      },
+      "early_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 58826.971212401986
+      },
+      "early_proposer_usage": {
+        "input_tokens": 2470,
+        "output_tokens": 385,
+        "latency_ms": 47066.61791703664
+      },
+      "early_evaluations_to_threshold": 1,
+      "late_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 58826.971212401986
+      },
+      "late_proposer_usage": {
+        "input_tokens": 4019,
+        "output_tokens": 605,
+        "latency_ms": 66953.06920795701
+      },
+      "late_evaluations_to_threshold": 1,
+      "successor_delta": 0.0,
+      "families": {
+        "support_final_source": {
+          "role": "source",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 0.5,
+          "late_successor_accuracy": 0.5,
+          "early_improvement": 0.0,
+          "late_improvement": 0.0,
+          "common_start_usage": {
+            "input_tokens": 656,
+            "output_tokens": 56,
+            "latency_ms": 4844.221707899123
+          },
+          "early_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6801.59870814532
+          },
+          "late_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6801.59870814532
+          }
+        },
+        "support_transfer": {
+          "role": "transfer",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 1.0,
+          "late_successor_accuracy": 1.0,
+          "early_improvement": 0.5,
+          "late_improvement": 0.5,
+          "common_start_usage": {
+            "input_tokens": 1466,
+            "output_tokens": 110,
+            "latency_ms": 9666.442414978519
+          },
+          "early_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 12254.449833882973
+          },
+          "late_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 12254.449833882973
+          }
+        }
+      }
+    },
+    {
+      "trajectory_id": "support-2020",
+      "seed": 3030,
+      "common_start_artifact_id": "fee9cb1ba173cd154d7264f508f52f80f95c86eb74378884c45e56d266075654",
+      "current_agent_delta": 0.0,
+      "early_current_agent_usage": {
+        "input_tokens": 4746,
+        "output_tokens": 183,
+        "latency_ms": 17202.076251385733
+      },
+      "late_current_agent_usage": {
+        "input_tokens": 4350,
+        "output_tokens": 170,
+        "latency_ms": 15423.55770803988
+      },
+      "early_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 60696.583583485335
+      },
+      "early_proposer_usage": {
+        "input_tokens": 2470,
+        "output_tokens": 385,
+        "latency_ms": 37503.73720773496
+      },
+      "early_evaluations_to_threshold": 1,
+      "late_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 60696.583583485335
+      },
+      "late_proposer_usage": {
+        "input_tokens": 2494,
+        "output_tokens": 385,
+        "latency_ms": 26719.44725094363
+      },
+      "late_evaluations_to_threshold": 1,
+      "successor_delta": 0.0,
+      "families": {
+        "support_final_source": {
+          "role": "source",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 0.5,
+          "late_successor_accuracy": 0.5,
+          "early_improvement": 0.0,
+          "late_improvement": 0.0,
+          "common_start_usage": {
+            "input_tokens": 656,
+            "output_tokens": 56,
+            "latency_ms": 5547.18383285217
+          },
+          "early_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6812.85437499173
+          },
+          "late_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6812.85437499173
+          }
+        },
+        "support_transfer": {
+          "role": "transfer",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 1.0,
+          "late_successor_accuracy": 1.0,
+          "early_improvement": 0.5,
+          "late_improvement": 0.5,
+          "common_start_usage": {
+            "input_tokens": 1466,
+            "output_tokens": 110,
+            "latency_ms": 10418.651459505782
+          },
+          "early_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 11652.926624985412
+          },
+          "late_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 11652.926624985412
+          }
+        }
+      }
+    },
+    {
+      "trajectory_id": "support-2020",
+      "seed": 4040,
+      "common_start_artifact_id": "eba2e664724e1e8c897e19b4c53906d7d49a7a362c659c850cb749c854acb3fb",
+      "current_agent_delta": 0.0,
+      "early_current_agent_usage": {
+        "input_tokens": 4746,
+        "output_tokens": 183,
+        "latency_ms": 17202.076251385733
+      },
+      "late_current_agent_usage": {
+        "input_tokens": 4350,
+        "output_tokens": 170,
+        "latency_ms": 15423.55770803988
+      },
+      "early_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 58826.971212401986
+      },
+      "early_proposer_usage": {
+        "input_tokens": 2470,
+        "output_tokens": 385,
+        "latency_ms": 47066.61791703664
+      },
+      "early_evaluations_to_threshold": 1,
+      "late_agent_usage": {
+        "input_tokens": 13051,
+        "output_tokens": 665,
+        "latency_ms": 58826.971212401986
+      },
+      "late_proposer_usage": {
+        "input_tokens": 2494,
+        "output_tokens": 385,
+        "latency_ms": 26704.904166050255
+      },
+      "late_evaluations_to_threshold": 1,
+      "successor_delta": 0.0,
+      "families": {
+        "support_final_source": {
+          "role": "source",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 0.5,
+          "late_successor_accuracy": 0.5,
+          "early_improvement": 0.0,
+          "late_improvement": 0.0,
+          "common_start_usage": {
+            "input_tokens": 656,
+            "output_tokens": 56,
+            "latency_ms": 4844.221707899123
+          },
+          "early_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6801.59870814532
+          },
+          "late_successor_usage": {
+            "input_tokens": 1372,
+            "output_tokens": 56,
+            "latency_ms": 6801.59870814532
+          }
+        },
+        "support_transfer": {
+          "role": "transfer",
+          "common_start_accuracy": 0.5,
+          "early_successor_accuracy": 1.0,
+          "late_successor_accuracy": 1.0,
+          "early_improvement": 0.5,
+          "late_improvement": 0.5,
+          "common_start_usage": {
+            "input_tokens": 1466,
+            "output_tokens": 110,
+            "latency_ms": 9666.442414978519
+          },
+          "early_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 12254.449833882973
+          },
+          "late_successor_usage": {
+            "input_tokens": 3301,
+            "output_tokens": 128,
+            "latency_ms": 12254.449833882973
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Early and late snapshots come from actual local stop-patch and dynamic-patch optimization runs on qwen2.5:7b.",
+    "Only two real trajectories and two paired follow-up seeds were run; trajectory-level uncertainty has little statistical power.",
+    "Follow-up selection uses one training candidate and greedy exact-match accuracy; it does not include trajectory-gated acceptance.",
+    "Source and transfer families are small synthetic support tasks, not production traffic or an open-ended RSI evaluation.",
+    "Threshold speed uses accepted development evaluations; unreached runs remain right-censored."
+  ],
+  "paid_api_calls": 0
+}

@@ -1,0 +1,24 @@
+{
+  "protocol": "merit-support-validation-final-v1",
+  "model": "qwen2.5:7b",
+  "base_seeds": [
+    101,
+    202
+  ],
+  "repetitions_per_seed": 2,
+  "train_task_digest": "defb94a813c35a3a1cb26234102aff70aca5a24ef473f016ad24a88c64d80d57",
+  "validation_task_digest": "0abb601cc5a923bcedf7ef488878d6b50a111210fa009c8596eb20a0acca3b64",
+  "final_task_digest": "ffe9fc936ad0ef274a1dcec0bd73d3872d9f1a32dd806e26c727d0263309580b",
+  "validation_task_ids": [
+    "heldout-normal-6001",
+    "heldout-missing-order-6002",
+    "heldout-missing-policy-6003"
+  ],
+  "final_task_ids": [
+    "final-normal-7001",
+    "final-missing-order-7002",
+    "final-missing-policy-7003"
+  ],
+  "selection": "validation accuracy and valid validation trajectories only",
+  "final_policy": "run only when the candidate is accepted on validation; no final-task feedback"
+}

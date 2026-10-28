@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "merit-agent-eval"
+version = "0.1.0"
+description = "Controlled comparisons for agent improvement methods"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Merit contributors"}]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Oxygen56/merit"
+Repository = "https://github.com/Oxygen56/merit"
+Documentation = "https://github.com/Oxygen56/merit#documentation"
+Issues = "https://github.com/Oxygen56/merit/issues"
+
+[project.optional-dependencies]
+gepa = ["gepa>=0.1.4,<0.2"]
+langgraph = ["langgraph>=0.2"]
+yaml = ["PyYAML>=6"]
+
+[project.scripts]
+merit = "merit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+merit = ["schemas/*.json"]

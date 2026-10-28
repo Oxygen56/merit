@@ -1,0 +1,259 @@
+{
+  "schema_version": "merit-evidence-v1",
+  "project": "Merit",
+  "version": "0.1.0",
+  "generated_at": "2026-10-28T00:38:13.596415+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "manifest_digest": "6a71545c36e672ba2ce7a3f13edaad5e5232473a5d84072fd2df6e80eb31d5a9",
+  "limitations": [
+    "The executor is a deterministic local text normalizer, not an LLM or external agent.",
+    "Token counts are whitespace-based local proxies, not provider billing records.",
+    "Latency is zero-filled by this local executor; no wall-clock benchmark is claimed.",
+    "This run validates task, artifact, budget, execution and cost contracts only."
+  ],
+  "experiment": {
+    "manifest": {
+      "experiment": "custom-executor-example",
+      "executor": "example_strip_executor_v1",
+      "optimizer": "enable_strip",
+      "seed": 7,
+      "candidate_budget": 1,
+      "start_artifact_id": "b16b96ddb05f9ca6c9c8d6e83ef82ccf581c4308ef08a206cd1910ccacea4468",
+      "train_task_digest": "186506557bbc97e91a5295cf00855b3adbbfbbbf967b1ede1b7cf767562169ac",
+      "heldout_task_digest": "5ffd59ae15e08fef65f0d9ac16af4f018d499751c12caf5b10a6fbc2c9930c4b",
+      "protocol_version": "merit-agent-contract-v0.1",
+      "proposer_source": "python"
+    },
+    "start": {
+      "instructions": "Apply the configured text transformation.",
+      "config_json": "{\"strip\":false}",
+      "parent": null,
+      "artifact_id": "b16b96ddb05f9ca6c9c8d6e83ef82ccf581c4308ef08a206cd1910ccacea4468"
+    },
+    "successor": {
+      "instructions": "Apply the configured text transformation.",
+      "config_json": "{\"strip\":true}",
+      "parent": "b16b96ddb05f9ca6c9c8d6e83ef82ccf581c4308ef08a206cd1910ccacea4468",
+      "artifact_id": "3a5054b8716abedaae8242d95c7c5698630aa9c59542e6990ec374d169fc14a4"
+    },
+    "train_tasks": [
+      {
+        "task_id": "example-train",
+        "prompt": "  hello  ",
+        "expected": "hello"
+      }
+    ],
+    "heldout_tasks": [
+      {
+        "task_id": "example-heldout",
+        "prompt": "  MERIT  ",
+        "expected": "MERIT"
+      }
+    ],
+    "initial_dev": {
+      "accuracy": 0.0,
+      "usage": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "cost_usd": 0.0,
+        "latency_ms": 0.0,
+        "tokens_reported": true,
+        "cost_reported": true,
+        "cost_is_estimate": false
+      },
+      "results": [
+        {
+          "task_id": "example-train",
+          "output": "  hello  ",
+          "correct": false,
+          "usage": {
+            "input_tokens": 1,
+            "output_tokens": 1,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        }
+      ]
+    },
+    "successor_dev": {
+      "accuracy": 1.0,
+      "usage": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "cost_usd": 0.0,
+        "latency_ms": 0.0,
+        "tokens_reported": true,
+        "cost_reported": true,
+        "cost_is_estimate": false
+      },
+      "results": [
+        {
+          "task_id": "example-train",
+          "output": "hello",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1,
+            "output_tokens": 1,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        }
+      ]
+    },
+    "baseline_heldout": {
+      "accuracy": 0.0,
+      "usage": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "cost_usd": 0.0,
+        "latency_ms": 0.0,
+        "tokens_reported": true,
+        "cost_reported": true,
+        "cost_is_estimate": false
+      },
+      "results": [
+        {
+          "task_id": "example-heldout",
+          "output": "  MERIT  ",
+          "correct": false,
+          "usage": {
+            "input_tokens": 1,
+            "output_tokens": 1,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        }
+      ]
+    },
+    "successor_heldout": {
+      "accuracy": 1.0,
+      "usage": {
+        "input_tokens": 1,
+        "output_tokens": 1,
+        "cost_usd": 0.0,
+        "latency_ms": 0.0,
+        "tokens_reported": true,
+        "cost_reported": true,
+        "cost_is_estimate": false
+      },
+      "results": [
+        {
+          "task_id": "example-heldout",
+          "output": "MERIT",
+          "correct": true,
+          "usage": {
+            "input_tokens": 1,
+            "output_tokens": 1,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          }
+        }
+      ]
+    },
+    "history": [
+      {
+        "iteration": 0,
+        "candidate": {
+          "instructions": "Apply the configured text transformation.",
+          "config_json": "{\"strip\":true}",
+          "parent": "b16b96ddb05f9ca6c9c8d6e83ef82ccf581c4308ef08a206cd1910ccacea4468",
+          "artifact_id": "3a5054b8716abedaae8242d95c7c5698630aa9c59542e6990ec374d169fc14a4"
+        },
+        "evaluation": {
+          "accuracy": 1.0,
+          "usage": {
+            "input_tokens": 1,
+            "output_tokens": 1,
+            "cost_usd": 0.0,
+            "latency_ms": 0.0,
+            "tokens_reported": true,
+            "cost_reported": true,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "example-train",
+              "output": "hello",
+              "correct": true,
+              "usage": {
+                "input_tokens": 1,
+                "output_tokens": 1,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "accepted": true,
+        "remaining_budget": 0,
+        "proposer_usage": {
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "cost_usd": 0.0,
+          "latency_ms": 0.0,
+          "tokens_reported": true,
+          "cost_reported": true,
+          "cost_is_estimate": false
+        }
+      }
+    ],
+    "summary": {
+      "metric": "exact_match_accuracy",
+      "initial_dev_accuracy": 0.0,
+      "successor_dev_accuracy": 1.0,
+      "baseline_heldout_accuracy": 0.0,
+      "successor_heldout_accuracy": 1.0,
+      "heldout_accuracy_improvement": 1.0,
+      "candidate_evaluations": 1,
+      "accepted_candidates": 1,
+      "proposal_calls": 1,
+      "proposer_source": "python",
+      "dev_agent_invocations": 2,
+      "heldout_agent_invocations": 2,
+      "dev_input_tokens": 2,
+      "dev_output_tokens": 2,
+      "heldout_input_tokens": 2,
+      "heldout_output_tokens": 2,
+      "total_input_tokens": 4,
+      "total_output_tokens": 4,
+      "total_cost_usd": 0.0,
+      "total_latency_ms": 0.0,
+      "total_tokens_reported": true,
+      "total_cost_reported": true,
+      "total_cost_is_estimate": false,
+      "proposer_input_tokens": 0,
+      "proposer_output_tokens": 0,
+      "proposer_cost_usd": 0.0,
+      "proposer_latency_ms": 0.0,
+      "proposer_tokens_reported": true,
+      "proposer_cost_reported": true,
+      "proposer_cost_is_estimate": false,
+      "combined_total_input_tokens": 4,
+      "combined_total_output_tokens": 4,
+      "combined_total_cost_usd": 0.0,
+      "combined_total_latency_ms": 0.0,
+      "combined_total_tokens_reported": true,
+      "combined_total_cost_reported": true,
+      "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+      "scope": "Agent contract validation; claims depend on the registered executor"
+    }
+  }
+}

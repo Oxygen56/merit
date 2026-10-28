@@ -1,0 +1,949 @@
+{
+  "schema_version": "merit-evidence-v1",
+  "project": "Merit",
+  "version": "0.1.0",
+  "generated_at": "2026-10-28T01:19:40.718808+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "manifest_digest": "87a76a3e436ef79c8b8fb764b14a57f653ad0575c35cffc913db70688a86fb54",
+  "limitations": [
+    "Two real-model paired seeds with four held-out tasks each are exploratory, not a general model ranking.",
+    "Only training failures are available to the proposer; source and renamed-field transfer tasks are independently re-evaluated.",
+    "Provider token usage is recorded; no price was configured, so dollar cost is unknown rather than free."
+  ],
+  "experiment": {
+    "manifest": {
+      "experiment": "real-llm-transfer-202",
+      "base_manifest_digest": "81115a313bac7ce0e70f6de28291b23eab3f642244d8cc7adb5fd4ebbf38008a",
+      "families": [
+        {
+          "name": "verbatim_records",
+          "role": "source",
+          "task_digest": "aeeb4086b421368d4d0b8b0d84cb51d19f7162add34424266f78b10cda1cabbb"
+        },
+        {
+          "name": "ticket_formatting",
+          "role": "target",
+          "task_digest": "4c556c7be6e834c6124f79fed0c97c4da943364afe6c984a158c97e4074a6b29"
+        },
+        {
+          "name": "renamed_fields",
+          "role": "transfer",
+          "task_digest": "286fbede47d69613e66750bb6af5e3215948aa90e55ef4571df0dd42d4945f1d"
+        }
+      ],
+      "protocol_version": "merit-transfer-v0.1"
+    },
+    "base": {
+      "manifest": {
+        "experiment": "real-llm-reflection-paired:202:model_reflection",
+        "executor": "openai_compatible:kimi-for-coding",
+        "optimizer": "model_reflection",
+        "seed": 202,
+        "candidate_budget": 1,
+        "start_artifact_id": "50870837d22aae990e9aa3739e99fcf71ac1e9cf14a5ac2ce1ebf867865a06cf",
+        "train_task_digest": "6c41f8d559cd5b6fd86669cc6b8390b2b9a8648d097b92d5d439847693b7cff7",
+        "heldout_task_digest": "4c556c7be6e834c6124f79fed0c97c4da943364afe6c984a158c97e4074a6b29",
+        "protocol_version": "merit-agent-contract-v0.1",
+        "proposer_source": "openai_compatible:kimi-for-coding"
+      },
+      "start": {
+        "instructions": "Transform each record into the required output. If no output structure is specified, copy the input verbatim. Return only the result.",
+        "config_json": "{\"max_tokens\":256,\"seed\":202,\"temperature\":1}",
+        "parent": null,
+        "artifact_id": "50870837d22aae990e9aa3739e99fcf71ac1e9cf14a5ac2ce1ebf867865a06cf"
+      },
+      "successor": {
+        "instructions": "Transform each record into the required output as follows: the input is a semicolon-delimited set of key=value fields containing customer, priority, and issue keys. Extract the values for priority, customer, and issue, then output them joined by the pipe character \"|\" in the exact order: priority|customer|issue. Return only the result with no extra text. If no output structure can be determined from the input, copy the input verbatim.",
+        "config_json": "{\"max_tokens\":256,\"seed\":202,\"temperature\":1}",
+        "parent": "50870837d22aae990e9aa3739e99fcf71ac1e9cf14a5ac2ce1ebf867865a06cf",
+        "artifact_id": "88c1f7341fa7ddc0fbede90874aab40bb1248d9290caac153c3a1a2ebfa43f35"
+      },
+      "train_tasks": [
+        {
+          "task_id": "202-train-0",
+          "prompt": "customer=Northwind;priority=P3;issue=export",
+          "expected": "P3|Northwind|export"
+        },
+        {
+          "task_id": "202-train-1",
+          "prompt": "customer=Contoso;priority=P2;issue=SSO",
+          "expected": "P2|Contoso|SSO"
+        },
+        {
+          "task_id": "202-train-2",
+          "prompt": "customer=Cyberdyne;priority=P1;issue=VPN",
+          "expected": "P1|Cyberdyne|VPN"
+        }
+      ],
+      "heldout_tasks": [
+        {
+          "task_id": "202-heldout-0",
+          "prompt": "customer=Initech;priority=P1;issue=VPN",
+          "expected": "P1|Initech|VPN"
+        },
+        {
+          "task_id": "202-heldout-1",
+          "prompt": "customer=Umbrella;priority=P2;issue=SSO",
+          "expected": "P2|Umbrella|SSO"
+        },
+        {
+          "task_id": "202-heldout-2",
+          "prompt": "customer=Acme;priority=P3;issue=billing",
+          "expected": "P3|Acme|billing"
+        },
+        {
+          "task_id": "202-heldout-3",
+          "prompt": "customer=Globex;priority=P1;issue=latency",
+          "expected": "P1|Globex|latency"
+        }
+      ],
+      "initial_dev": {
+        "accuracy": 0.0,
+        "usage": {
+          "input_tokens": 404,
+          "output_tokens": 191,
+          "cost_usd": 0.0,
+          "latency_ms": 7628.147042123601,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "202-train-0",
+            "output": "customer=Northwind;priority=P3;issue=export",
+            "correct": false,
+            "usage": {
+              "input_tokens": 134,
+              "output_tokens": 73,
+              "cost_usd": 0.0,
+              "latency_ms": 2025.7185001391917,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-train-1",
+            "output": "customer=Contoso;priority=P2;issue=SSO",
+            "correct": false,
+            "usage": {
+              "input_tokens": 135,
+              "output_tokens": 78,
+              "cost_usd": 0.0,
+              "latency_ms": 2178.868457907811,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-train-2",
+            "output": "customer=Cyberdyne;priority=P1;issue=VPN",
+            "correct": false,
+            "usage": {
+              "input_tokens": 135,
+              "output_tokens": 40,
+              "cost_usd": 0.0,
+              "latency_ms": 3423.5600840765983,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_dev": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 596,
+          "output_tokens": 221,
+          "cost_usd": 0.0,
+          "latency_ms": 8291.677958099172,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "202-train-0",
+            "output": "P3|Northwind|export",
+            "correct": true,
+            "usage": {
+              "input_tokens": 198,
+              "output_tokens": 49,
+              "cost_usd": 0.0,
+              "latency_ms": 2803.006208036095,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-train-1",
+            "output": "P2|Contoso|SSO",
+            "correct": true,
+            "usage": {
+              "input_tokens": 199,
+              "output_tokens": 86,
+              "cost_usd": 0.0,
+              "latency_ms": 2753.7023751065135,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-train-2",
+            "output": "P1|Cyberdyne|VPN",
+            "correct": true,
+            "usage": {
+              "input_tokens": 199,
+              "output_tokens": 86,
+              "cost_usd": 0.0,
+              "latency_ms": 2734.969374956563,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "baseline_heldout": {
+        "accuracy": 0.0,
+        "usage": {
+          "input_tokens": 537,
+          "output_tokens": 372,
+          "cost_usd": 0.0,
+          "latency_ms": 16130.576833849773,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "202-heldout-0",
+            "output": "customer=Initech;priority=P1;issue=VPN",
+            "correct": false,
+            "usage": {
+              "input_tokens": 133,
+              "output_tokens": 94,
+              "cost_usd": 0.0,
+              "latency_ms": 3161.956083960831,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-heldout-1",
+            "output": "customer=Umbrella;priority=P2;issue=SSO",
+            "correct": false,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 92,
+              "cost_usd": 0.0,
+              "latency_ms": 6898.026125039905,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-heldout-2",
+            "output": "customer=Acme;priority=P3;issue=billing",
+            "correct": false,
+            "usage": {
+              "input_tokens": 134,
+              "output_tokens": 110,
+              "cost_usd": 0.0,
+              "latency_ms": 3811.6817499976605,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-heldout-3",
+            "output": "customer=Globex;priority=P1;issue=latency",
+            "correct": false,
+            "usage": {
+              "input_tokens": 134,
+              "output_tokens": 76,
+              "cost_usd": 0.0,
+              "latency_ms": 2258.912874851376,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "successor_heldout": {
+        "accuracy": 1.0,
+        "usage": {
+          "input_tokens": 793,
+          "output_tokens": 355,
+          "cost_usd": 0.0,
+          "latency_ms": 12161.122834077105,
+          "tokens_reported": true,
+          "cost_reported": false,
+          "cost_is_estimate": false
+        },
+        "results": [
+          {
+            "task_id": "202-heldout-0",
+            "output": "P1|Initech|VPN",
+            "correct": true,
+            "usage": {
+              "input_tokens": 197,
+              "output_tokens": 89,
+              "cost_usd": 0.0,
+              "latency_ms": 3744.1376249771565,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-heldout-1",
+            "output": "P2|Umbrella|SSO",
+            "correct": true,
+            "usage": {
+              "input_tokens": 200,
+              "output_tokens": 91,
+              "cost_usd": 0.0,
+              "latency_ms": 2898.2901249546558,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-heldout-2",
+            "output": "P3|Acme|billing",
+            "correct": true,
+            "usage": {
+              "input_tokens": 198,
+              "output_tokens": 70,
+              "cost_usd": 0.0,
+              "latency_ms": 3631.792167201638,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          },
+          {
+            "task_id": "202-heldout-3",
+            "output": "P1|Globex|latency",
+            "correct": true,
+            "usage": {
+              "input_tokens": 198,
+              "output_tokens": 105,
+              "cost_usd": 0.0,
+              "latency_ms": 1886.9029169436544,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            }
+          }
+        ]
+      },
+      "history": [
+        {
+          "iteration": 0,
+          "candidate": {
+            "instructions": "Transform each record into the required output as follows: the input is a semicolon-delimited set of key=value fields containing customer, priority, and issue keys. Extract the values for priority, customer, and issue, then output them joined by the pipe character \"|\" in the exact order: priority|customer|issue. Return only the result with no extra text. If no output structure can be determined from the input, copy the input verbatim.",
+            "config_json": "{\"max_tokens\":256,\"seed\":202,\"temperature\":1}",
+            "parent": "50870837d22aae990e9aa3739e99fcf71ac1e9cf14a5ac2ce1ebf867865a06cf",
+            "artifact_id": "88c1f7341fa7ddc0fbede90874aab40bb1248d9290caac153c3a1a2ebfa43f35"
+          },
+          "evaluation": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 596,
+              "output_tokens": 221,
+              "cost_usd": 0.0,
+              "latency_ms": 8291.677958099172,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "202-train-0",
+                "output": "P3|Northwind|export",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 198,
+                  "output_tokens": 49,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2803.006208036095,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "202-train-1",
+                "output": "P2|Contoso|SSO",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 199,
+                  "output_tokens": 86,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2753.7023751065135,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "202-train-2",
+                "output": "P1|Cyberdyne|VPN",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 199,
+                  "output_tokens": 86,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2734.969374956563,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "accepted": true,
+          "remaining_budget": 0,
+          "proposer_usage": {
+            "input_tokens": 381,
+            "output_tokens": 164,
+            "cost_usd": 0.0,
+            "latency_ms": 4739.151082932949,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          }
+        }
+      ],
+      "summary": {
+        "metric": "exact_match_accuracy",
+        "initial_dev_accuracy": 0.0,
+        "successor_dev_accuracy": 1.0,
+        "baseline_heldout_accuracy": 0.0,
+        "successor_heldout_accuracy": 1.0,
+        "heldout_accuracy_improvement": 1.0,
+        "candidate_evaluations": 1,
+        "accepted_candidates": 1,
+        "proposal_calls": 1,
+        "proposer_source": "openai_compatible:kimi-for-coding",
+        "dev_agent_invocations": 6,
+        "heldout_agent_invocations": 8,
+        "dev_input_tokens": 1000,
+        "dev_output_tokens": 412,
+        "heldout_input_tokens": 1330,
+        "heldout_output_tokens": 727,
+        "total_input_tokens": 2330,
+        "total_output_tokens": 1139,
+        "total_cost_usd": 0.0,
+        "total_latency_ms": 44211.52466814965,
+        "total_tokens_reported": true,
+        "total_cost_reported": false,
+        "total_cost_is_estimate": false,
+        "proposer_input_tokens": 381,
+        "proposer_output_tokens": 164,
+        "proposer_cost_usd": 0.0,
+        "proposer_latency_ms": 4739.151082932949,
+        "proposer_tokens_reported": true,
+        "proposer_cost_reported": false,
+        "proposer_cost_is_estimate": false,
+        "combined_total_input_tokens": 2711,
+        "combined_total_output_tokens": 1303,
+        "combined_total_cost_usd": 0.0,
+        "combined_total_latency_ms": 48950.6757510826,
+        "combined_total_tokens_reported": true,
+        "combined_total_cost_reported": false,
+        "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+        "scope": "Agent contract validation; claims depend on the registered executor"
+      }
+    },
+    "comparisons": [
+      {
+        "family": "verbatim_records",
+        "role": "source",
+        "tasks": [
+          {
+            "task_id": "202-source-0",
+            "prompt": "case=Keep;owner=Lin",
+            "expected": "case=Keep;owner=Lin"
+          },
+          {
+            "task_id": "202-source-1",
+            "prompt": "  spaces=unchanged  ",
+            "expected": "  spaces=unchanged  "
+          },
+          {
+            "task_id": "202-source-2",
+            "prompt": "plain legacy record",
+            "expected": "plain legacy record"
+          }
+        ],
+        "baseline": {
+          "accuracy": 0.6666666666666666,
+          "usage": {
+            "input_tokens": 382,
+            "output_tokens": 381,
+            "cost_usd": 0.0,
+            "latency_ms": 13117.385540856048,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "202-source-0",
+              "output": "case=Keep;owner=Lin",
+              "correct": true,
+              "usage": {
+                "input_tokens": 129,
+                "output_tokens": 94,
+                "cost_usd": 0.0,
+                "latency_ms": 3819.800457917154,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-source-1",
+              "output": " spaces=unchanged",
+              "correct": false,
+              "usage": {
+                "input_tokens": 128,
+                "output_tokens": 216,
+                "cost_usd": 0.0,
+                "latency_ms": 6737.656541867182,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-source-2",
+              "output": "plain legacy record",
+              "correct": true,
+              "usage": {
+                "input_tokens": 125,
+                "output_tokens": 71,
+                "cost_usd": 0.0,
+                "latency_ms": 2559.928541071713,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "successor": {
+          "accuracy": 1.0,
+          "usage": {
+            "input_tokens": 574,
+            "output_tokens": 335,
+            "cost_usd": 0.0,
+            "latency_ms": 10309.462916804478,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "202-source-0",
+              "output": "case=Keep;owner=Lin",
+              "correct": true,
+              "usage": {
+                "input_tokens": 193,
+                "output_tokens": 103,
+                "cost_usd": 0.0,
+                "latency_ms": 3443.667624844238,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-source-1",
+              "output": "  spaces=unchanged  ",
+              "correct": true,
+              "usage": {
+                "input_tokens": 192,
+                "output_tokens": 158,
+                "cost_usd": 0.0,
+                "latency_ms": 3902.7952919714153,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-source-2",
+              "output": "plain legacy record",
+              "correct": true,
+              "usage": {
+                "input_tokens": 189,
+                "output_tokens": 74,
+                "cost_usd": 0.0,
+                "latency_ms": 2962.999999988824,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "reused_base_evaluation": false
+      },
+      {
+        "family": "ticket_formatting",
+        "role": "target",
+        "tasks": [
+          {
+            "task_id": "202-heldout-0",
+            "prompt": "customer=Initech;priority=P1;issue=VPN",
+            "expected": "P1|Initech|VPN"
+          },
+          {
+            "task_id": "202-heldout-1",
+            "prompt": "customer=Umbrella;priority=P2;issue=SSO",
+            "expected": "P2|Umbrella|SSO"
+          },
+          {
+            "task_id": "202-heldout-2",
+            "prompt": "customer=Acme;priority=P3;issue=billing",
+            "expected": "P3|Acme|billing"
+          },
+          {
+            "task_id": "202-heldout-3",
+            "prompt": "customer=Globex;priority=P1;issue=latency",
+            "expected": "P1|Globex|latency"
+          }
+        ],
+        "baseline": {
+          "accuracy": 0.0,
+          "usage": {
+            "input_tokens": 537,
+            "output_tokens": 372,
+            "cost_usd": 0.0,
+            "latency_ms": 16130.576833849773,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "202-heldout-0",
+              "output": "customer=Initech;priority=P1;issue=VPN",
+              "correct": false,
+              "usage": {
+                "input_tokens": 133,
+                "output_tokens": 94,
+                "cost_usd": 0.0,
+                "latency_ms": 3161.956083960831,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-heldout-1",
+              "output": "customer=Umbrella;priority=P2;issue=SSO",
+              "correct": false,
+              "usage": {
+                "input_tokens": 136,
+                "output_tokens": 92,
+                "cost_usd": 0.0,
+                "latency_ms": 6898.026125039905,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-heldout-2",
+              "output": "customer=Acme;priority=P3;issue=billing",
+              "correct": false,
+              "usage": {
+                "input_tokens": 134,
+                "output_tokens": 110,
+                "cost_usd": 0.0,
+                "latency_ms": 3811.6817499976605,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-heldout-3",
+              "output": "customer=Globex;priority=P1;issue=latency",
+              "correct": false,
+              "usage": {
+                "input_tokens": 134,
+                "output_tokens": 76,
+                "cost_usd": 0.0,
+                "latency_ms": 2258.912874851376,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "successor": {
+          "accuracy": 1.0,
+          "usage": {
+            "input_tokens": 793,
+            "output_tokens": 355,
+            "cost_usd": 0.0,
+            "latency_ms": 12161.122834077105,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "202-heldout-0",
+              "output": "P1|Initech|VPN",
+              "correct": true,
+              "usage": {
+                "input_tokens": 197,
+                "output_tokens": 89,
+                "cost_usd": 0.0,
+                "latency_ms": 3744.1376249771565,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-heldout-1",
+              "output": "P2|Umbrella|SSO",
+              "correct": true,
+              "usage": {
+                "input_tokens": 200,
+                "output_tokens": 91,
+                "cost_usd": 0.0,
+                "latency_ms": 2898.2901249546558,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-heldout-2",
+              "output": "P3|Acme|billing",
+              "correct": true,
+              "usage": {
+                "input_tokens": 198,
+                "output_tokens": 70,
+                "cost_usd": 0.0,
+                "latency_ms": 3631.792167201638,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-heldout-3",
+              "output": "P1|Globex|latency",
+              "correct": true,
+              "usage": {
+                "input_tokens": 198,
+                "output_tokens": 105,
+                "cost_usd": 0.0,
+                "latency_ms": 1886.9029169436544,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "reused_base_evaluation": true
+      },
+      {
+        "family": "renamed_fields",
+        "role": "transfer",
+        "tasks": [
+          {
+            "task_id": "202-transfer-0",
+            "prompt": "account=Stark;severity=P2;category=database",
+            "expected": "P2|Stark|database"
+          },
+          {
+            "task_id": "202-transfer-1",
+            "prompt": "account=Wayne;severity=P1;category=network",
+            "expected": "P1|Wayne|network"
+          },
+          {
+            "task_id": "202-transfer-2",
+            "prompt": "account=Wonka;severity=P3;category=access",
+            "expected": "P3|Wonka|access"
+          }
+        ],
+        "baseline": {
+          "accuracy": 0.0,
+          "usage": {
+            "input_tokens": 402,
+            "output_tokens": 230,
+            "cost_usd": 0.0,
+            "latency_ms": 6025.9958759415895,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "202-transfer-0",
+              "output": "account=Stark;severity=P2;category=database",
+              "correct": false,
+              "usage": {
+                "input_tokens": 134,
+                "output_tokens": 70,
+                "cost_usd": 0.0,
+                "latency_ms": 2132.206292124465,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-transfer-1",
+              "output": "account=Wayne;severity=P1;category=network",
+              "correct": false,
+              "usage": {
+                "input_tokens": 134,
+                "output_tokens": 46,
+                "cost_usd": 0.0,
+                "latency_ms": 1141.4268747903407,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-transfer-2",
+              "output": "account=Wonka;severity=P3;category=access",
+              "correct": false,
+              "usage": {
+                "input_tokens": 134,
+                "output_tokens": 114,
+                "cost_usd": 0.0,
+                "latency_ms": 2752.3627090267837,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "successor": {
+          "accuracy": 0.3333333333333333,
+          "usage": {
+            "input_tokens": 594,
+            "output_tokens": 396,
+            "cost_usd": 0.0,
+            "latency_ms": 10662.560750031844,
+            "tokens_reported": true,
+            "cost_reported": false,
+            "cost_is_estimate": false
+          },
+          "results": [
+            {
+              "task_id": "202-transfer-0",
+              "output": "P2|Stark|database",
+              "correct": true,
+              "usage": {
+                "input_tokens": 198,
+                "output_tokens": 172,
+                "cost_usd": 0.0,
+                "latency_ms": 4584.299375070259,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-transfer-1",
+              "output": "account=Wayne;severity=P1;category=network",
+              "correct": false,
+              "usage": {
+                "input_tokens": 198,
+                "output_tokens": 141,
+                "cost_usd": 0.0,
+                "latency_ms": 3381.977624958381,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            },
+            {
+              "task_id": "202-transfer-2",
+              "output": "account=Wonka;severity=P3;category=access",
+              "correct": false,
+              "usage": {
+                "input_tokens": 198,
+                "output_tokens": 83,
+                "cost_usd": 0.0,
+                "latency_ms": 2696.2837500032037,
+                "tokens_reported": true,
+                "cost_reported": false,
+                "cost_is_estimate": false
+              }
+            }
+          ]
+        },
+        "reused_base_evaluation": false
+      }
+    ],
+    "summary": {
+      "metric": "exact_match_accuracy",
+      "target_baseline_accuracy": 0.0,
+      "target_successor_accuracy": 1.0,
+      "target_improvement": 1.0,
+      "min_source_baseline_accuracy": 0.6666666666666666,
+      "min_source_successor_accuracy": 1.0,
+      "worst_source_accuracy_delta": 0.33333333333333337,
+      "mean_transfer_baseline_accuracy": 0.0,
+      "mean_transfer_successor_accuracy": 0.3333333333333333,
+      "mean_transfer_improvement": 0.3333333333333333,
+      "additional_agent_invocations": 12,
+      "additional_input_tokens": 1952,
+      "additional_output_tokens": 1342,
+      "additional_cost_usd": 0.0,
+      "total_matrix_input_tokens": 3282,
+      "total_matrix_output_tokens": 2069,
+      "total_matrix_cost_usd": 0.0,
+      "interpretation": "Accuracy delta is successor minus baseline; negative source delta indicates regression",
+      "scope": "Task-family transfer and regression results are specific to the registered executor and tasks",
+      "execution_audit": {
+        "model": "kimi-for-coding",
+        "executor": "openai_compatible:kimi-for-coding",
+        "hard_call_cap": 140,
+        "network_calls_this_process": 68,
+        "recorded_network_calls": 68,
+        "cache_hits_this_process": 36,
+        "provider_retries": 0,
+        "empty_output_calls": 1,
+        "provider_input_tokens": 11001,
+        "provider_output_tokens": 7087,
+        "provider_latency_ms": 234365.86691532284,
+        "all_recorded_usage_complete": true,
+        "all_recorded_costs_complete": false,
+        "raw_call_log": "execution/provider-calls.jsonl"
+      }
+    }
+  }
+}

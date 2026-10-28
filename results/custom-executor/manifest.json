@@ -1,0 +1,13 @@
+{
+  "experiment": "custom-executor-example",
+  "executor": "example_strip_executor_v1",
+  "optimizer": "enable_strip",
+  "seed": 7,
+  "candidate_budget": 1,
+  "start_artifact_id": "b16b96ddb05f9ca6c9c8d6e83ef82ccf581c4308ef08a206cd1910ccacea4468",
+  "train_task_digest": "186506557bbc97e91a5295cf00855b3adbbfbbbf967b1ede1b7cf767562169ac",
+  "heldout_task_digest": "5ffd59ae15e08fef65f0d9ac16af4f018d499751c12caf5b10a6fbc2c9930c4b",
+  "protocol_version": "merit-agent-contract-v0.1",
+  "proposer_source": "python",
+  "manifest_digest": "6a71545c36e672ba2ce7a3f13edaad5e5232473a5d84072fd2df6e80eb31d5a9"
+}

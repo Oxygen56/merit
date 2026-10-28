@@ -1,0 +1,2509 @@
+{
+  "schema_version": "merit-evidence-v1",
+  "project": "Merit",
+  "version": "0.1.0",
+  "generated_at": "2026-10-28T09:57:05.246242+00:00",
+  "environment": {
+    "python": "3.12.15",
+    "platform": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "manifest_digest": "c760ec4c6b668f24c7258fc9af8baeeacdef3e8c161a85c64e07fd4e655c2158",
+  "limitations": [
+    "Small local-model missing-record workflow with synthetic support records.",
+    "Two base seeds with two repetitions each; cached responses preserve first measured latency.",
+    "Exact-match REFUND_UNAVAILABLE answers and error paths are checked separately.",
+    "The error-handling prompt is predefined and is not a strategy learned by GEPA."
+  ],
+  "experiment": {
+    "manifest": {
+      "experiment": "local-support-error-harmful",
+      "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+      "baseline": "no_change",
+      "challenger": "empty_json",
+      "candidate_budget": 1,
+      "runs": [
+        {
+          "seed": 1010,
+          "start_artifact_id": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140",
+          "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+          "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 1011,
+          "start_artifact_id": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034",
+          "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+          "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 2020,
+          "start_artifact_id": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3",
+          "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+          "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+          "validation_task_digest": null
+        },
+        {
+          "seed": 2021,
+          "start_artifact_id": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92",
+          "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+          "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+          "validation_task_digest": null
+        }
+      ],
+      "protocol_version": "merit-agent-paired-v0.1",
+      "controls": []
+    },
+    "runs": [
+      {
+        "seed": 1010,
+        "start_artifact_id": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140",
+        "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+        "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:1010:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "no_change",
+            "seed": 1010,
+            "candidate_budget": 1,
+            "start_artifact_id": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140"
+          },
+          "successor": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 5811.569541692734,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2297.113166656345,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3514.4563750363886,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 5811.569541692734,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2297.113166656345,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3514.4563750363886,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 6102.13916702196,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2469.5180419366807,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3632.6211250852793,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 6102.13916702196,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2469.5180419366807,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3632.6211250852793,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1524,
+            "dev_output_tokens": 71,
+            "heldout_input_tokens": 3048,
+            "heldout_output_tokens": 142,
+            "total_input_tokens": 4572,
+            "total_output_tokens": 213,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 18015.847875736654,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 4572,
+            "combined_total_output_tokens": 213,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 18015.847875736654,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:1010:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "empty_json",
+            "seed": 1010,
+            "candidate_budget": 1,
+            "start_artifact_id": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+            "parent": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140",
+            "artifact_id": "fd999acf14365b6120517995e9dbba1c440e92a91be081444debcf4e8d62e4fb"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 5811.569541692734,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2297.113166656345,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3514.4563750363886,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 2284.6650418359786,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 1316.0139999818057,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 968.651041854173,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 6102.13916702196,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2469.5180419366807,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3632.6211250852793,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 1692.1266249846667,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 895.7432499155402,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 796.3833750691265,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":0,\"seed\":1010,\"temperature\":0}",
+                "parent": "38401e4f94e139602537e4d4bfca9492ebc57171ac702c35a35f655ba75b2140",
+                "artifact_id": "fd999acf14365b6120517995e9dbba1c440e92a91be081444debcf4e8d62e4fb"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 136,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2284.6650418359786,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-missing-order-5001",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 1316.0139999818057,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-missing-policy-5002",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 968.651041854173,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1660,
+            "dev_output_tokens": 75,
+            "heldout_input_tokens": 1660,
+            "heldout_output_tokens": 75,
+            "total_input_tokens": 3320,
+            "total_output_tokens": 150,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 15890.50037553534,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3320,
+            "combined_total_output_tokens": 150,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 15890.50037553534,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 1011,
+        "start_artifact_id": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034",
+        "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+        "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:1011:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "no_change",
+            "seed": 1011,
+            "candidate_budget": 1,
+            "start_artifact_id": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034"
+          },
+          "successor": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7007.5790414121,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2837.040833197534,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4170.538208214566,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7007.5790414121,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2837.040833197534,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4170.538208214566,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7190.0241249240935,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2883.2533329259604,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4306.770791998133,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7190.0241249240935,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2883.2533329259604,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4306.770791998133,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1524,
+            "dev_output_tokens": 71,
+            "heldout_input_tokens": 3048,
+            "heldout_output_tokens": 142,
+            "total_input_tokens": 4572,
+            "total_output_tokens": 213,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 21387.627291260287,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 4572,
+            "combined_total_output_tokens": 213,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 21387.627291260287,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:1011:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "empty_json",
+            "seed": 1011,
+            "candidate_budget": 1,
+            "start_artifact_id": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+            "parent": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034",
+            "artifact_id": "dd551988eb27538cdfa24ccfed24babb432362cb1ccfaeac46f47267214cb09a"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7007.5790414121,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2837.040833197534,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4170.538208214566,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 448.02920799702406,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 226.66099993512034,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 221.36820806190372,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7190.0241249240935,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 2883.2533329259604,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4306.770791998133,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 443.78258287906647,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 221.76304087042809,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 222.01954200863838,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":101,\"max_tokens\":128,\"repetition\":1,\"seed\":1011,\"temperature\":0}",
+                "parent": "830012443f960db88bcb2e5dba1083ebac6aa4a1dd1f3526143edfa8088e7034",
+                "artifact_id": "dd551988eb27538cdfa24ccfed24babb432362cb1ccfaeac46f47267214cb09a"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 136,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 448.02920799702406,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-missing-order-5001",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 226.66099993512034,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-missing-policy-5002",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 221.36820806190372,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1660,
+            "dev_output_tokens": 75,
+            "heldout_input_tokens": 1660,
+            "heldout_output_tokens": 75,
+            "total_input_tokens": 3320,
+            "total_output_tokens": 150,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 15089.414957212284,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3320,
+            "combined_total_output_tokens": 150,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 15089.414957212284,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 2020,
+        "start_artifact_id": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3",
+        "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+        "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:2020:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "no_change",
+            "seed": 2020,
+            "candidate_budget": 1,
+            "start_artifact_id": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3"
+          },
+          "successor": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7908.509957836941,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3135.4172497522086,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4773.092708084732,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7908.509957836941,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3135.4172497522086,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4773.092708084732,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 8224.755708593875,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3279.3414588086307,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4945.4142497852445,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 8224.755708593875,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3279.3414588086307,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4945.4142497852445,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1524,
+            "dev_output_tokens": 71,
+            "heldout_input_tokens": 3048,
+            "heldout_output_tokens": 142,
+            "total_input_tokens": 4572,
+            "total_output_tokens": 213,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 24358.02137502469,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 4572,
+            "combined_total_output_tokens": 213,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 24358.02137502469,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:2020:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "empty_json",
+            "seed": 2020,
+            "candidate_budget": 1,
+            "start_artifact_id": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+            "parent": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3",
+            "artifact_id": "0875b651d2631202c57ce5c765fb043a9be39a8ae753a6d9f55989b1d9eedb81"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 7908.509957836941,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3135.4172497522086,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4773.092708084732,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 432.39241698756814,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 216.92937496118248,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 215.46304202638566,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 8224.755708593875,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 3279.3414588086307,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4945.4142497852445,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 469.72812386229634,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 231.89520789310336,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 237.83291596919298,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":0,\"seed\":2020,\"temperature\":0}",
+                "parent": "f698bb85a2e20a25f616578143c89fbbf1615f62df4c91a7d2d486b6aa56b2f3",
+                "artifact_id": "0875b651d2631202c57ce5c765fb043a9be39a8ae753a6d9f55989b1d9eedb81"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 136,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 432.39241698756814,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-missing-order-5001",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 216.92937496118248,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-missing-policy-5002",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 215.46304202638566,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1660,
+            "dev_output_tokens": 75,
+            "heldout_input_tokens": 1660,
+            "heldout_output_tokens": 75,
+            "total_input_tokens": 3320,
+            "total_output_tokens": 150,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 17035.38620728068,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3320,
+            "combined_total_output_tokens": 150,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 17035.38620728068,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      },
+      {
+        "seed": 2021,
+        "start_artifact_id": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92",
+        "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+        "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+        "baseline": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:2021:no_change",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "no_change",
+            "seed": 2021,
+            "candidate_budget": 1,
+            "start_artifact_id": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "none",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92"
+          },
+          "successor": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 8844.687500270084,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4337.750958045945,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4506.936542224139,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 8844.687500270084,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4337.750958045945,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4506.936542224139,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 9230.038999114186,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4340.037291171029,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4890.001707943156,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 9230.038999114186,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4340.037291171029,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4890.001707943156,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 1.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 1.0,
+            "heldout_accuracy_improvement": 0.0,
+            "candidate_evaluations": 0,
+            "accepted_candidates": 0,
+            "proposal_calls": 0,
+            "proposer_source": "none",
+            "optimizer_details": {},
+            "dev_agent_invocations": 2,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1524,
+            "dev_output_tokens": 71,
+            "heldout_input_tokens": 3048,
+            "heldout_output_tokens": 142,
+            "total_input_tokens": 4572,
+            "total_output_tokens": 213,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 27304.765498498455,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 4572,
+            "combined_total_output_tokens": 213,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 27304.765498498455,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "challenger": {
+          "manifest": {
+            "experiment": "local-support-error-harmful:2021:empty_json",
+            "executor": "multi_step_tools:ollama:qwen2.5:7b:recover_tool_errors",
+            "optimizer": "empty_json",
+            "seed": 2021,
+            "candidate_budget": 1,
+            "start_artifact_id": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92",
+            "train_task_digest": "da5236d21d9e683e09b43ab149ed8393083ec18fe79b983d5ea10b65b77e7e23",
+            "heldout_task_digest": "7fabf00855e8149c4646bc9849f65f1f54f3c8acec3efea25313f0ce448dbc93",
+            "protocol_version": "merit-agent-contract-v0.1",
+            "proposer_source": "python",
+            "validation_task_digest": null
+          },
+          "start": {
+            "instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nStart with the ticket key in the user's request. A ticket lookup returns an order key.\nLook up that exact order key. The order record contains a numeric total and a policy key.\nImmediately after receiving the order record, your next action must be lookup for its policy key, never calculator.\nLook up that exact policy key to get its numeric refund rate.\nA policy name is not a rate. Never calculate until the policy lookup result appears in the tool history.\nThen return {\"action\":\"calculator\",\"argument\":\"<total> * <rate>\"}.\nAfter the calculator returns a result, return {\"action\":\"final\",\"argument\":\"<calculator result>\"}.\nIf any lookup returns an error or Unknown lookup key, do not retry, guess, or calculate. Immediately return {\"action\":\"final\",\"argument\":\"REFUND_UNAVAILABLE\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": null,
+            "artifact_id": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92"
+          },
+          "successor": {
+            "instructions": "Return only {} regardless of the input.",
+            "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+            "parent": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92",
+            "artifact_id": "1f7c6b36b86f1b3c4dde25139553cad152fd537129e005906ba7570c3e781c3b"
+          },
+          "train_tasks": [
+            {
+              "task_id": "train-missing-order-5001",
+              "prompt": "Resolve support ticket ticket-5001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "train-missing-policy-5002",
+              "prompt": "Resolve support ticket ticket-5002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "heldout_tasks": [
+            {
+              "task_id": "heldout-missing-order-6001",
+              "prompt": "Resolve support ticket ticket-6001. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            },
+            {
+              "task_id": "heldout-missing-policy-6002",
+              "prompt": "Resolve support ticket ticket-6002. Find its order, read the order total and refund policy, then calculate the refund. If a required record is missing, return REFUND_UNAVAILABLE. Otherwise return only the calculator result.",
+              "expected": "REFUND_UNAVAILABLE"
+            }
+          ],
+          "initial_dev": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 8844.687500270084,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4337.750958045945,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4506.936542224139,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_dev": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 500.84412493743,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "train-missing-order-5001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 233.25437493622303,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "train-missing-policy-5002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 267.589750001207,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "baseline_heldout": {
+            "accuracy": 1.0,
+            "usage": {
+              "input_tokens": 1524,
+              "output_tokens": 71,
+              "cost_usd": 0.0,
+              "latency_ms": 9230.038999114186,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 596,
+                  "output_tokens": 28,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4340.037291171029,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "REFUND_UNAVAILABLE",
+                "correct": true,
+                "usage": {
+                  "input_tokens": 928,
+                  "output_tokens": 43,
+                  "cost_usd": 0.0,
+                  "latency_ms": 4890.001707943156,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "successor_heldout": {
+            "accuracy": 0.0,
+            "usage": {
+              "input_tokens": 136,
+              "output_tokens": 4,
+              "cost_usd": 0.0,
+              "latency_ms": 533.7933748960495,
+              "tokens_reported": true,
+              "cost_reported": false,
+              "cost_is_estimate": false
+            },
+            "results": [
+              {
+                "task_id": "heldout-missing-order-6001",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 255.0600420217961,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              },
+              {
+                "task_id": "heldout-missing-policy-6002",
+                "output": "{}",
+                "correct": false,
+                "usage": {
+                  "input_tokens": 68,
+                  "output_tokens": 2,
+                  "cost_usd": 0.0,
+                  "latency_ms": 278.7333328742534,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                }
+              }
+            ]
+          },
+          "history": [
+            {
+              "iteration": 0,
+              "candidate": {
+                "instructions": "Return only {} regardless of the input.",
+                "config_json": "{\"base_seed\":202,\"max_tokens\":128,\"repetition\":1,\"seed\":2021,\"temperature\":0}",
+                "parent": "c1b0e6bf64ed3e04de141ef77a1227f2db8645de7287e4deebfd5d24d7997b92",
+                "artifact_id": "1f7c6b36b86f1b3c4dde25139553cad152fd537129e005906ba7570c3e781c3b"
+              },
+              "evaluation": {
+                "accuracy": 0.0,
+                "usage": {
+                  "input_tokens": 136,
+                  "output_tokens": 4,
+                  "cost_usd": 0.0,
+                  "latency_ms": 500.84412493743,
+                  "tokens_reported": true,
+                  "cost_reported": false,
+                  "cost_is_estimate": false
+                },
+                "results": [
+                  {
+                    "task_id": "train-missing-order-5001",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 233.25437493622303,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  },
+                  {
+                    "task_id": "train-missing-policy-5002",
+                    "output": "{}",
+                    "correct": false,
+                    "usage": {
+                      "input_tokens": 68,
+                      "output_tokens": 2,
+                      "cost_usd": 0.0,
+                      "latency_ms": 267.589750001207,
+                      "tokens_reported": true,
+                      "cost_reported": false,
+                      "cost_is_estimate": false
+                    }
+                  }
+                ]
+              },
+              "accepted": true,
+              "remaining_budget": 0,
+              "proposer_usage": {
+                "input_tokens": 0,
+                "output_tokens": 0,
+                "cost_usd": 0.0,
+                "latency_ms": 0.0,
+                "tokens_reported": true,
+                "cost_reported": true,
+                "cost_is_estimate": false
+              },
+              "selection_evaluation": null
+            }
+          ],
+          "summary": {
+            "metric": "exact_match_accuracy",
+            "initial_dev_accuracy": 1.0,
+            "successor_dev_accuracy": 0.0,
+            "baseline_heldout_accuracy": 1.0,
+            "successor_heldout_accuracy": 0.0,
+            "heldout_accuracy_improvement": -1.0,
+            "candidate_evaluations": 1,
+            "accepted_candidates": 1,
+            "proposal_calls": 1,
+            "proposer_source": "python",
+            "optimizer_details": {},
+            "dev_agent_invocations": 4,
+            "heldout_agent_invocations": 4,
+            "dev_input_tokens": 1660,
+            "dev_output_tokens": 75,
+            "heldout_input_tokens": 1660,
+            "heldout_output_tokens": 75,
+            "total_input_tokens": 3320,
+            "total_output_tokens": 150,
+            "total_cost_usd": 0.0,
+            "total_latency_ms": 19109.36399921775,
+            "total_tokens_reported": true,
+            "total_cost_reported": false,
+            "total_cost_is_estimate": false,
+            "proposer_input_tokens": 0,
+            "proposer_output_tokens": 0,
+            "proposer_cost_usd": 0.0,
+            "proposer_latency_ms": 0.0,
+            "proposer_tokens_reported": true,
+            "proposer_cost_reported": true,
+            "proposer_cost_is_estimate": false,
+            "combined_total_input_tokens": 3320,
+            "combined_total_output_tokens": 150,
+            "combined_total_cost_usd": 0.0,
+            "combined_total_latency_ms": 19109.36399921775,
+            "combined_total_tokens_reported": true,
+            "combined_total_cost_reported": false,
+            "accounting": "total_* covers the evaluated agent; proposer_* and combined_total_* are separate",
+            "scope": "Agent contract validation; claims depend on the registered executor"
+          },
+          "initial_validation": null,
+          "successor_validation": null
+        },
+        "heldout_accuracy_improvement": -1.0,
+        "controls": [],
+        "validation_task_digest": null
+      }
+    ],
+    "summary": {
+      "run_count": 4,
+      "metric": "heldout_exact_match_accuracy",
+      "improvement_definition": "challenger_accuracy - baseline_accuracy; positive favors challenger",
+      "mean_baseline_heldout_accuracy": 1.0,
+      "mean_challenger_heldout_accuracy": 0.0,
+      "mean_heldout_accuracy_improvement": -1.0,
+      "paired_bootstrap_95_ci": [
+        -1.0,
+        -1.0
+      ],
+      "one_sided_sign_flip_p_value": 1.0,
+      "candidate_budget_per_arm": 1,
+      "baseline_candidate_evaluations": 0,
+      "challenger_candidate_evaluations": 4,
+      "baseline_total_cost_usd": 0.0,
+      "challenger_total_cost_usd": 0.0,
+      "baseline_proposer_cost_usd": 0.0,
+      "challenger_proposer_cost_usd": 0.0,
+      "baseline_combined_cost_usd": 0.0,
+      "challenger_combined_cost_usd": 0.0,
+      "baseline_total_input_tokens": 18288,
+      "baseline_total_output_tokens": 852,
+      "challenger_total_input_tokens": 13280,
+      "challenger_total_output_tokens": 600,
+      "baseline_total_cost_reported": false,
+      "challenger_total_cost_reported": false,
+      "baseline_total_tokens_reported": true,
+      "challenger_total_tokens_reported": true,
+      "controls": {},
+      "scope": "Paired agent-improvement results are specific to the registered executor and task bundles",
+      "execution": {
+        "model": "qwen2.5:7b",
+        "endpoint": "http://127.0.0.1:11434/v1",
+        "network_calls_this_run": 16,
+        "cache_hits_this_run": 100,
+        "cached_response_files": 72,
+        "paid_api_calls": 0,
+        "scenario": "support_missing_records",
+        "base_seeds": [
+          101,
+          202
+        ],
+        "repetitions_per_seed": 2,
+        "max_steps_per_task": 6,
+        "model_steps": 116,
+        "host_tool_calls": 60,
+        "lookup_calls": 60,
+        "calculator_calls": 0,
+        "tool_errors": 16,
+        "failed_lookup_calls": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:merit:schema:evidence-envelope-v1",
+  "title": "Merit evidence envelope v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project",
+    "version",
+    "generated_at",
+    "environment",
+    "manifest_digest",
+    "limitations",
+    "experiment"
+  ],
+  "properties": {
+    "schema_version": {"const": "merit-evidence-v1"},
+    "project": {"const": "Merit"},
+    "version": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "environment": {
+      "type": "object",
+      "required": ["python", "platform"],
+      "properties": {
+        "python": {"type": "string", "minLength": 1},
+        "platform": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "manifest_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "limitations": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "experiment": {
+      "type": "object",
+      "required": ["manifest"],
+      "properties": {
+        "manifest": {
+          "type": "object",
+          "required": ["protocol_version"],
+          "properties": {
+            "protocol_version": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

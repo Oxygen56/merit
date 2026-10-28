@@ -1,0 +1,204 @@
+{
+  "scope": "train-only immediate-stop patch with trajectory-gated selection",
+  "initial_train_accuracy": 1.0,
+  "candidate_train_accuracy": 1.0,
+  "candidate_rule_count": 9,
+  "candidate_accepted": false,
+  "candidate_trajectory_valid": false,
+  "initial_selection_issues": {
+    "tasks_calculating_before_policy_lookup": [
+      "train-missing-policy-5003"
+    ],
+    "tasks_continuing_after_required_record_failure": [
+      "train-missing-order-5002",
+      "train-missing-policy-5003"
+    ]
+  },
+  "candidate_selection_issues": {
+    "tasks_calculating_before_policy_lookup": [
+      "train-missing-policy-5003"
+    ],
+    "tasks_continuing_after_required_record_failure": [
+      "train-missing-policy-5003"
+    ]
+  },
+  "selection_outcome": "rejected despite 3/3 accuracy because the missing-policy path remained invalid",
+  "initial_train_usage": {
+    "input_tokens": 4768,
+    "output_tokens": 195,
+    "latency_ms": 22148.043668363243
+  },
+  "candidate_train_usage": {
+    "input_tokens": 4743,
+    "output_tokens": 182,
+    "latency_ms": 15731.301876017824
+  },
+  "proposer_usage": {
+    "input_tokens": 1102,
+    "output_tokens": 231,
+    "cost_usd": 0.0,
+    "latency_ms": 19253.18045914173,
+    "tokens_reported": true,
+    "cost_reported": false,
+    "cost_is_estimate": false
+  },
+  "initial_tasks": [
+    {
+      "task_id": "train-normal-5001",
+      "correct": true,
+      "output": "60.0",
+      "actions": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "calculator",
+        "final"
+      ],
+      "arguments": [
+        "ticket-5001",
+        "order-5001",
+        "policy-N01",
+        "120*0.5",
+        "60.0"
+      ],
+      "tool_errors": [],
+      "model_steps": 5,
+      "calculation_before_successful_policy_lookup": false,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 0,
+      "ended_with_final": true
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "correct": true,
+      "output": "REFUND_UNAVAILABLE",
+      "actions": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "final"
+      ],
+      "arguments": [
+        "ticket-5002",
+        "order-X71",
+        "policy-X71",
+        "REFUND_UNAVAILABLE"
+      ],
+      "tool_errors": [
+        "Unknown lookup key",
+        "Unknown lookup key"
+      ],
+      "model_steps": 4,
+      "calculation_before_successful_policy_lookup": false,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 1,
+      "ended_with_final": true
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "correct": true,
+      "output": "REFUND_UNAVAILABLE",
+      "actions": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "calculator",
+        "final"
+      ],
+      "arguments": [
+        "ticket-5003",
+        "order-5003",
+        "policy-X71",
+        "90*0",
+        "REFUND_UNAVAILABLE"
+      ],
+      "tool_errors": [
+        "Unknown lookup key"
+      ],
+      "model_steps": 5,
+      "calculation_before_successful_policy_lookup": true,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 1,
+      "ended_with_final": true
+    }
+  ],
+  "candidate_tasks": [
+    {
+      "task_id": "train-normal-5001",
+      "correct": true,
+      "output": "60.0",
+      "actions": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "calculator",
+        "final"
+      ],
+      "arguments": [
+        "ticket-5001",
+        "order-5001",
+        "policy-N01",
+        "120*0.5",
+        "60.0"
+      ],
+      "tool_errors": [],
+      "model_steps": 5,
+      "calculation_before_successful_policy_lookup": false,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 0,
+      "ended_with_final": true
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "correct": true,
+      "output": "REFUND_UNAVAILABLE",
+      "actions": [
+        "lookup",
+        "lookup",
+        "final"
+      ],
+      "arguments": [
+        "ticket-5002",
+        "order-X71",
+        "REFUND_UNAVAILABLE"
+      ],
+      "tool_errors": [
+        "Unknown lookup key"
+      ],
+      "model_steps": 3,
+      "calculation_before_successful_policy_lookup": false,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 0,
+      "ended_with_final": true
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "correct": true,
+      "output": "REFUND_UNAVAILABLE",
+      "actions": [
+        "lookup",
+        "lookup",
+        "lookup",
+        "calculator",
+        "final"
+      ],
+      "arguments": [
+        "ticket-5003",
+        "order-5003",
+        "policy-X71",
+        "90*0",
+        "REFUND_UNAVAILABLE"
+      ],
+      "tool_errors": [
+        "Unknown lookup key"
+      ],
+      "model_steps": 5,
+      "calculation_before_successful_policy_lookup": true,
+      "repeated_failed_lookup_count": 0,
+      "actions_after_required_record_failure": 1,
+      "ended_with_final": true
+    }
+  ],
+  "heldout_tasks_evaluated": 0,
+  "paid_api_calls": 0
+}

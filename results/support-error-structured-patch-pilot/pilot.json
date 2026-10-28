@@ -1,0 +1,71 @@
+{
+  "seed": 101,
+  "heldout_tasks_evaluated": 0,
+  "source_heldout_tasks_evaluated": 0,
+  "proposal_model_calls": 3,
+  "initial_train_accuracy": 0.6666666666666666,
+  "initial_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": false,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 13208.708875114098,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 2399.722249712795,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 426,
+        "output_tokens": 24,
+        "cost_usd": 0.0,
+        "latency_ms": 2081.7462080158293,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_train_accuracy": null,
+  "candidate_accepted": null,
+  "candidate_instructions": null,
+  "candidate_patch": null,
+  "candidate_results": [],
+  "candidate_evaluations": 0,
+  "proposal_error": "Proposer returned invalid instructions after 3 attempts: Unsupported rule combination: ['ticket_found', 'lookup', 'order.order']",
+  "proposer_usage": {
+    "input_tokens": 3261,
+    "output_tokens": 561,
+    "cost_usd": 0.0,
+    "latency_ms": 54008.07258300483,
+    "tokens_reported": true,
+    "cost_reported": false,
+    "cost_is_estimate": false
+  },
+  "model_steps": 6,
+  "network_calls_this_run": 9,
+  "cache_hits_this_run": 0,
+  "paid_api_calls": 0
+}

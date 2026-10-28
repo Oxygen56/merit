@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merit · Paired Agent Improvement</title>
+<style>
+:root{--ink:#15263b;--muted:#64748b;--line:#dce4ec;--paper:#f5f7fa;--accent:#0f766e}*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1180px;margin:auto;padding:42px 22px}
+h1{margin:6px 0;font-size:34px}h2{margin-top:28px}.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.1em}.subtitle{color:var(--muted)}.notice{background:#fff7df;border:1px solid #ecd28a;border-radius:12px;padding:14px 18px;margin:20px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:12px}.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.label{color:var(--muted);font-size:13px}.value{font-size:25px;font-weight:750}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin-top:26px}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{background:#eaf0f5;color:#475569;font-size:12px}th:nth-child(1),th:nth-child(2),td:nth-child(1),td:nth-child(2){text-align:left}
+.positive{color:#047857;font-weight:700}.negative{color:#b91c1c;font-weight:700}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}footer{margin-top:26px;color:var(--muted);font-size:13px}
+</style></head><body><main>
+<div class="eyebrow">MERIT PAIRED AGENT EVALUATION</div><h1>多种子 Agent 改进对照</h1>
+<p class="subtitle">每个种子内，所有方法使用同一起点、相同训练／隐藏任务；主动优化臂使用相同候选预算。改善值 = 挑战者后继准确率 − 基线后继准确率。</p>
+<div class="notice"><strong>边界：</strong>这是确定性本地文本 Agent 的协议样例，不是 LLM 或真实 Agent 效果结论。失败反馈是启发式规则，不是模型反思；本地执行器的行为由 config 决定，因此仅修改 instructions 的对照不变是预期现象，不能外推为真实 prompt 方法无效。</div>
+<section class="cards">
+<div class="card"><div class="label">基线平均隐藏集准确率</div><div class="value">50.00%</div></div>
+<div class="card"><div class="label">挑战者平均隐藏集准确率</div><div class="value">100.00%</div></div>
+<div class="card"><div class="label">平均改善值</div><div class="value positive">+50.00%</div></div>
+<div class="card"><div class="label">配对 Bootstrap 95% CI</div><div class="value">[+50.00%, +50.00%]</div></div>
+<div class="card"><div class="label">主动优化臂候选预算</div><div class="value">4</div></div>
+</section>
+<h2>消融对照</h2><div class="card"><p><strong>no_change</strong>：平均准确率 25.00%；平均候选评估 0；proposer 成本 $0.00</p><p><strong>random_prompt_edit</strong>：平均准确率 25.00%；平均候选评估 4；proposer 成本 $0.00</p><p><strong>failure_feedback</strong>：平均准确率 25.00%；平均候选评估 4；proposer 成本 $0.00</p></div>
+<div class="table-wrap"><table><thead><tr><th>Seed</th><th>共同起点</th><th>基线后继</th><th>挑战者后继</th><th>no_change</th><th>random_prompt_edit</th><th>failure_feedback</th><th>改善值</th><th>基线候选</th><th>挑战者候选</th></tr></thead><tbody><tr><td>2101</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr><tr><td>2102</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr><tr><td>2103</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr><tr><td>2104</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr><tr><td>2105</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr><tr><td>2106</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr><tr><td>2107</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr><tr><td>2108</td><td><code>9ae167c688b5</code></td><td>50.00%</td><td>100.00%</td><td>25.00%</td><td>25.00%</td><td>25.00%</td><td class="positive">+50.00%</td><td>4</td><td>4</td></tr></tbody></table></div>
+<footer>协议：merit-agent-paired-v0.1 · no-change 不消耗候选预算 · 基线／挑战者 proposer 成本：$0.00 / $0.00 · 被评 Agent 成本与 proposer 成本分账保存在 evidence.json。</footer>
+</main></body></html>

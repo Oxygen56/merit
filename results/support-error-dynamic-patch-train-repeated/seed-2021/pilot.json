@@ -1,0 +1,171 @@
+{
+  "seed": 2021,
+  "heldout_tasks_evaluated": 0,
+  "source_heldout_tasks_evaluated": 0,
+  "source_candidate_train_accuracy": 1.0,
+  "renderer": "required-record-failure-first",
+  "initial_selection_issues": {
+    "tasks_calculating_before_policy_lookup": [
+      "train-missing-policy-5003"
+    ],
+    "tasks_continuing_after_required_record_failure": [
+      "train-missing-policy-5003"
+    ]
+  },
+  "proposal_model_calls": 1,
+  "initial_train_accuracy": 1.0,
+  "initial_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "60.0",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1851,
+        "output_tokens": 72,
+        "cost_usd": 0.0,
+        "latency_ms": 6681.995957624167,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1048,
+        "output_tokens": 41,
+        "cost_usd": 0.0,
+        "latency_ms": 4606.173290871084,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1844,
+        "output_tokens": 69,
+        "cost_usd": 0.0,
+        "latency_ms": 7546.717708231881,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_train_accuracy": 1.0,
+  "candidate_accepted": true,
+  "candidate_trajectory_valid": true,
+  "candidate_selection_issues": {},
+  "candidate_instructions": "You are a support operations agent. At each step, return one JSON object and nothing else.\nTo read a record, return {\"action\":\"lookup\",\"argument\":\"<exact key>\"}.\nTo calculate, return {\"action\":\"calculator\",\"argument\":\"<numeric expression>\"}.\nTo finish, return {\"action\":\"final\",\"argument\":\"<answer>\"}.\nNever guess keys or values. Use only numeric +, -, *, / and parentheses. Do not use Markdown or explanations.\n\nFollow these workflow rules using actual runtime values. Never execute placeholder text from examples:\n- Once a required record lookup fails, return REFUND_UNAVAILABLE immediately; do not perform any further lookups or calculations.\n- Do not calculate before the policy lookup has succeeded and returned its numeric rate.\n- After a lookup fails, do not repeat the same failed lookup; if the required record is missing, return REFUND_UNAVAILABLE.\n- At task start: lookup the ticket key supplied in the task input.\n- After a ticket is found: lookup the order key returned by that ticket.\n- After an order is found: lookup the policy key returned by that order.\n- After a policy is found: calculate the order total multiplied by the policy rate using returned numeric values.\n- If any required record is actually missing: return REFUND_UNAVAILABLE.\n- After a successful calculation: return only the calculator result.",
+  "candidate_patch": [
+    {
+      "when": "task_start",
+      "action": "lookup",
+      "argument_source": "ticket_key_from_input"
+    },
+    {
+      "when": "ticket_found",
+      "action": "lookup",
+      "argument_source": "order_key_from_ticket"
+    },
+    {
+      "when": "order_found",
+      "action": "lookup",
+      "argument_source": "policy_key_from_order"
+    },
+    {
+      "when": "policy_found",
+      "action": "calculator",
+      "argument_source": "order_total_times_policy_rate"
+    },
+    {
+      "when": "required_record_missing",
+      "action": "final",
+      "argument_source": "unavailable_status"
+    },
+    {
+      "when": "calculation_complete",
+      "action": "final",
+      "argument_source": "calculator_result"
+    },
+    {
+      "when": "before_policy_found",
+      "action": "avoid",
+      "argument_source": "premature_calculation"
+    },
+    {
+      "when": "lookup_failed",
+      "action": "avoid",
+      "argument_source": "same_failed_lookup_retry"
+    },
+    {
+      "when": "required_record_failure",
+      "action": "avoid",
+      "argument_source": "further_lookup_or_calculation"
+    }
+  ],
+  "candidate_results": [
+    {
+      "task_id": "train-normal-5001",
+      "output": "60.0",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1851,
+        "output_tokens": 72,
+        "cost_usd": 0.0,
+        "latency_ms": 7286.894042277709,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-order-5002",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1048,
+        "output_tokens": 41,
+        "cost_usd": 0.0,
+        "latency_ms": 3801.8192080780864,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    },
+    {
+      "task_id": "train-missing-policy-5003",
+      "output": "REFUND_UNAVAILABLE",
+      "correct": true,
+      "usage": {
+        "input_tokens": 1448,
+        "output_tokens": 56,
+        "cost_usd": 0.0,
+        "latency_ms": 5253.838957753032,
+        "tokens_reported": true,
+        "cost_reported": false,
+        "cost_is_estimate": false
+      }
+    }
+  ],
+  "candidate_evaluations": 1,
+  "proposer_usage": {
+    "input_tokens": 1127,
+    "output_tokens": 231,
+    "cost_usd": 0.0,
+    "latency_ms": 28134.35029098764,
+    "tokens_reported": true,
+    "cost_reported": false,
+    "cost_is_estimate": false
+  },
+  "model_steps": 25,
+  "network_calls_this_run": 26,
+  "cache_hits_this_run": 0,
+  "paid_api_calls": 0
+}
